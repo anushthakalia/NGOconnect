@@ -14,6 +14,10 @@ function loggedin(){
 	return false;
 }
 
+function get_user(){
+	return $_SESSION['table'];
+}
+
 function getuserfield($field)
 {
 	global $mysql_connect;

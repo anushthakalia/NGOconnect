@@ -73,7 +73,7 @@
                 }
                 else
                 {
-                  $query = "INSERT INTO `student` VALUES ('','".mysqli_real_escape_string($mysql_connect, $password_hash)."','".mysqli_real_escape_string($mysql_connect, $firstname)."','".mysqli_real_escape_string($mysql_connect, $surname)."','".mysqli_real_escape_string($mysql_connect, $email)."','".mysqli_real_escape_string($mysql_connect, $college)."','".mysqli_real_escape_string($mysql_connect, $phone)."')";
+                  $query = "INSERT INTO `student` (id,password,firstname,surname,email,college,phone) VALUES ('','".mysqli_real_escape_string($mysql_connect, $password_hash)."','".mysqli_real_escape_string($mysql_connect, $firstname)."','".mysqli_real_escape_string($mysql_connect, $surname)."','".mysqli_real_escape_string($mysql_connect, $email)."','".mysqli_real_escape_string($mysql_connect, $college)."','".mysqli_real_escape_string($mysql_connect, $phone)."')";
                   if($query_run = mysqli_query($mysql_connect, $query))
                   { 
                     header('Location: main.php');
@@ -549,7 +549,7 @@
           <div class="col-md-12 text-center copyright">
             
             <p class="float-md-left"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" class="text-primary">Colorlib</a>
+<!-- Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" class="text-primary">Colorlib</a> -->
 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
             <p class="float-md-right">
               <a href="#" class="fa fa-facebook p-2"></a>

@@ -19,6 +19,11 @@
     <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
+
+    <?php
+
+      require 'core.inc.php';
+    ?>
     
     <header role="banner">
      
@@ -61,8 +66,19 @@
             </ul>
             <ul class="navbar-nav absolute-right">
               <li>
-                <a href="main.php">Login</a> / <a href="register.php">Register</a>
-              </li>
+              <?php
+              if(!loggedin()){
+                
+                  echo '<a href="main.php">Login</a> / <a href="register.php">Register</a>';
+               
+              }
+              else{
+             
+               echo '<a href="logout.php">Log Out</a>';
+            
+            }
+            ?>
+             </li>
             </ul>
             
           </div>
@@ -70,6 +86,8 @@
       </nav>
     </header>
     <!-- END header -->
+
+
 
     <section class="site-hero site-sm-hero overlay" data-stellar-background-ratio="0.5" style="background-image: url(images/big_image_2.jpg);">
       <div class="container">
@@ -367,8 +385,8 @@
           <div class="col-md-12 text-center copyright">
             
             <p class="float-md-left"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" class="text-primary">Colorlib</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+<!-- Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" class="text-primary">Colorlib</a>
+ --><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
             <p class="float-md-right">
               <a href="#" class="fa fa-facebook p-2"></a>
               <a href="#" class="fa fa-twitter p-2"></a>

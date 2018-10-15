@@ -17,9 +17,18 @@
 
     <!-- Theme Style -->
     <link rel="stylesheet" href="css/style.css">
+    <script>
+      function detailPage (id) {
+        id = parseInt(id)+1
+       window.location = '/NGOconnect/course-single.php?id='+ String(id);    }
+    </script>
   </head>
   <body>
-    
+    <?php
+    require 'connect.inc.php';
+    require 'core.inc.php';
+
+    ?>
     <header role="banner">
      
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -61,8 +70,19 @@
             </ul>
             <ul class="navbar-nav absolute-right">
               <li>
-                <a href="main.php">Login</a> / <a href="register.php">Register</a>
-              </li>
+              <?php
+              if(!loggedin()){
+                
+                  echo '<a href="main.php">Login</a> / <a href="register.php">Register</a>';
+               
+              }
+              else{
+             
+               echo '<a href="logout.php">Log Out</a>';
+            
+            }
+            ?>
+             </li>
             </ul>
             
           </div>
@@ -77,8 +97,8 @@
           <div class="col-md-7 text-center">
   
             <div class="mb-5 element-animate">
-              <h1 class="mb-2">Our Blog</h1>
-              <p class="bcrumb"><a href="index.php">Home</a> <span class="sep ion-android-arrow-dropright px-2"></span>  <span class="current">Blog</span></p>
+              <h1 class="mb-2">Internships</h1>
+              <p class="bcrumb"><a href="index.php">Home</a> <span class="sep ion-android-arrow-dropright px-2"></span>  <span class="current">Internships</span></p>
             </div>
             
           </div>
@@ -93,165 +113,35 @@
           
           <div class="col-md-6 col-lg-8 order-md-2">
             <div class="row">
-              <div class="col-md-12 col-lg-6 mb-5">
-                <div class="block-20 ">
-                  <figure>
-                    <a href="blog-single.html"><img src="images/img_1.jpg" alt="" class="img-fluid"></a>
-                  </figure>
-                  <div class="text">
-                    <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
-                    <div class="meta">
-                      <div><a href="#"><span class="ion-android-calendar"></span> May 29, 2018</a></div>
-                      <div><a href="#"><span class="ion-android-person"></span> Admin</a></div>
-                      <div><a href="#"><span class="ion-chatbubble"></span> 19</a></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <?php 
+                        $array = get_intern();
+                        for ($i = 0; $i < count($array); $i++) {
+                            
+                            ?>
+                            <div class="col-md-12 col-lg-6 mb-5">
+                            <div class="block-19">
+                              <!-- <figure>
+                                <a href="course-single.html"><img src="images/img_1.jpg" alt="Image" class="img-fluid"></a>
+                              </figure> -->
+                                <div class="text">
+                                  <h2 class="heading"><a href="#" onclick= "detailPage(this.id);" id="<?php echo $i?>"><?php echo $array[$i]['Title'];?></a></h2>
+                                  <p class="mb-1"><h6>NGO name</h6></p>
+                                  <p class="mb-1">Location(s): <?php echo $array[$i]['Location'];?></p>
+                                   <p class="mb-1">Duration: <?php echo $array[$i]['Duration'];?></p>
+                                  <div class="meta d-flex align-items-center">
+                                    <div class="number">
+                                      <span>Apply by:<?php echo $array[$i]['Apply_by'];?></span>
+                                    </div>
+                                    <div class="price text-right"><span>Apply</span></div>
+                                  </div>
+                                </div>
+                              </div>
+                            
+                          </div> 
 
-              <div class="col-md-12 col-lg-6 mb-5">
-                <div class="block-20 ">
-                  <figure>
-                    <a href="blog-single.html"><img src="images/img_2.jpg" alt="" class="img-fluid"></a>
-                  </figure>
-                  <div class="text">
-                    <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
-                    <div class="meta">
-                      <div><a href="#"><span class="ion-android-calendar"></span> May 29, 2018</a></div>
-                      <div><a href="#"><span class="ion-android-person"></span> Admin</a></div>
-                      <div><a href="#"><span class="ion-chatbubble"></span> 19</a></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+                        <?php } ?>
+              
 
-              <div class="col-md-12 col-lg-6 mb-5">
-                <div class="block-20 ">
-                  <figure>
-                    <a href="blog-single.html"><img src="images/img_3.jpg" alt="" class="img-fluid"></a>
-                  </figure>
-                  <div class="text">
-                    <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
-                    <div class="meta">
-                      <div><a href="#"><span class="ion-android-calendar"></span> May 29, 2018</a></div>
-                      <div><a href="#"><span class="ion-android-person"></span> Admin</a></div>
-                      <div><a href="#"><span class="ion-chatbubble"></span> 19</a></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-md-12 col-lg-6 mb-5">
-                <div class="block-20 ">
-                  <figure>
-                    <a href="blog-single.html"><img src="images/img_1.jpg" alt="" class="img-fluid"></a>
-                  </figure>
-                  <div class="text">
-                    <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
-                    <div class="meta">
-                      <div><a href="#"><span class="ion-android-calendar"></span> May 29, 2018</a></div>
-                      <div><a href="#"><span class="ion-android-person"></span> Admin</a></div>
-                      <div><a href="#"><span class="ion-chatbubble"></span> 19</a></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-md-12 col-lg-6 mb-5">
-                <div class="block-20 ">
-                  <figure>
-                    <a href="blog-single.html"><img src="images/img_2.jpg" alt="" class="img-fluid"></a>
-                  </figure>
-                  <div class="text">
-                    <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
-                    <div class="meta">
-                      <div><a href="#"><span class="ion-android-calendar"></span> May 29, 2018</a></div>
-                      <div><a href="#"><span class="ion-android-person"></span> Admin</a></div>
-                      <div><a href="#"><span class="ion-chatbubble"></span> 19</a></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-md-12 col-lg-6 mb-5">
-                <div class="block-20 ">
-                  <figure>
-                    <a href="blog-single.html"><img src="images/img_3.jpg" alt="" class="img-fluid"></a>
-                  </figure>
-                  <div class="text">
-                    <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
-                    <div class="meta">
-                      <div><a href="#"><span class="ion-android-calendar"></span> May 29, 2018</a></div>
-                      <div><a href="#"><span class="ion-android-person"></span> Admin</a></div>
-                      <div><a href="#"><span class="ion-chatbubble"></span> 19</a></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-md-12 col-lg-6 mb-5">
-                <div class="block-20 ">
-                  <figure>
-                    <a href="blog-single.html"><img src="images/img_1.jpg" alt="" class="img-fluid"></a>
-                  </figure>
-                  <div class="text">
-                    <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
-                    <div class="meta">
-                      <div><a href="#"><span class="ion-android-calendar"></span> May 29, 2018</a></div>
-                      <div><a href="#"><span class="ion-android-person"></span> Admin</a></div>
-                      <div><a href="#"><span class="ion-chatbubble"></span> 19</a></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-md-12 col-lg-6 mb-5">
-                <div class="block-20 ">
-                  <figure>
-                    <a href="blog-single.html"><img src="images/img_2.jpg" alt="" class="img-fluid"></a>
-                  </figure>
-                  <div class="text">
-                    <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
-                    <div class="meta">
-                      <div><a href="#"><span class="ion-android-calendar"></span> May 29, 2018</a></div>
-                      <div><a href="#"><span class="ion-android-person"></span> Admin</a></div>
-                      <div><a href="#"><span class="ion-chatbubble"></span> 19</a></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-md-12 col-lg-6 mb-5">
-                <div class="block-20 ">
-                  <figure>
-                    <a href="#"><img src="images/img_3.jpg" alt="" class="img-fluid"></a>
-                  </figure>
-                  <div class="text">
-                    <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
-                    <div class="meta">
-                      <div><a href="#"><span class="ion-android-calendar"></span> May 29, 2018</a></div>
-                      <div><a href="#"><span class="ion-android-person"></span> Admin</a></div>
-                      <div><a href="#"><span class="ion-chatbubble"></span> 19</a></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-md-12 col-lg-6 mb-5">
-                <div class="block-20 ">
-                  <figure>
-                    <a href="#"><img src="images/img_1.jpg" alt="" class="img-fluid"></a>
-                  </figure>
-                  <div class="text">
-                    <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
-                    <div class="meta">
-                      <div><a href="#"><span class="ion-android-calendar"></span> May 29, 2018</a></div>
-                      <div><a href="#"><span class="ion-android-person"></span> Admin</a></div>
-                      <div><a href="#"><span class="ion-chatbubble"></span> 19</a></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
             </div>
 
             <div class="row mb-5">
@@ -269,18 +159,32 @@
             </div>
           </div>
           <!-- END content -->
+          <?php
+          global $mysql_connect;
+          $query = "SELECT `Title`,COUNT(*) as count FROM `internships` GROUP BY `Title` ORDER BY count DESC";
+          if($query_run = mysqli_query($mysql_connect, $query))
+            {
+              $query_run = mysqli_query($mysql_connect, $query);
+              $myarray = array(); # initialize the array first!
+              while($row = mysqli_fetch_assoc($query_run))
+              {
+                  $myarray[] = $row; # add the row
+              }
+              
+            } 
+            else{
+              echo 'Unsucessful';
+            }
+
+          ?>
           <div class="col-md-6 col-lg-4 order-md-1">
 
             <div class="block-24 mb-5">
               <h3 class="heading">Categories</h3>
               <ul>
-                <li><a href="#">Laravel <span>10</span></a></li>
-                <li><a href="#">PHP <span>43</span></a></li>
-                <li><a href="#">JavaScript <span>21</span></a></li>
-                <li><a href="#">Python <span>65</span></a></li>
-                <li><a href="#">iOS <span>34</span></a></li>
-                <li><a href="#">Android <span>45</span></a></li>
-                <li><a href="#">Swift <span>22</span></a></li>
+                <?php for ($i = 0; $i < count($myarray); $i++) {?>
+                <li><a href="#"><?php echo $myarray[$i]['Title']?><span><?php echo $myarray[$i]['count']?></span></a></li>
+                <?php }?>
               </ul>
             </div>
 
@@ -326,12 +230,11 @@
             <div class="block-26">
               <h3 class="heading">Tags</h3>
               <ul>
-                <li><a href="#">code</a></li>
-                <li><a href="#">design</a></li>
-                <li><a href="#">typography</a></li>
-                <li><a href="#">development</a></li>
-                <li><a href="#">creative</a></li>
-                <li><a href="#">codehack</a></li>
+                <?php
+                for ($i = 0; $i < count($array); $i++) {
+                ?>
+                <li><a href="#"><?php echo $array[$i]['Tags']?></a></li>
+                <?php }?>
               </ul>
             </div>
 
@@ -343,25 +246,35 @@
     </div>
 
     
+    <?php
+              if(!loggedin()){
+                
+                  echo '<div class="py-5 block-22">
+                      <div class="container">
+                        <div class="row align-items-center">
+                          <div class="col-md-6 mb-4 mb-md-0 pr-md-5">
+                            <h2 class="heading">Help the underprivileged</h2>
+                            <p>Receive regular updates about internships at NGOs and do your part for the society.</p>
+                          </div>
+                          <div class="col-md-6">
+                            <form action="#" class="subscribe">
+                              <div class="form-group">
+                                <input type="email" class="form-control email" placeholder="Enter email">
+                                <input type="submit" class="btn btn-primary submit" value="Subscribe">
+                              </div>
+                            </form>
+                          </div>
+                        </div>
+                      </div>
+                    </div>';
+               
+              }
+              else{
+             
+            
+            }
+            ?>
     
-    <div class="py-5 block-22">
-      <div class="container">
-        <div class="row align-items-center">
-          <div class="col-md-6 mb-4 mb-md-0 pr-md-5">
-            <h2 class="heading">Help the underprivileged</h2>
-            <p>Receive regular updates about internships at NGOs and do your part for the society.</p>
-          </div>
-          <div class="col-md-6">
-            <form action="#" class="subscribe">
-              <div class="form-group">
-                <input type="email" class="form-control email" placeholder="Enter email">
-                <input type="submit" class="btn btn-primary submit" value="Subscribe">
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
 
     
   <footer class="site-footer">
@@ -376,9 +289,9 @@
             <div class="row">
               <div class="col-md-6">
                 <ul class="list-unstyled">
-                  <li><a href="#">Home</a></li>
-                  <li><a href="#">About Us</a></li>
-                  <li><a href="#">Internships</a></li>
+                  <li><a href="index.php">Home</a></li>
+                  <li><a href="about.php">About Us</a></li>
+                  <li><a href="courses.php">Internships</a></li>
                   <li><a href="#">Pages</a></li>
                 </ul>
               </div>

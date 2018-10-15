@@ -19,12 +19,31 @@
     <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
+    <?php
+    require 'connect.inc.php';
+    require 'core.inc.php';
+
+    $id = $_GET['id'];
+
+    global $mysql_connect;
+    $query = "SELECT * FROM `internships` WHERE `int_id`='$id'";
+    if($query_run = mysqli_query($mysql_connect, $query))
+      {
+        $query_run = mysqli_query($mysql_connect, $query);
+        $query_row = mysqli_fetch_array($query_run);
+        $temp = $query_row;
+        
+      } 
+      else{
+        $temp = 'Unsucessful';
+            }
+    ?>
     
     <header role="banner">
      
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
-          <a class="navbar-brand absolute" href="index.html">NGO::connect</a>
+          <a class="navbar-brand absolute" href="index.php">NGO::connect</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample05" aria-controls="navbarsExample05" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -32,11 +51,11 @@
           <div class="collapse navbar-collapse navbar-light" id="navbarsExample05">
             <ul class="navbar-nav mx-auto">
               <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="courses.html" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Internships</a>
+                <a class="nav-link dropdown-toggle" href="courses.php" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Internships</a>
                 <div class="dropdown-menu" aria-labelledby="dropdown04">
-                  <a class="dropdown-item" href="courses.html">Volunteer</a>
-                  <a class="dropdown-item" href="courses.html">Data Entry</a>
-                  <a class="dropdown-item" href="courses.html">Web Development</a>
+                  <a class="dropdown-item" href="courses.php">Volunteer</a>
+                  <a class="dropdown-item" href="courses.php">Data Entry</a>
+                  <a class="dropdown-item" href="courses.php">Web Development</a>
                 </div>
 
               </li>
@@ -53,15 +72,26 @@
 
               </li> -->
               <li class="nav-item">
-                <a class="nav-link" href="about.html">About</a>
+                <a class="nav-link" href="about.php">About</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="contact.html">Contact</a>
+                <a class="nav-link" href="contact.php">Contact</a>
               </li>
             </ul>
             <ul class="navbar-nav absolute-right">
               <li>
-                <a href="main.php">Login</a> / <a href="register.php">Register</a>
+               <?php
+              if(!loggedin()){
+                
+                  echo '<a href="main.php">Login</a> / <a href="register.php">Register</a>';
+               
+              }
+              else{
+             
+               echo '<a href="logout.php">Log Out</a>';
+            
+            }
+            ?>
               </li>
             </ul>
             
@@ -77,8 +107,8 @@
           <div class="col-md-7 text-center">
   
             <div class="mb-5 element-animate">
-              <h1 class="mb-2">Advanced JavaScript Learning</h1>
-              <p class="bcrumb"><a href="index.html">Home</a> <span class="sep ion-android-arrow-dropright px-2"></span> <a href="courses.html">Course</a> <span class="sep ion-android-arrow-dropright px-2"></span>  <span class="current">Advanced JavaScript Learning</span></p>
+              <h1 class="mb-2"><?php echo $temp['Title'];?></h1>
+              <p class="bcrumb"><a href="index.php">Home</a> <span class="sep ion-android-arrow-dropright px-2"></span> <a href="courses.php">Internships</a> <span class="sep ion-android-arrow-dropright px-2"></span>  <span class="current"><?php echo $temp['Title'];?></span></p>
             </div>
             
           </div>
@@ -104,14 +134,11 @@
                 <div class="row mb-5">
                   <div class="col-md-12 pt-5">
                     <h2>Description</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis laborum repellat quisquam, illo soluta, deleniti, nesciunt illum eveniet tempore sed necessitatibus eligendi rerum. Cum maxime, aliquam incidunt voluptatem enim eum.</p>
-                    <p>Harum rerum totam eum facere sint, molestiae porro illum recusandae dolorum cumque ut illo cum quisquam esse consequatur commodi fugit culpa explicabo vero vel quos. Minus sed quod est, similique!</p>
-                    <p>Qui id ad ipsum quis molestiae, velit, aut. Suscipit ex sunt incidunt cupiditate ad quisquam excepturi provident voluptate nemo earum, vel est facilis commodi ullam natus quis praesentium cum asperiores.</p>
-                    <p>A, esse itaque quam alias quibusdam iusto, ab, pariatur, placeat delectus voluptatem numquam enim! Voluptate itaque consectetur aliquid amet consequuntur tenetur rerum qui error sint nesciunt. Vel omnis ipsam laboriosam!</p>
+                    <?php echo $temp['Description'];?>
                   </div>
                 </div>
               </div>
-      <div class="container">
+     <!--  <div class="container">
         <div class="row">
           <div class="col-md-12 mb-2">
             <h2>Lesson</h2>
@@ -171,22 +198,20 @@
             <a href="#" class="play"><span class="ion-ios-play"></span></a>
           </div>
         </div>
-      </div>
+      </div> -->
     </section>
           </div>
           <!-- END content -->
           <div class="col-md-6 col-lg-4 order-md-1">
             
             <div class="block-29 mb-5">
-              <h2 class="heading">Course Details</h2>
+              <h2 class="heading">Internship Details</h2>
               <ul>
-                <li><span class="text-1">Duration</span> <span class="text-2">50 days</span></li>
-                <li><span class="text-1">Lectures</span> <span class="text-2">201</span></li>
-                <li><span class="text-1">Quizzes</span> <span class="text-2">8</span></li>
-                <li><span class="text-1">Course Certificate</span> <span class="text-2">Yes</span></li>
-                <li><span class="text-1">Subject</span> <span class="text-2">Web Development</span></li>
-                <li><span class="text-1">Language</span> <span class="text-2">English</span></li>
-                <li><span class="text-1">Price</span> <span class="text-2">$102.00</span></li>
+                <li><span class="text-1">Duration: </span> <span class="text-2"><?php echo $temp['Duration'];?></span></li>
+                <li><span class="text-1">Location: </span> <span class="text-2"><?php echo $temp['Location'];?></span></li>
+                <li><span class="text-1">Start Date: </span> <span class="text-2"><?php echo $temp['Start_date'];?></span></li>
+                <li><span class="text-1">Last Date: </span> <span class="text-2"><?php echo $temp['Apply_by'];?></span></li>
+               
               </ul>
             </div>
 
@@ -243,18 +268,32 @@
                 </li>
               </ul>
             </div>
+            <?php
+            global $mysql_connect;
+            $array = get_intern();
+            $query = "SELECT `Title`,COUNT(*) as count FROM `internships` GROUP BY `Title` ORDER BY count DESC";
+            if($query_run = mysqli_query($mysql_connect, $query))
+              {
+                $query_run = mysqli_query($mysql_connect, $query);
+                $myarray = array(); # initialize the array first!
+                while($row = mysqli_fetch_assoc($query_run))
+                {
+                    $myarray[] = $row; # add the row
+                }
+                
+              } 
+              else{
+                echo 'Unsucessful';
+              }
 
+          ?>
 
             <div class="block-24 mb-5">
               <h3 class="heading">Categories</h3>
               <ul>
-                <li><a href="#">Laravel <span>10</span></a></li>
-                <li><a href="#">PHP <span>43</span></a></li>
-                <li><a href="#">JavaScript <span>21</span></a></li>
-                <li><a href="#">Python <span>65</span></a></li>
-                <li><a href="#">iOS <span>34</span></a></li>
-                <li><a href="#">Android <span>45</span></a></li>
-                <li><a href="#">Swift <span>22</span></a></li>
+                <?php for ($i = 0; $i < count($myarray); $i++) {?>
+                <li><a href="#"><?php echo $myarray[$i]['Title']?><span><?php echo $myarray[$i]['count']?></span></a></li>
+                <?php }?>
               </ul>
             </div>
 
@@ -262,12 +301,11 @@
             <div class="block-26">
               <h3 class="heading">Tags</h3>
               <ul>
-                <li><a href="#">code</a></li>
-                <li><a href="#">design</a></li>
-                <li><a href="#">typography</a></li>
-                <li><a href="#">development</a></li>
-                <li><a href="#">creative</a></li>
-                <li><a href="#">codehack</a></li>
+                <?php
+                for ($i = 0; $i < count($array); $i++) {
+                ?>
+                <li><a href="#"><?php echo $array[$i]['Tags']?></a></li>
+                <?php }?>
               </ul>
             </div>
 
@@ -441,24 +479,34 @@
     <!-- END section -->
 
     
-    <div class="py-5 block-22">
-      <div class="container">
-        <div class="row align-items-center">
-          <div class="col-md-6 mb-4 mb-md-0 pr-md-5">
-            <h2 class="heading">Help the underprivileged</h2>
-            <p>Receive regular updates about internships at NGOs and do your part for the society.</p>
-          </div>
-          <div class="col-md-6">
-            <form action="#" class="subscribe">
-              <div class="form-group">
-                <input type="email" class="form-control email" placeholder="Enter email">
-                <input type="submit" class="btn btn-primary submit" value="Subscribe">
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
+    <?php
+              if(!loggedin()){
+                
+                  echo '<div class="py-5 block-22">
+                      <div class="container">
+                        <div class="row align-items-center">
+                          <div class="col-md-6 mb-4 mb-md-0 pr-md-5">
+                            <h2 class="heading">Help the underprivileged</h2>
+                            <p>Receive regular updates about internships at NGOs and do your part for the society.</p>
+                          </div>
+                          <div class="col-md-6">
+                            <form action="#" class="subscribe">
+                              <div class="form-group">
+                                <input type="email" class="form-control email" placeholder="Enter email">
+                                <input type="submit" class="btn btn-primary submit" value="Subscribe">
+                              </div>
+                            </form>
+                          </div>
+                        </div>
+                      </div>
+                    </div>';
+               
+              }
+              else{
+             
+            
+            }
+            ?>
 
     
   <footer class="site-footer">

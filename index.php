@@ -20,12 +20,16 @@
     <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
-    
+    <?php
+    require 'connect.inc.php';
+    require 'core.inc.php';
+
+    ?>
     <header role="banner">
      
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
-          <a class="navbar-brand absolute" href="index.html">NGO::connect</a>
+          <a class="navbar-brand absolute" href="index.php">NGO::connect</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample05" aria-controls="navbarsExample05" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -33,11 +37,11 @@
           <div class="collapse navbar-collapse navbar-light" id="navbarsExample05">
             <ul class="navbar-nav mx-auto">
               <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="courses.html" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Internships</a>
+                <a class="nav-link dropdown-toggle" href="courses.php" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Internships</a>
                 <div class="dropdown-menu" aria-labelledby="dropdown04">
-                  <a class="dropdown-item" href="courses.html">Volunteer</a>
-                  <a class="dropdown-item" href="courses.html">Data Entry</a>
-                  <a class="dropdown-item" href="courses.html">Web Development</a>
+                  <a class="dropdown-item" href="courses.php">Volunteer</a>
+                  <a class="dropdown-item" href="courses.php">Data Entry</a>
+                  <a class="dropdown-item" href="courses.php">Web Development</a>
                 </div>
 
               </li>
@@ -54,16 +58,26 @@
 
               </li> -->
               <li class="nav-item">
-                <a class="nav-link" href="about.html">About</a>
+                <a class="nav-link" href="about.php">About</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="contact.html">Contact</a>
+                <a class="nav-link" href="contact.php">Contact</a>
               </li>
             </ul>
             <ul class="navbar-nav absolute-right">
               <li>
-                <a href="main.php">Login</a> / <a href="register.php">Register</a>
-              </li>
+               <?php
+              if(!loggedin()){
+                
+                  echo '<a href="main.php">Login</a> / <a href="register.php">Register</a>';
+               
+              }
+              else{
+             
+               echo '<a href="logout.php">Log Out</a>';
+            
+            }
+            ?> </li>
             </ul>
             
           </div>
@@ -609,24 +623,34 @@
       </div>
     </div>
 
-    <div class="py-5 block-22">
-      <div class="container">
-        <div class="row align-items-center">
-          <div class="col-md-6 mb-4 mb-md-0 pr-md-5">
-            <h2 class="heading">Help the underprivileged</h2>
-            <p>Receive regular updates about internships at NGOs and do your part for the society.</p>
-          </div>
-          <div class="col-md-6">
-            <form action="#" class="subscribe">
-              <div class="form-group">
-                <input type="email" class="form-control email" placeholder="Enter email">
-                <input type="submit" class="btn btn-primary submit" value="Subscribe">
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
+     <?php
+              if(!loggedin()){
+                
+                  echo '<div class="py-5 block-22">
+                      <div class="container">
+                        <div class="row align-items-center">
+                          <div class="col-md-6 mb-4 mb-md-0 pr-md-5">
+                            <h2 class="heading">Help the underprivileged</h2>
+                            <p>Receive regular updates about internships at NGOs and do your part for the society.</p>
+                          </div>
+                          <div class="col-md-6">
+                            <form action="#" class="subscribe">
+                              <div class="form-group">
+                                <input type="email" class="form-control email" placeholder="Enter email">
+                                <input type="submit" class="btn btn-primary submit" value="Subscribe">
+                              </div>
+                            </form>
+                          </div>
+                        </div>
+                      </div>
+                    </div>';
+               
+              }
+              else{
+             
+            
+            }
+            ?>
 
     
   <footer class="site-footer">

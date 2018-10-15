@@ -3,7 +3,7 @@ $conn_error = 'Could not connect';
 
 $mysql_host='localhost';
 $mysql_user='root';
-$mysql_pass='root';
+$mysql_pass='';
 
 $mysql_db='NGOconnect';
 $mysql_connect = mysqli_connect($mysql_host,$mysql_user,$mysql_pass);

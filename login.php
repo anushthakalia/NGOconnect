@@ -163,7 +163,7 @@
      
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
-          <a class="navbar-brand absolute" href="index.html">NGO::connect</a>
+          <a class="navbar-brand absolute" href="index.php">NGO::connect</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample05" aria-controls="navbarsExample05" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -171,11 +171,11 @@
           <div class="collapse navbar-collapse navbar-light" id="navbarsExample05">
             <ul class="navbar-nav mx-auto">
               <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="courses.html" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Internships</a>
+                <a class="nav-link dropdown-toggle" href="courses.php" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Internships</a>
                 <div class="dropdown-menu" aria-labelledby="dropdown04">
-                  <a class="dropdown-item" href="courses.html">Volunteer</a>
-                  <a class="dropdown-item" href="courses.html">Data Entry</a>
-                  <a class="dropdown-item" href="courses.html">Web Development</a>
+                  <a class="dropdown-item" href="courses.php">Volunteer</a>
+                  <a class="dropdown-item" href="courses.php">Data Entry</a>
+                  <a class="dropdown-item" href="courses.php">Web Development</a>
                 </div>
 
               </li>
@@ -192,10 +192,10 @@
 
               </li> -->
               <li class="nav-item">
-                <a class="nav-link" href="about.html">About</a>
+                <a class="nav-link" href="about.php">About</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="contact.html">Contact</a>
+                <a class="nav-link" href="contact.php">Contact</a>
               </li>
             </ul>
             <ul class="navbar-nav absolute-right">
@@ -217,7 +217,7 @@
   
             <div class="mb-5 element-animate">
               <h1 class="mb-2">Log in</h1>
-              <p class="bcrumb"><a href="index.html">Home</a> <span class="sep ion-android-arrow-dropright px-2"></span>  <span class="current">Log in</span></p>
+              <p class="bcrumb"><a href="index.php">Home</a> <span class="sep ion-android-arrow-dropright px-2"></span>  <span class="current">Log in</span></p>
             </div>
             
           </div>

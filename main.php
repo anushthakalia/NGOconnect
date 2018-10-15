@@ -18,8 +18,7 @@
             include 'company_dashboard.php';
         }
 
-    	
-    	// 
+    	//
     	//echo getuserfield('ngoName');
     }
     else{

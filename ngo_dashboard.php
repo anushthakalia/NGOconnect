@@ -21,7 +21,7 @@
   <body>
 
 <header role="banner">
-     
+
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
           <a class="navbar-brand absolute" href="index.html">NGO::connect</a>
@@ -64,22 +64,90 @@
                 <a href="logout.php">Log Out</a>
               </li>
             </ul>
-            
           </div>
         </div>
       </nav>
     </header>
 
-    <section class="site-section">
-      <div class="container">
-        <div class="row justify-content-center">
-            <h1>Welcome <?php echo getuserfield('ngoname') ?>!</h1>
+    <?php
+    $num_students = return_intern_number_li_ngdash();
+    global $intern_data;
+    $intern_data = array();
+    $intern_data[] = get_intern_data_ngdash ();
+    #print_r($intern_data);
+    #echo $num_students;
+    ?>
+
+    <?php
+    $num_company = return_company_number_div_ngdash();
+    global $company_data;
+    $company_data = array();
+    $company_data[] = get_company_data_ngdash();
+    #print_r($company_data);
+    #echo $num_students;
+    ?>
+
+    <?php
+    $num_posts = return_internship_number_div_ngdash();
+    global $internship_data;
+    $internship_data = array();
+    $internship_data[] = get_internship_data_ngdash();
+    #print_r($internship_data);
+    #echo $num_students;
+    ?>
+
+<br>
+<div class="container">
+    <div class="card-deck">
+      <div class="card">
+        <div class="card-body text-center">
+          <p class="card-text"><b>Your Internships</b></p>
+            <?php for ($i=0; $i < $num_posts; $i++):
+              $internship_name = $internship_data[0][$i]['Name'];
+              $internship_NGO = $internship_data[0][$i]['NGO'];
+            ?>
+            <ul class=list-group>
+            <h3><?php echo $internship_name." - ".$internship_NGO?></h3>
+            </ul>
+          <?php endfor; ?>
         </div>
       </div>
-    </section>
+
+      <div class="card">
+        <div class="card-body text-center">
+          <p class="card-text"><b>Your partner companies</b></p>
+          <?php for ($i=0; $i < $num_company; $i++):
+            $company_name = $company_data[0][0]['comname'];
+          ?>
+          <ul class=list-group>
+          <h3><?php echo $company_name ?></h3>
+          </ul>
+        <?php endfor; ?>
+        </div>
+      </div>
+
+        <div class="card">
+        <div class="card-body text-center">
+          <p class="card-text"><b>Your interns!</b></p>
+          <ul class="list-group">
+            <?php for ($i=0; $i < $num_students; $i++):
+              $intern_name = $intern_data[0][$i]['firstname']." ".$intern_data[0][$i]['surname'];
+              $intern_college = $intern_data[0][$i]['college'];
+              $intern_phone = $intern_data[0][$i]['phone'];
+            ?>
+            <li class="list-group-item"><?php echo($intern_name);echo("<br>");echo($intern_college) ?></li>
+          </ul>
+                <?php endfor; ?>
+          </div>
+        </div>
+      </div>
+
+    </div>
+</div>
 
     <footer class="site-footer">
       <div class="container">
+        <hr>
         <div class="row mb-3">
           <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
             <h3>NGO::connect</h3>
@@ -117,7 +185,7 @@
                   <div><a href="#"><span class="ion-chatbubble"></span> 19</a></div>
                 </div>
               </div>
-            </div>  --> 
+            </div>  -->
             <!-- <div class="block-21 d-flex mb-4">
               <div class="text">
                 <h3 class="heading mb-0"><a href="#">Dolore Tempora Consequatur</a></h3>
@@ -127,7 +195,7 @@
                   <div><a href="#"><span class="ion-chatbubble"></span> 19</a></div>
                 </div>
               </div>
-            </div>  
+            </div>
             <div class="block-21 d-flex mb-4">
               <div class="text">
                 <h3 class="heading mb-0"><a href="#">Perferendis eum illum</a></h3>
@@ -137,7 +205,7 @@
                   <div><a href="#"><span class="ion-chatbubble"></span> 19</a></div>
                 </div>
               </div>
-            </div>  
+            </div>
           </div> -->
           <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
             <h3 class="heading">Contact Information</h3>
@@ -153,7 +221,7 @@
         </div>
         <div class="row pt-5">
           <div class="col-md-12 text-center copyright">
-            
+
             <p class="float-md-left"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 <!-- Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" class="text-primary">Colorlib</a> -->
 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
@@ -169,7 +237,7 @@
       </div>
     </footer>
     <!-- END footer -->
-    
+
     <!-- loader -->
     <div id="loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#f4b214"/></svg></div>
 
@@ -181,7 +249,6 @@
     <script src="js/jquery.waypoints.min.js"></script>
     <script src="js/jquery.stellar.min.js"></script>
     <script src="js/jquery.animateNumber.min.js"></script>
-
     <script src="js/main.js"></script>
   </body>
 </html>

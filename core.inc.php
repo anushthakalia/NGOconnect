@@ -29,12 +29,198 @@ function getuserfield($field)
 		$query_row = mysqli_fetch_assoc($query_run);
 		$return_field = $query_row[$field];
 		return $return_field;
-		
-	}	
+
+	}
 	else{
 		echo 'Unsucessful';
 	}
 }
 
+function return_internship_number_div_stdash()
+{
+	global $mysql_connect;
+	$intern_student_id = getuserfield('id');
+	$query = "SELECT * FROM internship_details WHERE fk_intern_id=$intern_student_id";
+	#echo $query;
+	//echo $_SESSION['table_id'];
+	if($query_run = mysqli_query($mysql_connect, $query))
+	{
+		$query_run = mysqli_query($mysql_connect, $query);
+		$return_field = mysqli_num_rows($query_run);
+		return $return_field;
+	}
+	else{
+		echo 'Unsucessful';
+	}
+}
+
+function get_internship_data_stdash()
+{
+	global $mysql_connect;
+	$intern_ngo_id = getuserfield('id');
+	$query = "SELECT * FROM internship_details WHERE fk_intern_id=$intern_student_id";
+	if($query_run = mysqli_query($mysql_connect, $query))
+	{
+		$internship_push = array();
+		$result = mysqli_query($mysql_connect, $query);
+		while($row = mysqli_fetch_assoc($result)){
+			$row = array_map('stripslashes', $row);
+			$internship_push[] = $row;
+		}
+		return $internship_push;
+	}
+	else{
+		echo 'Unsucessful';
+	}
+}
+
+function return_intern_number_li_ngdash()
+{
+	global $mysql_connect;
+	$intern_ngo_id = getuserfield('ngoid');
+	$query = "SELECT * FROM student WHERE fk_ngo_id=$intern_ngo_id";
+
+	if($query_run = mysqli_query($mysql_connect, $query))
+	{
+		$query_run = mysqli_query($mysql_connect, $query);
+		$return_field = mysqli_num_rows($query_run);
+		return $return_field;
+	}
+	else{
+		echo 'Unsucessful';
+	}
+}
+
+function get_intern_data_ngdash()
+{
+	global $mysql_connect;
+	$intern_ngo_id = getuserfield('ngoid');
+	$query = "SELECT * FROM student WHERE fk_ngo_id=$intern_ngo_id";
+	if($query_run = mysqli_query($mysql_connect, $query))
+	{
+		$internship_push = array();
+		$result = mysqli_query($mysql_connect, $query);
+		while($row = mysqli_fetch_assoc($result)){
+			$row = array_map('stripslashes', $row);
+			$internship_push[] = $row;
+		}
+		return $internship_push;
+	}
+	else{
+		echo 'Unsucessful';
+	}
+}
+
+function return_internship_number_div_ngdash()
+{
+	global $mysql_connect;
+	$internship_ngo_id = getuserfield('ngoid');
+	$query = "SELECT * FROM internship_details WHERE fk_ngo_id=$internship_ngo_id";
+
+	if($query_run = mysqli_query($mysql_connect, $query))
+	{
+		$query_run = mysqli_query($mysql_connect, $query);
+		$return_field = mysqli_num_rows($query_run);
+		return $return_field;
+	}
+	else{
+		echo 'Unsucessful';
+	}
+}
+
+function get_internship_data_ngdash()
+{
+	global $mysql_connect;
+	$internship_ngo_id = getuserfield('ngoid');
+	$query = "SELECT * FROM internship_details WHERE fk_ngo_id=$internship_ngo_id";
+	if($query_run = mysqli_query($mysql_connect, $query))
+	{
+		$internship_push = array();
+		$result = mysqli_query($mysql_connect, $query);
+		while($row = mysqli_fetch_assoc($result)){
+			$row = array_map('stripslashes', $row);
+			$internship_push[] = $row;
+		}
+		return $internship_push;
+	}
+	else{
+		echo 'Unsucessful';
+	}
+}
+
+function return_company_number_div_ngdash()
+{
+	global $mysql_connect;
+	$ngo_id = getuserfield('ngoid');
+	$query = "SELECT * FROM company WHERE fk_ngo_id=$ngo_id";
+
+	if($query_run = mysqli_query($mysql_connect, $query))
+	{
+		$query_run = mysqli_query($mysql_connect, $query);
+		$return_field = mysqli_num_rows($query_run);
+		return $return_field;
+	}
+	else{
+		echo 'Unsucessful';
+	}
+}
+
+function get_company_data_ngdash()
+{
+	global $mysql_connect;
+	$ngo_id = getuserfield('ngoid');
+	$query = "SELECT * FROM company WHERE fk_ngo_id=$ngo_id";
+	if($query_run = mysqli_query($mysql_connect, $query))
+	{
+		$internship_push = array();
+		$result = mysqli_query($mysql_connect, $query);
+		while($row = mysqli_fetch_assoc($result)){
+			$row = array_map('stripslashes', $row);
+			$internship_push[] = $row;
+		}
+		return $internship_push;
+	}
+	else{
+		echo 'Unsucessful';
+	}
+}
+
+
+function return_ngo_number_div_comdash()
+{
+	global $mysql_connect;
+	$com_id = getuserfield('comid');
+	$query = "SELECT * FROM ngo WHERE fk_comid=$com_id";
+
+	if($query_run = mysqli_query($mysql_connect, $query))
+	{
+		$query_run = mysqli_query($mysql_connect, $query);
+		$return_field = mysqli_num_rows($query_run);
+		return $return_field;
+	}
+	else{
+		echo 'Unsucessful';
+	}
+}
+
+function get_ngo_data_comdash()
+{
+	global $mysql_connect;
+	$com_id = getuserfield('comid');
+	$query = "SELECT * FROM ngo WHERE fk_comid=$com_id";
+	if($query_run = mysqli_query($mysql_connect, $query))
+	{
+		$internship_push = array();
+		$result = mysqli_query($mysql_connect, $query);
+		while($row = mysqli_fetch_assoc($result)){
+			$row = array_map('stripslashes', $row);
+			$internship_push[] = $row;
+		}
+		return $internship_push;
+	}
+	else{
+		echo 'Unsucessful';
+	}
+}
 
 ?>

@@ -18,7 +18,7 @@
     <!-- Theme Style -->
     <link rel="stylesheet" href="css/style.css">
     <style>
-    #exTab2{      
+    #exTab2{
       margin: 0 0 3px 0;
     }
     </style>
@@ -26,7 +26,7 @@
   <body>
 
   <?php
-  
+
   require 'connect.inc.php';
   require 'core.inc.php';
 
@@ -39,10 +39,10 @@
         if(isset($_POST['email'])&&isset($_POST['firstname'])&&isset($_POST['surname'])&&isset($_POST['phone'])&&isset($_POST['pass'])&&isset($_POST['repass'])&&isset($_POST['college']))
         {
           $email = trim($_POST['email']);
-          
+
           $password = trim($_POST['pass']);
           $password_again = trim($_POST['repass']);
-          
+
           $firstname = trim($_POST['firstname']);
           $surname = trim($_POST['surname']);
           $phone= trim($_POST['phone']);
@@ -63,7 +63,7 @@
               else
               {
                 $password_hash = md5($password);
-                
+
                 $query = "SELECT `email` FROM `student` WHERE `email`='".mysqli_real_escape_string($mysql_connect, $email)."'";
                 $query_run = mysqli_query($mysql_connect, $query);
                 $query_num_rows = mysqli_num_rows($query_run);
@@ -73,9 +73,11 @@
                 }
                 else
                 {
-                  $query = "INSERT INTO `student` (id,password,firstname,surname,email,college,phone) VALUES ('','".mysqli_real_escape_string($mysql_connect, $password_hash)."','".mysqli_real_escape_string($mysql_connect, $firstname)."','".mysqli_real_escape_string($mysql_connect, $surname)."','".mysqli_real_escape_string($mysql_connect, $email)."','".mysqli_real_escape_string($mysql_connect, $college)."','".mysqli_real_escape_string($mysql_connect, $phone)."')";
+                  $fk_ngo_id = rand(1,2);
+                  $query = "INSERT INTO `student` (id,password,firstname,surname,email,college,phone,fk_ngo_id) VALUES ('','".mysqli_real_escape_string($mysql_connect, $password_hash)."','".mysqli_real_escape_string($mysql_connect, $firstname)."','".mysqli_real_escape_string($mysql_connect, $surname)."','".mysqli_real_escape_string($mysql_connect, $email)."','".mysqli_real_escape_string($mysql_connect, $college)."','".mysqli_real_escape_string($mysql_connect, $phone)."','$fk_ngo_id')";
+                  echo $query;
                   if($query_run = mysqli_query($mysql_connect, $query))
-                  { 
+                  {
                     header('Location: main.php');
                   }
                   else
@@ -102,10 +104,10 @@
           if(isset($_POST['email'])&&isset($_POST['ngoname'])&&isset($_POST['address'])&&isset($_POST['regno'])&&isset($_POST['pass'])&&isset($_POST['repass']))
             {
               $email = trim($_POST['email']);
-              
+
               $password = trim($_POST['pass']);
               $password_again = trim($_POST['repass']);
-              
+
               $ngoname = trim($_POST['ngoname']);
               $address = trim($_POST['address']);
               $regno= trim($_POST['regno']);
@@ -125,7 +127,7 @@
                   else
                   {
                     $password_hash = md5($password);
-                    
+
                     $query = "SELECT `email` FROM `ngo` WHERE `email`='".mysqli_real_escape_string($mysql_connect, $email)."'";
                     $query_run = mysqli_query($mysql_connect, $query);
                     $query_num_rows = mysqli_num_rows($query_run);
@@ -135,7 +137,8 @@
                     }
                     else
                     {
-                      $query = "INSERT INTO ngo VALUES ('','".mysqli_real_escape_string($mysql_connect, $email)."','".mysqli_real_escape_string($mysql_connect, $password_hash)."','".mysqli_real_escape_string($mysql_connect, $ngoname)."','".mysqli_real_escape_string($mysql_connect, $address)."','".mysqli_real_escape_string($mysql_connect, $regno)."')";
+                      $rand_com = rand(1, 2);
+                      $query = "INSERT INTO ngo VALUES ('','".mysqli_real_escape_string($mysql_connect, $email)."','".mysqli_real_escape_string($mysql_connect, $password_hash)."','".mysqli_real_escape_string($mysql_connect, $ngoname)."','".mysqli_real_escape_string($mysql_connect, $address)."','".mysqli_real_escape_string($mysql_connect, $regno)."','$rand_com')";
                       if($query_run = mysqli_query($mysql_connect, $query))
                       {
                         header('Location: main.php');
@@ -167,10 +170,10 @@
       if(isset($_POST['email'])&&isset($_POST['comname'])&&isset($_POST['phone'])&&isset($_POST['pass'])&&isset($_POST['repass']))
         {
           $email = trim($_POST['email']);
-          
+
           $password = trim($_POST['pass']);
           $password_again = trim($_POST['repass']);
-          
+
           $comname = trim($_POST['comname']);
           $phone= trim($_POST['phone']);
 
@@ -189,7 +192,7 @@
               else
               {
                 $password_hash = md5($password);
-                
+
                 $query = "SELECT `email` FROM `company` WHERE `email`='".mysqli_real_escape_string($mysql_connect, $email)."'";
                 $query_run = mysqli_query($mysql_connect, $query);
                 $query_num_rows = mysqli_num_rows($query_run);
@@ -199,7 +202,8 @@
                 }
                 else
                 {
-                  $query = "INSERT INTO company VALUES ('','".mysqli_real_escape_string($mysql_connect, $email)."','".mysqli_real_escape_string($mysql_connect, $password_hash)."','".mysqli_real_escape_string($mysql_connect, $comname)."','".mysqli_real_escape_string($mysql_connect, $phone)."')";
+                  $rand_ngo = rand(1,2);
+                  $query = "INSERT INTO company VALUES ('','".mysqli_real_escape_string($mysql_connect, $email)."','".mysqli_real_escape_string($mysql_connect, $password_hash)."','".mysqli_real_escape_string($mysql_connect, $comname)."','".mysqli_real_escape_string($mysql_connect, $phone)."','$rand_ngo')";
                   if($query_run = mysqli_query($mysql_connect, $query))
                   {
                     header('Location: main.php');
@@ -217,25 +221,19 @@
         echo 'All fields are required.';
       }
 
+    }
 
     }
 
-
-
-
-
-    }
-
-  
 }
   else if(loggedin()){
     header('Location: main.php');
   }
 
   ?>
-    
+
     <header role="banner">
-     
+
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
           <a class="navbar-brand absolute" href="index.html">NGO::connect</a>
@@ -278,14 +276,14 @@
                 <a href="main.php">Login</a> / <a href="register.php">Register</a>
               </li>
             </ul>
-            
+
           </div>
         </div>
       </nav>
     </header>
     <!-- END header -->
 
-    <section class="site-hero site-sm-hero overlay" data-stellar-background-ratio="0.5" style="background-image: url(images/big_image_2.jpg);">
+      <section class="site-hero site-sm-hero overlay" data-stellar-background-ratio="0.5" style="background-image: url(images/big_image_2.jpg);">
       <div class="container">
         <div class="row align-items-center justify-content-center site-hero-sm-inner">
           <div class="col-md-7 text-center">
@@ -293,20 +291,20 @@
               <h1 class="mb-2">Register</h1>
               <p class="bcrumb"><a href="index.html">Home</a> <span class="sep ion-android-arrow-dropright px-2"></span>  <span class="current">Register</span></p>
             </div>
-            
+
           </div>
         </div>
       </div>
     </section>
     <!-- END section -->
-    
+
     <section class="site-section">
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-md-7">
 
             <div class="form-wrap">
-              <div id="exTab2" class="container"> 
+              <div id="exTab2" class="container">
                 <ul class="nav nav-tabs row mb-5">
                   <li class="active">
                     <a  href="#1" data-toggle="tab" class="col-md-4 col-lg-4 mb-lg-0">Student</a>
@@ -321,7 +319,7 @@
                     <div class="tab-pane active" id="1">
                       <h2 class="mb-5">Register new Student account</h2>
                       <form action="<?php echo $current_file; ?>" method="post">
-                        
+
                         <div class="row">
                           <div class="col-md-12 form-group">
                             <label for="name">Email Address</label>
@@ -364,7 +362,7 @@
                             <input name = "repass" type="password" id="name17" class="form-control py-2">
                           </div>
                         </div>
-                        
+
                         <div class="row">
                           <div class="col-md-6 form-group">
                             <input name = "student-submit" type="submit" value="Register" class="btn btn-primary px-5 py-2">
@@ -375,7 +373,7 @@
                     <div class="tab-pane" id="2">
                       <h2 class="mb-5">Register new NGO account</h2>
                       <form action="<?php echo $current_file; ?>" method="post">
-                        
+
                         <div class="row">
                           <div class="col-md-12 form-group">
                             <label for="name">Email Address</label>
@@ -412,7 +410,7 @@
                             <input name = "repass" type="password" id="name26" class="form-control py-2">
                           </div>
                         </div>
-                        
+
                         <div class="row">
                           <div class="col-md-6 form-group">
                             <input name = "ngo-submit" type="submit" value="Register" class="btn btn-primary px-5 py-2">
@@ -453,7 +451,7 @@
                             <input name = "repass" type="password" id="name35" class="form-control py-2">
                           </div>
                         </div>
-                        
+
                         <div class="row">
                           <div class="col-md-6 form-group">
                             <input name = "company-submit" type="submit" value="Register" class="btn btn-primary px-5 py-2">
@@ -469,9 +467,9 @@
         </div>
       </div>
     </section>
-    
-    
-    
+
+
+
   <footer class="site-footer">
       <div class="container">
         <div class="row mb-3">
@@ -511,7 +509,7 @@
                   <div><a href="#"><span class="ion-chatbubble"></span> 19</a></div>
                 </div>
               </div>
-            </div>  --> 
+            </div>  -->
             <!-- <div class="block-21 d-flex mb-4">
               <div class="text">
                 <h3 class="heading mb-0"><a href="#">Dolore Tempora Consequatur</a></h3>
@@ -521,7 +519,7 @@
                   <div><a href="#"><span class="ion-chatbubble"></span> 19</a></div>
                 </div>
               </div>
-            </div>  
+            </div>
             <div class="block-21 d-flex mb-4">
               <div class="text">
                 <h3 class="heading mb-0"><a href="#">Perferendis eum illum</a></h3>
@@ -531,7 +529,7 @@
                   <div><a href="#"><span class="ion-chatbubble"></span> 19</a></div>
                 </div>
               </div>
-            </div>  
+            </div>
           </div> -->
           <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
             <h3 class="heading">Contact Information</h3>
@@ -547,7 +545,7 @@
         </div>
         <div class="row pt-5">
           <div class="col-md-12 text-center copyright">
-            
+
             <p class="float-md-left"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 <!-- Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" class="text-primary">Colorlib</a> -->
 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
@@ -563,7 +561,7 @@
       </div>
     </footer>
     <!-- END footer -->
-    
+
     <!-- loader -->
     <div id="loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#f4b214"/></svg></div>
 

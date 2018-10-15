@@ -21,7 +21,7 @@
   <body>
 
 <header role="banner">
-     
+
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
           <a class="navbar-brand absolute" href="index.html">NGO::connect</a>
@@ -64,16 +64,37 @@
                 <a href="logout.php">Log Out</a>
               </li>
             </ul>
-            
+
           </div>
         </div>
       </nav>
     </header>
 
+    <?php
+    $num_ngo = return_ngo_number_div_comdash();
+    global $ngo_data;
+    $ngo_data = array();
+    $ngo_data[] = get_ngo_data_comdash();
+    #print_r($ngo_data);
+    #echo $num_students;
+    ?>
+
     <section class="site-section">
       <div class="container">
         <div class="row justify-content-center">
-            <h1>Welcome <?php echo getuserfield('comname') ?>!</h1>
+
+            <div class="card-deck">
+              <?php for ($i=0; $i < $num_ngo; $i++):
+                $ngo_name = $ngo_data[0][0]['ngoname'];
+              ?>
+            <div class="card">
+              <div class="card-body">
+                <h4 class="card-title"><?php echo $ngo_name ?></h4>
+                <p class="card-text"> NGO </p>
+              </div>
+            </div>
+            <?php endfor; ?>
+          </div>
         </div>
       </div>
     </section>
@@ -117,7 +138,7 @@
                   <div><a href="#"><span class="ion-chatbubble"></span> 19</a></div>
                 </div>
               </div>
-            </div>  --> 
+            </div>  -->
             <!-- <div class="block-21 d-flex mb-4">
               <div class="text">
                 <h3 class="heading mb-0"><a href="#">Dolore Tempora Consequatur</a></h3>
@@ -127,7 +148,7 @@
                   <div><a href="#"><span class="ion-chatbubble"></span> 19</a></div>
                 </div>
               </div>
-            </div>  
+            </div>
             <div class="block-21 d-flex mb-4">
               <div class="text">
                 <h3 class="heading mb-0"><a href="#">Perferendis eum illum</a></h3>
@@ -137,7 +158,7 @@
                   <div><a href="#"><span class="ion-chatbubble"></span> 19</a></div>
                 </div>
               </div>
-            </div>  
+            </div>
           </div> -->
           <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
             <h3 class="heading">Contact Information</h3>
@@ -153,7 +174,7 @@
         </div>
         <div class="row pt-5">
           <div class="col-md-12 text-center copyright">
-            
+
             <p class="float-md-left"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 <!-- Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" class="text-primary">Colorlib</a> -->
 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
@@ -169,7 +190,7 @@
       </div>
     </footer>
     <!-- END footer -->
-    
+
     <!-- loader -->
     <div id="loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#f4b214"/></svg></div>
 

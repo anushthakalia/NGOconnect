@@ -95,7 +95,7 @@
           <div class="col-md-7 text-center">
   
             <div class="mb-5 element-animate">
-              <h1 class="mb-2">About me</h1>
+              <h1 class="mb-2">About Us</h1>
               <p class="bcrumb"><a href="index.php">Home</a> <span class="sep ion-android-arrow-dropright px-2"></span>  <span class="current">About Us</span></p>
             </div>
             
@@ -111,21 +111,20 @@
           <div class="col-md-6 order-md-2">
             <div class="block-16">
               <figure>
-                <img src="images/img_1.jpg" alt="Image placeholder" class="img-fluid">
+                <img src="images/care-volunteers-read-with-children.800.jpg" alt="Image placeholder" class="img-fluid">
               </figure>
             </div>
           </div>
           <div class="col-md-6 order-md-1">
 
             <div class="block-15">
-              <div class="heading">
-                <h2>Company History</h2>
-              </div>
               <div class="text mb-5">
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A quibusdam nisi eos accusantium eligendi velit deleniti nihil ad deserunt rerum incidunt nulla nemo eius molestiae architecto beatae asperiores doloribus animi.</p>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos quaerat aliquid blanditiis eum asperiores obcaecati, id officiis voluptate sint est excepturi quam itaque dicta delectus. Consequuntur, blanditiis maxime? Cupiditate, cum.</p>
-              <p>Porro cupiditate doloremque nihil architecto, id nisi tenetur obcaecati, harum nulla aut ipsam sunt ullam eos, ipsa odit voluptatibus veniam. Amet itaque incidunt cumque tenetur, omnis repellat non dolorem nostrum.</p>
-              
+              <p>NGOconnect is a platform where students can find meaningful Internships with various Non Governmental Organisations working to improve various aspects of our.</p>
+              <div class="heading">
+                <h2>Our Vision</h2>
+              </div>
+              <p>We like to change things. We believe in human potential. We believe in opportunities. This platform is a culmination of these believes. We constantly work on finding new ways to drive the positivity of action. We are focused on building the future where students can experience real opportunities to give back to the society while they continue their education and build a smarter future. We thrive to build a platform which helps the younger generation use their skills for making a better India.</p>
+                            
               </div>
               
             </div>
@@ -138,7 +137,7 @@
     </section>
     <!-- END section -->
 
-    <section class="site-section pt-3 element-animate">
+    <!-- <section class="site-section pt-3 element-animate">
       <div class="container">
         <div class="row justify-content-center mb-5 element-animate">
           <div class="col-md-7 text-center section-heading">
@@ -190,38 +189,38 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
     <!-- END section -->
 
     <div class="container site-section element-animate">
       <div class="row justify-content-center mb-5 element-animate">
           <div class="col-md-7 text-center section-heading">
-            <h2 class="text-primary heading">Why Choose Us</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit qui neque sint eveniet tempore sapiente.</p>
+            <h2 class="text-primary heading">Why Join Our Community</h2>
+            <p>At NGOconnect we promise to offer you a huge variety of opportunities to learn, grow and simultaneouly do your part for the social good.</p>
           </div>
         </div>
       <div class="block-3 d-md-flex pt-5">
         <div class="image" style="background-image: url('images/img_1.jpg'); "></div>
         <div class="text">
-          <h4 class="subheading">Nice text here</h4>
-          <h2 class="heading">Excellent Teachers</h2>
-          <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.</p>
+          <!-- <h4 class="subheading">Nice text here</h4> -->
+          <h2 class="heading">Experienced Mentors</h2>
+          <p>At NGOconnect we make sure our interns work under the guidance of highly skilled and qualified mentors, so that they gain the most during their time at the NGO.</p>
         </div>
       </div>
       <div class="block-3 d-md-flex">
         <div class="image order-2" style="background-image: url('images/img_2.jpg'); "></div>
         <div class="text order-1">
-          <h4 class="subheading">Nice text here</h4>
-          <h2 class="heading">Outstanding Facilities</h2>
-          <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.</p>
+          <!-- <h4 class="subheading">Nice text here</h4> -->
+          <h2 class="heading">Attractive Incentives</h2>
+          <p>Not only you learn and work for social good during your internship, the top performing interns at every NGO get some compensation like goodies, discount coupons etc. for their hardwork. </p>
         </div>
       </div>
       <div class="block-3 d-md-flex">
-        <div class="image" style="background-image: url('images/img_3.jpg'); "></div>
+        <div class="image" style="background-image: url('images/person-on-computer.jpg'); "></div>
         <div class="text">
-          <h4 class="subheading">Nice text here</h4>
-          <h2 class="heading">World Class Education</h2>
-          <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.</p>
+          <!-- <h4 class="subheading">Nice text here</h4> -->
+          <h2 class="heading">Easy to use Interface and Round-the-clock Support</h2>
+          <p>The whole process of finding internships, or listing them is super easy at NGOconnect. Just a few clicks and you're done. Also, we provide round the clock support through or facebook page. You can find us at facebook.com/NGOconnect. Feel free to drop a message there and we'll be happy to resolve all your technical (and also non-tehnical) queries.</p>
         </div>
       </div>
     </div>
@@ -231,8 +230,8 @@
       <div class="container">
         <div class="row justify-content-center mb-5">
             <div class="col-md-7 text-center section-heading">
-              <h2 class="text-primary heading">Frequently Ask Questions</h2>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit qui neque sint eveniet tempore sapiente.</p>
+              <h2 class="text-primary heading">Frequently Asked Questions</h2>
+              <p>Still have some doubts??. These FAQs might be able to answer them..</p>
             </div>
           </div>
         <div class="row">
@@ -240,44 +239,44 @@
             <div class="accordion block-8" id="accordion">
               <div class="accordion-item">
                 <h3 class="mb-0 heading">
-                  <a class="btn-block" data-toggle="collapse" href="#collapseOne" role="button" aria-expanded="true" aria-controls="collapseOne">What is the name of your company<span class="icon"></span></a>
+                  <a class="btn-block" data-toggle="collapse" href="#collapseOne" role="button" aria-expanded="true" aria-controls="collapseOne">I am a student willing to work for social welfare, how do I get started?<span class="icon"></span></a>
                 </h3>
                 <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
                   <div class="body-text">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur quae cumque perspiciatis aperiam accusantium facilis provident aspernatur nisi optio debitis dolorum, est eum eligendi vero aut ad necessitatibus nulla sit labore doloremque magnam! Ex molestiae, dolor tempora, ad fuga minima enim mollitia consequuntur, necessitatibus praesentium eligendi officia recusandae culpa tempore eaque quasi ullam magnam modi quidem in amet. Quod debitis error placeat, tempore quasi aliquid eaque vel facilis culpa voluptate.</p>
+                    <p>It's simple just register on our Home Page as a student, fill out your preferences upon which you'd be suggested with availible opportunities. You can then go ahead apply to one or more of these internships.</p>
                   </div>
                 </div>
               </div> <!-- .accordion-item -->
               
               <div class="accordion-item">
                 <h3 class="mb-0 heading">
-                  <a class="btn-block" data-toggle="collapse" href="#collapseTwo" role="button" aria-expanded="false" aria-controls="collapseTwo">How much pay for 3  months?<span class="icon"></span></a>
+                  <a class="btn-block" data-toggle="collapse" href="#collapseTwo" role="button" aria-expanded="false" aria-controls="collapseTwo">I am a NGO representative looking for volunteers to help our cause, how can I find them?<span class="icon"></span></a>
                 </h3>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
                   <div class="body-text">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel ad laborum expedita. Nostrum iure atque enim quisquam minima distinctio omnis, consequatur aliquam suscipit, quidem, esse aspernatur! Libero, excepturi animi repellendus porro impedit nihil in doloremque a quaerat enim voluptatum, perspiciatis, quas dignissimos maxime ut cum reiciendis eius dolorum voluptatem aliquam!</p>
+                    <p>It's simple just register on our Home Page as an NGO. Next step is to list down the various types of opportunities you've to offer along with skills and number of interns required. Later you can simply go through the profile of interested students and select one or more out of them.</p>
                   </div>
                 </div>
               </div> <!-- .accordion-item -->
 
               <div class="accordion-item">
                 <h3 class="mb-0 heading">
-                  <a class="btn-block" data-toggle="collapse" href="#collapseThree" role="button" aria-expanded="false" aria-controls="collapseThree">Do I need to register?  <span class="icon"></span></a>
+                  <a class="btn-block" data-toggle="collapse" href="#collapseThree" role="button" aria-expanded="false" aria-controls="collapseThree">Do I need to pay any charges?  <span class="icon"></span></a>
                 </h3>
                 <div id="collapseThree" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
                   <div class="body-text">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel ad laborum expedita. Nostrum iure atque enim quisquam minima distinctio omnis, consequatur aliquam suscipit, quidem, esse aspernatur! Libero, excepturi animi repellendus porro impedit nihil in doloremque a quaerat enim voluptatum, perspiciatis, quas dignissimos maxime ut cum reiciendis eius dolorum voluptatem aliquam!</p>
+                    <p>No..Nope..Nada..Nothing<br>It's totally free for everyone, whether you're a student looking to learn something or do some social good OR you're a NGO which is working for improving the status of a section of our society and is in search of some young and fresh minds who can help in some new and innovative ways. Nobody needs to pay anything for using NGOconnect.</p>
                   </div>
                 </div>
               </div> <!-- .accordion-item -->
 
               <div class="accordion-item">
                 <h3 class="mb-0 heading">
-                  <a class="btn-block" data-toggle="collapse" href="#collapseFour" role="button" aria-expanded="false" aria-controls="collapseFour">Who should I contact in case of support.<span class="icon"></span></a>
+                  <a class="btn-block" data-toggle="collapse" href="#collapseFour" role="button" aria-expanded="false" aria-controls="collapseFour">Who should I contact for more information?<span class="icon"></span></a>
                 </h3>
                 <div id="collapseFour" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
                   <div class="body-text">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel ad laborum expedita. Nostrum iure atque enim quisquam minima distinctio omnis, consequatur aliquam suscipit, quidem, esse aspernatur! Libero, excepturi animi repellendus porro impedit nihil in doloremque a quaerat enim voluptatum, perspiciatis, quas dignissimos maxime ut cum reiciendis eius dolorum voluptatem aliquam!</p>
+                    <p>Still have some doubts!!<br>Don't worry....<br>Feel free to call us on +91 99999 99999 (Mon to Fri 10AM to 6PM)<br>Or write to us at letstalk@ngoconnect.in</p>
                   </div>
                 </div>
               </div> <!-- .accordion-item -->

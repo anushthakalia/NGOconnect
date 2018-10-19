@@ -26,14 +26,14 @@
         <div class="container">
            <?php
               if(!loggedin()){
-                
+
                   echo '<a class="navbar-brand absolute" href="index.php">NGO::connect</a>';
-               
+
               }
               else{
-             
+
                echo '<a class="navbar-brand absolute" href="main.php">NGO::connect</a>';
-            
+
             }
             ?>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample05" aria-controls="navbarsExample05" aria-expanded="false" aria-label="Toggle navigation">
@@ -71,8 +71,13 @@
               </li>
             </ul>
             <ul class="navbar-nav absolute-right">
-              <li>
-                <a href="logout.php">Log Out</a>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="courses.php" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php echo getuserfield('firstname'); echo " "; echo getuserfield('surname')?></a>
+                <div class="dropdown-menu" aria-labelledby="dropdown04">
+                  <a class="dropdown-item" href="#">My Profile</a>
+                  <a class="dropdown-item" href="logout.php">Log Out</a>
+                </div>
+
               </li>
             </ul>
           </div>

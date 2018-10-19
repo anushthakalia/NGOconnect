@@ -26,7 +26,7 @@
 
     ?>
     <header role="banner">
-     
+
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
           <a class="navbar-brand absolute" href="index.php">NGO::connect</a>
@@ -68,18 +68,32 @@
               <li>
                <?php
               if(!loggedin()){
-                
+
                   echo '<a href="main.php">Login</a> / <a href="register.php">Register</a>';
-               
+
               }
               else{
-             
-               echo '<a href="logout.php">Log Out</a>';
-            
+
+                if(get_user()=='student'){
+                  echo '<a class="nav-link dropdown-toggle" href="courses.php" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">'; echo getuserfield('firstname'); echo " "; echo getuserfield('surname'); echo '</a>';
+
+                }
+                else if (get_user()=='ngo'){
+                    echo '<a class="nav-link dropdown-toggle" href="courses.php" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">'; echo getuserfield('ngoname'); echo '</a>';
+                }
+                else if (get_user()=='company'){
+                    echo '<a class="nav-link dropdown-toggle" href="courses.php" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">'; echo getuserfield('comname'); echo '</a>';
+                }
+
+                echo '<div class="dropdown-menu" aria-labelledby="dropdown04">
+                  <a class="dropdown-item" href="#">My Profile</a>
+                  <a class="dropdown-item" href="logout.php">Log Out</a>
+                </div>';
+
             }
             ?> </li>
             </ul>
-            
+
           </div>
         </div>
       </nav>
@@ -90,7 +104,7 @@
       <div class="container">
         <div class="row align-items-center justify-content-center site-hero-inner">
           <div class="col-md-10">
-  
+
             <div class="mb-5 element-animate">
               <div class="block-17">
                 <h2 class="heading text-center mb-4">Serve the Society. Intern at an NGO.</h2>
@@ -116,13 +130,13 @@
                       </select>
                     </div>
                   </div>
-                  <input type="submit" class="search-submit btn btn-primary" value="Search">  
+                  <input type="submit" class="search-submit btn btn-primary" value="Search">
                 </form>
                 <p class="text-center mb-5">We need people to help the society.</p>
                 <p class="text-center"><a href="register.php" class="btn py-3 px-5">Register Now</a></p>
               </div>
             </div>
-            
+
           </div>
         </div>
       </div>
@@ -153,11 +167,11 @@
               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A quibusdam nisi eos accusantium eligendi velit deleniti nihil ad deserunt rerum incidunt nulla nemo eius molestiae architecto beatae asperiores doloribus animi.</p>
               </div>
               <p><a href="#" class="btn btn-primary reverse py-2 px-4">Read More</a></p>
-              
+
             </div>
 
           </div>
-          
+
         </div>
 
       </div>
@@ -175,7 +189,7 @@
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit mess.</p>
                 <p><a href="#" class="more">Read More <span class="ion-arrow-right-c"></span></a></p>
               </div>
-            </div> 
+            </div>
           </div>
           <div class="col-md-6 col-lg-3">
             <div class="media block-6 d-block">
@@ -185,9 +199,9 @@
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit mess.</p>
                 <p><a href="#" class="more">Read More <span class="ion-arrow-right-c"></span></a></p>
               </div>
-            </div> 
+            </div>
           </div>
-          
+
           <div class="col-md-6 col-lg-3">
             <div class="media block-6 d-block">
               <div class="icon mb-3"><span class="flaticon-diploma"></span></div>
@@ -196,7 +210,7 @@
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit mess.</p>
                 <p><a href="#" class="more">Read More <span class="ion-arrow-right-c"></span></a></p>
               </div>
-            </div> 
+            </div>
           </div>
           <div class="col-md-6 col-lg-3">
             <div class="media block-6 d-block">
@@ -206,7 +220,7 @@
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit mess.</p>
                 <p><a href="#" class="more">Read More <span class="ion-arrow-right-c"></span></a></p>
               </div>
-            </div> 
+            </div>
           </div>
         </div>
       </div>
@@ -272,7 +286,7 @@
                     <span>Graduates</span>
                   </div>
                 </div>
-                
+
               </div>
             </div>
 
@@ -437,11 +451,11 @@
               </div>
             </div>
           </div>
-          
+
         </div>
       </div>
 
-      
+
     </div>
     <!-- END section -->
 
@@ -542,7 +556,7 @@
           </div>
         </div>
         <div class="row element-animate">
-          
+
           <div class="col-md-12 mb-5 mb-lg-0 col-lg-6">
 
             <div class="block-20 ">
@@ -561,7 +575,7 @@
 
           </div>
           <div class="col-md-12 col-lg-6">
-            
+
             <div class="block-21 d-flex mb-4">
               <figure class="mr-3">
                 <a href="#"><img src="images/img_1.jpg" alt="" class="img-fluid"></a>
@@ -574,7 +588,7 @@
                   <div><a href="#"><span class="ion-chatbubble"></span> 19</a></div>
                 </div>
               </div>
-            </div>  
+            </div>
 
             <div class="block-21 d-flex mb-4">
               <figure class="mr-3">
@@ -588,7 +602,7 @@
                   <div><a href="#"><span class="ion-chatbubble"></span> 19</a></div>
                 </div>
               </div>
-            </div>  
+            </div>
 
             <div class="block-21 d-flex mb-4">
               <figure class="mr-3">
@@ -602,7 +616,7 @@
                   <div><a href="#"><span class="ion-chatbubble"></span> 19</a></div>
                 </div>
               </div>
-            </div>  
+            </div>
 
             <div class="block-21 d-flex mb-4">
               <figure class="mr-3">
@@ -616,7 +630,7 @@
                   <div><a href="#"><span class="ion-chatbubble"></span> 19</a></div>
                 </div>
               </div>
-            </div>  
+            </div>
 
           </div>
         </div>
@@ -625,7 +639,7 @@
 
      <?php
               if(!loggedin()){
-                
+
                   echo '<div class="py-5 block-22">
                       <div class="container">
                         <div class="row align-items-center">
@@ -644,15 +658,15 @@
                         </div>
                       </div>
                     </div>';
-               
+
               }
               else{
-             
-            
+
+
             }
             ?>
 
-    
+
   <footer class="site-footer">
       <div class="container">
         <div class="row mb-3">
@@ -692,7 +706,7 @@
                   <div><a href="#"><span class="ion-chatbubble"></span> 19</a></div>
                 </div>
               </div>
-            </div>  --> 
+            </div>  -->
             <!-- <div class="block-21 d-flex mb-4">
               <div class="text">
                 <h3 class="heading mb-0"><a href="#">Dolore Tempora Consequatur</a></h3>
@@ -702,7 +716,7 @@
                   <div><a href="#"><span class="ion-chatbubble"></span> 19</a></div>
                 </div>
               </div>
-            </div>  
+            </div>
             <div class="block-21 d-flex mb-4">
               <div class="text">
                 <h3 class="heading mb-0"><a href="#">Perferendis eum illum</a></h3>
@@ -712,7 +726,7 @@
                   <div><a href="#"><span class="ion-chatbubble"></span> 19</a></div>
                 </div>
               </div>
-            </div>  
+            </div>
           </div> -->
           <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
             <h3 class="heading">Contact Information</h3>
@@ -728,7 +742,7 @@
         </div>
         <div class="row pt-5">
           <div class="col-md-12 text-center copyright">
-            
+
             <p class="float-md-left"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 <!-- Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" class="text-primary">Colorlib</a> -->
 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
@@ -744,7 +758,7 @@
       </div>
     </footer>
     <!-- END footer -->
-    
+
     <!-- loader -->
     <div id="loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#f4b214"/></svg></div>
 
@@ -756,7 +770,7 @@
     <script src="js/jquery.waypoints.min.js"></script>
     <script src="js/jquery.stellar.min.js"></script>
     <script src="js/jquery.animateNumber.min.js"></script>
-    
+
     <script src="js/jquery.magnific-popup.min.js"></script>
 
     <script src="js/main.js"></script>

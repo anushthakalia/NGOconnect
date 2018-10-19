@@ -74,7 +74,7 @@
                 else
                 {
                   $fk_ngo_id = rand(1,2);
-                  $query = "INSERT INTO `student` (id,password,firstname,surname,email,college,phone,fk_ngo_id) VALUES ('','".mysqli_real_escape_string($mysql_connect, $password_hash)."','".mysqli_real_escape_string($mysql_connect, $firstname)."','".mysqli_real_escape_string($mysql_connect, $surname)."','".mysqli_real_escape_string($mysql_connect, $email)."','".mysqli_real_escape_string($mysql_connect, $college)."','".mysqli_real_escape_string($mysql_connect, $phone)."','$fk_ngo_id')";
+                  $query = "INSERT INTO `student` (id,password,firstname,surname,email,college,phone,fk_ngo_id) VALUES ('','".mysqli_real_escape_string($mysql_connect, $password_hash)."','".mysqli_real_escape_string($mysql_connect, $firstname)."','".mysqli_real_escape_string($mysql_connect, $surname)."','".mysqli_real_escape_string($mysql_connect, $email)."','".mysqli_real_escape_string($mysql_connect, $college)."','".mysqli_real_escape_string($mysql_connect, $phone)."',NULL)";
                   echo $query;
                   if($query_run = mysqli_query($mysql_connect, $query))
                   {

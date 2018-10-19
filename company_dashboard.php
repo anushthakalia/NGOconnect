@@ -24,7 +24,18 @@
 
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
-          <a class="navbar-brand absolute" href="index.php">NGO::connect</a>
+           <?php
+              if(!loggedin()){
+                
+                  echo '<a class="navbar-brand absolute" href="index.php">NGO::connect</a>';
+               
+              }
+              else{
+             
+               echo '<a class="navbar-brand absolute" href="main.php">NGO::connect</a>';
+            
+            }
+            ?>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample05" aria-controls="navbarsExample05" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -75,8 +86,8 @@
     global $ngo_data;
     $ngo_data = array();
     $ngo_data[] = get_ngo_data_comdash();
-    #print_r($ngo_data);
-    #echo $num_students;
+    // print_r($ngo_data);
+    echo $num_ngo;
     ?>
 
     <section class="site-section">

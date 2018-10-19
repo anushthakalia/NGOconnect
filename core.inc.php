@@ -23,7 +23,7 @@ function getuserfield($field)
 	global $mysql_connect;
 	$query = "SELECT ".$field." FROM ".$_SESSION['table']." WHERE ".$_SESSION['table_id']."='".$_SESSION['user_id']."'";
 	
-	echo $_SESSION['table_id'];
+	// echo $_SESSION['table_id'];
 	if($query_run = mysqli_query($mysql_connect, $query))
 	{
 		$query_run = mysqli_query($mysql_connect, $query);
@@ -41,9 +41,10 @@ function return_internship_number_div_stdash()
 {
 	global $mysql_connect;
 	$intern_student_id = getuserfield('id');
-	$query = "SELECT * FROM internship_details WHERE fk_intern_id=$intern_student_id";
+	$query = "SELECT * FROM internship_details WHERE fk_intern_select_id=$intern_student_id";
 	#echo $query;
 	//echo $_SESSION['table_id'];
+	#echo $intern_student_id;
 	if($query_run = mysqli_query($mysql_connect, $query))
 	{
 		$query_run = mysqli_query($mysql_connect, $query);
@@ -59,8 +60,8 @@ function return_internship_number_div_stdash()
 function get_internship_data_stdash()
 {
 	global $mysql_connect;
-	$intern_ngo_id = getuserfield('id');
-	$query = "SELECT * FROM internship_details WHERE fk_intern_id='$intern_student_id'";
+	$intern_student_id = getuserfield('id');
+	$query = "SELECT * FROM internship_details WHERE fk_intern_select_id='$intern_student_id'";
 	if($query_run = mysqli_query($mysql_connect, $query))
 	{
 		$internship_push = array();
@@ -73,6 +74,7 @@ function get_internship_data_stdash()
 	}
 	else{
 		echo 'Unsucessful';
+
 	}
 }
 
@@ -227,7 +229,7 @@ function get_ngo_data_comdash()
 // =======
 function get_intern(){
 	global $mysql_connect;
-	$query = "SELECT * FROM `internships`";
+	$query = "SELECT * FROM `internship_details`";
 	//echo $_SESSION['table_id'];
 	if($query_run = mysqli_query($mysql_connect, $query))
 	{
@@ -242,7 +244,7 @@ function get_intern(){
 		
 	}	
 	else{
-		echo 'Unsucessful';}
+		echo 'Unsucessful_2';}
 
 }
 

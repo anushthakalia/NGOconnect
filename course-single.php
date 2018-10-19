@@ -26,7 +26,7 @@
     $id = $_GET['id'];
 
     global $mysql_connect;
-    $query = "SELECT * FROM `internships` WHERE `int_id`='$id'";
+    $query = "SELECT * FROM `internship_details` WHERE `internship_id`='$id'";
     if($query_run = mysqli_query($mysql_connect, $query))
       {
         $query_run = mysqli_query($mysql_connect, $query);
@@ -43,7 +43,18 @@
      
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
-          <a class="navbar-brand absolute" href="index.php">NGO::connect</a>
+           <?php
+              if(!loggedin()){
+                
+                  echo '<a class="navbar-brand absolute" href="index.php">NGO::connect</a>';
+               
+              }
+              else{
+             
+               echo '<a class="navbar-brand absolute" href="main.php">NGO::connect</a>';
+            
+            }
+            ?>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample05" aria-controls="navbarsExample05" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -107,8 +118,8 @@
           <div class="col-md-7 text-center">
   
             <div class="mb-5 element-animate">
-              <h1 class="mb-2"><?php echo $temp['Title'];?></h1>
-              <p class="bcrumb"><a href="index.php">Home</a> <span class="sep ion-android-arrow-dropright px-2"></span> <a href="courses.php">Internships</a> <span class="sep ion-android-arrow-dropright px-2"></span>  <span class="current"><?php echo $temp['Title'];?></span></p>
+              <h1 class="mb-2"><?php echo $temp['Name'];?></h1>
+              <p class="bcrumb"><a href="index.php">Home</a> <span class="sep ion-android-arrow-dropright px-2"></span> <a href="courses.php">Internships</a> <span class="sep ion-android-arrow-dropright px-2"></span>  <span class="current"><?php echo $temp['Name'];?></span></p>
             </div>
             
           </div>
@@ -134,7 +145,7 @@
                 <div class="row mb-5">
                   <div class="col-md-12 pt-5">
                     <h2>Description</h2>
-                    <?php echo $temp['Description'];?>
+                    <?php echo $temp['internship_descr'];?>
                   </div>
                 </div>
               </div>
@@ -271,7 +282,7 @@
             <?php
             global $mysql_connect;
             $array = get_intern();
-            $query = "SELECT `Title`,COUNT(*) as count FROM `internships` GROUP BY `Title` ORDER BY count DESC";
+            $query = "SELECT `Name`,COUNT(*) as count FROM `internship_details` GROUP BY `Name` ORDER BY count DESC";
             if($query_run = mysqli_query($mysql_connect, $query))
               {
                 $query_run = mysqli_query($mysql_connect, $query);
@@ -292,7 +303,7 @@
               <h3 class="heading">Categories</h3>
               <ul>
                 <?php for ($i = 0; $i < count($myarray); $i++) {?>
-                <li><a href="#"><?php echo $myarray[$i]['Title']?><span><?php echo $myarray[$i]['count']?></span></a></li>
+                <li><a href="#"><?php echo $myarray[$i]['Name']?><span><?php echo $myarray[$i]['count']?></span></a></li>
                 <?php }?>
               </ul>
             </div>

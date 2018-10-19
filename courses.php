@@ -33,7 +33,19 @@
      
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
-          <a class="navbar-brand absolute" href="index.php">NGO::connect</a>
+          <?php
+              if(!loggedin()){
+                
+                  echo '<a class="navbar-brand absolute" href="index.php">NGO::connect</a>';
+               
+              }
+              else{
+             
+               echo '<a class="navbar-brand absolute" href="main.php">NGO::connect</a>';
+            
+            }
+            ?>
+          
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample05" aria-controls="navbarsExample05" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -124,8 +136,8 @@
                                 <a href="course-single.html"><img src="images/img_1.jpg" alt="Image" class="img-fluid"></a>
                               </figure> -->
                                 <div class="text">
-                                  <h2 class="heading"><a href="#" onclick= "detailPage(this.id);" id="<?php echo $i?>"><?php echo $array[$i]['Title'];?></a></h2>
-                                  <p class="mb-1"><h6>NGO name</h6></p>
+                                  <h2 class="heading"><a href="#" onclick= "detailPage(this.id);" id="<?php echo $i?>"><?php echo $array[$i]['Name'];?></a></h2>
+                                  <p class="mb-1"><h6><?php echo $array[$i]['NGO'];?></h6></p>
                                   <p class="mb-1">Location(s): <?php echo $array[$i]['Location'];?></p>
                                    <p class="mb-1">Duration: <?php echo $array[$i]['Duration'];?></p>
                                   <div class="meta d-flex align-items-center">
@@ -161,7 +173,7 @@
           <!-- END content -->
           <?php
           global $mysql_connect;
-          $query = "SELECT `Title`,COUNT(*) as count FROM `internships` GROUP BY `Title` ORDER BY count DESC";
+          $query = "SELECT `Name`,COUNT(*) as count FROM `internship_details` GROUP BY `Name` ORDER BY count DESC";
           if($query_run = mysqli_query($mysql_connect, $query))
             {
               $query_run = mysqli_query($mysql_connect, $query);
@@ -183,7 +195,7 @@
               <h3 class="heading">Categories</h3>
               <ul>
                 <?php for ($i = 0; $i < count($myarray); $i++) {?>
-                <li><a href="#"><?php echo $myarray[$i]['Title']?><span><?php echo $myarray[$i]['count']?></span></a></li>
+                <li><a href="#"><?php echo $myarray[$i]['Name']?><span><?php echo $myarray[$i]['count']?></span></a></li>
                 <?php }?>
               </ul>
             </div>

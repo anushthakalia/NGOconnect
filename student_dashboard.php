@@ -24,7 +24,18 @@
 
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
-          <a class="navbar-brand absolute" href="index.php">NGO::connect</a>
+           <?php
+              if(!loggedin()){
+                
+                  echo '<a class="navbar-brand absolute" href="index.php">NGO::connect</a>';
+               
+              }
+              else{
+             
+               echo '<a class="navbar-brand absolute" href="main.php">NGO::connect</a>';
+            
+            }
+            ?>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample05" aria-controls="navbarsExample05" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -76,7 +87,7 @@
   <div class="card">
     <div class="card-block">
       <br>
-      <!-- <h4 class="card-title">Welcome <?php echo getuserfield('internship_') ?> !</h4> -->
+      <!-- <h4 class="card-title">Welcome <?php #echo getuserfield('internship_') ?> !</h4> -->
       <h2 class="card-subtitle" style="text-align:center;"> Internship and Task associations</h2>
       <br>
       <div class="container">

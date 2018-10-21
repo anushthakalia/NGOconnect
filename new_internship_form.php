@@ -19,17 +19,20 @@
     <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
+    <?php
+    require 'connect.inc.php';
+    require 'core.inc.php';
 
-<header role="banner">
+    ?>
+
+    <header role="banner">
 
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
-
            <?php
               if(!loggedin()){
 
                   echo '<a class="navbar-brand absolute" href="index.php">NGO::connect</a>';
-
               }
               else{
 
@@ -37,9 +40,7 @@
 
             }
             ?>
-
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample05" aria-controls="navbarsExample05" aria-expanded="false" aria-label="Toggle navigation">
-
             <span class="navbar-toggler-icon"></span>
           </button>
 
@@ -66,112 +67,145 @@
                 </div>
 
               </li> -->
-
               <li class="nav-item">
                 <a class="nav-link" href="about.php">About</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="contact.php">Contact</a>
               </li>
-              <li class = "nav-time">
-                <a class="nav-link" href="new_internship_form.php"><b>Add an internship!</b></a>
-              <!-- <button type="button" class="btn navbar-btn"><b>Add an internship</button> -->
-              </li>
             </ul>
             <ul class="navbar-nav absolute-right">
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="courses.php" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php echo getuserfield('ngoname')?></a>
-                <div class="dropdown-menu" aria-labelledby="dropdown04">
+              <li>
+                <?php
+              if(!loggedin()){
+
+                  echo '<a href="main.php">Login</a> / <a href="register.php">Register</a>';
+
+              }
+              else{
+
+                if(get_user()=='student'){
+                  echo '<a class="nav-link dropdown-toggle" href="courses.php" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">'; echo getuserfield('firstname'); echo " "; echo getuserfield('surname'); echo '</a>';
+
+                }
+                else if (get_user()=='ngo'){
+                    echo '<a class="nav-link dropdown-toggle" href="courses.php" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">'; echo getuserfield('ngoname'); echo '</a>';
+                }
+                else if (get_user()=='company'){
+                    echo '<a class="nav-link dropdown-toggle" href="courses.php" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">'; echo getuserfield('comname'); echo '</a>';
+                }
+
+                echo '<div class="dropdown-menu" aria-labelledby="dropdown04">
                   <a class="dropdown-item" href="#">My Profile</a>
                   <a class="dropdown-item" href="logout.php">Log Out</a>
-                </div>
+                </div>';
 
+            }
+            ?>
               </li>
             </ul>
+
           </div>
         </div>
       </nav>
     </header>
+    <!-- END header -->
 
-    <?php
-    $num_students = return_intern_number_li_ngdash();
-    global $intern_data;
-    $intern_data = array();
-    $intern_data[] = get_intern_data_ngdash ();
-    #print_r($intern_data);
-    #echo $num_students;
-    ?>
+    <section class="site-hero site-sm-hero overlay" data-stellar-background-ratio="0.5" style="background-image: url(images/big_image_2.jpg);">
+      <div class="container">
+        <div class="row align-items-center justify-content-center site-hero-sm-inner">
+          <div class="col-md-7 text-center">
 
-    <?php
-    $num_company = return_company_number_div_ngdash();
-    global $company_data;
-    $company_data = array();
-    $company_data[] = get_company_data_ngdash();
-    #print_r($company_data);
-    #echo $num_students;
-    ?>
+            <div class="mb-5 element-animate">
+              <h1 class="mb-2">Add an internship @ <?php echo getuserfield('ngoname');?></h1>
 
-    <?php
-    $num_posts = return_internship_number_div_ngdash();
-    global $internship_data;
-    $internship_data = array();
-    $internship_data[] = get_internship_data_ngdash();
-    #print_r($internship_data);
-    #echo $num_students;
-    ?>
+              <p></p>
+              <!-- <p class="bcrumb"><a href="index.php">Home</a> <span class="sep ion-android-arrow-dropright px-2"></span>  <span class="current">Contact Us</span></p> -->
+            </div>
 
-<br>
-<div class="container">
-    <div class="card-deck">
-      <div class="card">
-        <div class="card-body text-center">
-          <p class="card-text"><b>Your Internships</b></p>
-            <?php for ($i=0; $i < $num_posts; $i++):
-              $internship_name = $internship_data[0][$i]['Name'];
-              $internship_NGO = $internship_data[0][$i]['NGO'];
-            ?>
-            <ul class=list-group>
-            <h3><?php echo $internship_name." - ".$internship_NGO?></h3>
-            </ul>
-          <?php endfor; ?>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-body text-center">
-          <p class="card-text"><b>Your partner companies</b></p>
-          <?php for ($i=0; $i < $num_company; $i++):
-            $company_name = $company_data[0][0]['comname'];
-          ?>
-          <ul class=list-group>
-          <h3><?php echo $company_name ?></h3>
-          </ul>
-        <?php endfor; ?>
-        </div>
-      </div>
-
-        <div class="card">
-        <div class="card-body text-center">
-          <p class="card-text"><b>Your interns!</b></p>
-          <ul class="list-group">
-            <?php for ($i=0; $i < $num_students; $i++):
-              $intern_name = $intern_data[0][$i]['firstname']." ".$intern_data[0][$i]['surname'];
-              $intern_college = $intern_data[0][$i]['college'];
-              $intern_phone = $intern_data[0][$i]['phone'];
-            ?>
-            <li class="list-group-item"><?php echo($intern_name);echo("<br>");echo($intern_college) ?></li>
-          </ul>
-                <?php endfor; ?>
           </div>
         </div>
       </div>
-
+    </section>
+    <!-- END section -->
+    <div class="container contact-form">
+      <br>
+                <form method="post">
+                    <h3>Internship details</h3>
+                   <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input type="text" name="txtDesignation" class="form-control" placeholder="Internship Title *" value="" />
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="txtCompany" class="form-control" placeholder="Internship sponsored by (Optional)" value="" />
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="txtLocation" class="form-control" placeholder="Internship Location *" value="" />
+                            </div>
+                            <div class="form-group">
+                                <input type="number" name="txtDuration" class="form-control" placeholder="Internship Duration (in months)*" value="" />
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="txtEmail" class="form-control" placeholder="Contact E-mail *" value="" />
+                            </div>
+                            <div class="form-group">
+                                <b>Internship starts from:</b>
+                                <input type="date" name="txtStartdate" class="form-control" value="" />
+                            </div>
+                            <div class="form-group">
+                                <b>Internship application deadline:</b>
+                                <input type="date" name="txtApplydate" class="form-control" value="" />
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <textarea name="txtDescription" class="form-control" placeholder="Internship description (Max 500 Words)*" style="width: 100%; height: 350px;"></textarea>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <!-- <input type="submit" name="btnSubmit" class="btnContact" value="Submit Internship" /> -->
+                            <button type="submit" class="btn btn-info">Submit Internship!</button>
+                        </div>
+                    </div>
+                </form>
+                <?php
+                error_reporting(0);
+                if(($_POST["txtDesignation"] == NULL) || ($_POST["txtDuration"] == NULL) ||
+                    ($_POST["txtEmail"] == NULL) || ($_POST["txtStartdate"] == NULL) || ($_POST["txtApplydate"] == NULL) ||
+                      ($_POST["txtDescription"] == NULL) || ($_POST["txtLocation"] == NULL)){
+                  echo "<b>Please fill all entries and try to submit again.</b>";
+                } else{
+                  mysqli_query($mysql_connect,'SET foreign_key_checks = 0');
+                  $ngo_name = getuserfield("ngoname");
+                  $insert_query = " INSERT INTO internship_details VALUES ('', '".$_POST["txtDesignation"]."', '$ngo_name',
+                     '".$_POST["txtCompany"]."', '".$_POST["txtDescription"]."', '".$_POST["txtLocation"]."',
+                      '".$_POST["txtStartdate"]."', '".$_POST["txtDuration"]."', '".$_POST["txtApplydate"]."', '', '', '  ') " ;
+                  $test_query = mysqli_query($mysql_connect, $insert_query);
+                  if($test_query){
+                    #echo "successful query!";
+                  }
+                  #echo $insert_query;
+                  echo "<b>Entry successful!</b>";
+                }#echo $_POST["txtDesignation"];
+                ?>
     </div>
-</div>
 
-    <footer class="site-footer">
+
+    <!-- END section -->
+
+    <!-- <div id="map"></div> -->
+
+     <?php
+     if(!loggedin()){
+       header('Location: index.php');
+     }
+
+     ?>
+
+
+  <footer class="site-footer">
       <div class="container">
-        <hr>
         <div class="row mb-3">
           <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
             <h3>NGO::connect</h3>
@@ -273,6 +307,12 @@
     <script src="js/jquery.waypoints.min.js"></script>
     <script src="js/jquery.stellar.min.js"></script>
     <script src="js/jquery.animateNumber.min.js"></script>
+
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+    <script src="js/google-map.js"></script>
+
+
     <script src="js/main.js"></script>
   </body>
 </html>

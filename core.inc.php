@@ -22,7 +22,7 @@ function getuserfield($field)
 {
 	global $mysql_connect;
 	$query = "SELECT ".$field." FROM ".$_SESSION['table']." WHERE ".$_SESSION['table_id']."='".$_SESSION['user_id']."'";
-	
+
 	// echo $_SESSION['table_id'];
 	if($query_run = mysqli_query($mysql_connect, $query))
 	{
@@ -241,8 +241,8 @@ function get_intern(){
 		}
 		// $return_field = $query_row[$field];
 		return $myarray;
-		
-	}	
+
+	}
 	else{
 		echo 'Unsucessful_2';}
 

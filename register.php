@@ -39,10 +39,8 @@
         if(isset($_POST['email'])&&isset($_POST['firstname'])&&isset($_POST['surname'])&&isset($_POST['phone'])&&isset($_POST['pass'])&&isset($_POST['repass'])&&isset($_POST['college']))
         {
           $email = trim($_POST['email']);
-
           $password = trim($_POST['pass']);
           $password_again = trim($_POST['repass']);
-
           $firstname = trim($_POST['firstname']);
           $surname = trim($_POST['surname']);
           $phone= trim($_POST['phone']);
@@ -72,17 +70,29 @@
                   echo 'The email '.$email.' already exists.';
                 }
                 else
-                {
+                {// ADD CHECKS FOR RESUME UPLOAD
                   $fk_ngo_id = rand(1,2);
-                  $query = "INSERT INTO `student` (id,password,firstname,surname,email,college,phone,fk_ngo_id) VALUES ('','".mysqli_real_escape_string($mysql_connect, $password_hash)."','".mysqli_real_escape_string($mysql_connect, $firstname)."','".mysqli_real_escape_string($mysql_connect, $surname)."','".mysqli_real_escape_string($mysql_connect, $email)."','".mysqli_real_escape_string($mysql_connect, $college)."','".mysqli_real_escape_string($mysql_connect, $phone)."',NULL)";
-                  echo $query;
-                  if($query_run = mysqli_query($mysql_connect, $query))
-                  {
-                    header('Location: main.php');
-                  }
-                  else
-                  {
-                    echo 'Sorry, we couldn\'t register you at this time. Try again later.';
+                  $target_Path = "uploads/";
+                  $target_Path = $target_Path.basename( $_FILES["fileToUpload"]["name"] );
+                  $file = $_FILES["fileToUpload"]["name"];
+                  $FileType = strtolower(pathinfo($target_Path,PATHINFO_EXTENSION));
+                  if($FileType != "pdf") {
+                          echo "Sorry, only PDF files are allowed.";
+                      }
+                  else{
+                    $query = "INSERT INTO `student` (id,password,firstname,surname,email,college,phone,Resume) VALUES ('','".mysqli_real_escape_string($mysql_connect, $password_hash)."','".mysqli_real_escape_string($mysql_connect, $firstname)."','".mysqli_real_escape_string($mysql_connect, $surname)."','".mysqli_real_escape_string($mysql_connect, $email)."','".mysqli_real_escape_string($mysql_connect, $college)."','".mysqli_real_escape_string($mysql_connect, $phone)."','".mysqli_real_escape_string($mysql_connect, $file)."')";
+                    // echo $query;
+                    
+
+                    if($query_run = mysqli_query($mysql_connect, $query))
+                    { 
+                    move_uploaded_file( $_FILES["fileToUpload"]["tmp_name"], $target_Path );
+                      header('Location: main.php');
+                    }
+                    else
+                    {
+                      echo 'Sorry, we couldn\'t register you at this time. Try again later.';
+                    }
                   }
                 }
               }
@@ -243,7 +253,7 @@
 
           <div class="collapse navbar-collapse navbar-light" id="navbarsExample05">
             <ul class="navbar-nav mx-auto">
-              <li class="nav-item dropdown">
+              <!-- <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="courses.php" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Internships</a>
                 <div class="dropdown-menu" aria-labelledby="dropdown04">
                   <a class="dropdown-item" href="courses.php">Volunteer</a>
@@ -251,7 +261,7 @@
                   <a class="dropdown-item" href="courses.php">Web Development</a>
                 </div>
 
-              </li>
+              </li> -->
 
               <!-- li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="dropdown05" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categories</a>
@@ -264,6 +274,9 @@
                 </div>
 
               </li> -->
+              <li class="nav-item">
+                <a class="nav-link" href="courses.php">Internships</a>
+              </li>
               <li class="nav-item">
                 <a class="nav-link" href="about.php">About</a>
               </li>
@@ -318,7 +331,7 @@
                 <div class="tab-content row">
                     <div class="tab-pane active" id="1">
                       <h2 class="mb-5">Register new Student account</h2>
-                      <form action="<?php echo $current_file; ?>" method="post">
+                      <form action="<?php echo $current_file; ?>" method="post" enctype="multipart/form-data">
 
                         <div class="row">
                           <div class="col-md-12 form-group">
@@ -362,6 +375,13 @@
                             <input name = "repass" type="password" id="name17" class="form-control py-2">
                           </div>
                         </div>
+                        <div class="row mb-5">
+                          <div class="col-md-12 form-group">
+                            <label for="name">Resume</label><br>
+                           <input type="file" name="fileToUpload" id="fileToUpload">
+                          </div>
+                        </div>
+                        
 
                         <div class="row">
                           <div class="col-md-6 form-group">

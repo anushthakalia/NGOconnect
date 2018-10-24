@@ -17,13 +17,20 @@
 
     <!-- Theme Style -->
     <link rel="stylesheet" href="css/style.css">
+<!--     <script>
+      function redirectPage (id) {
+        
+       window.location = '/NGOconnect/apply.php?id='+ id;    }
+    </script> -->
   </head>
   <body>
     <?php
     require 'connect.inc.php';
     require 'core.inc.php';
+    $_SESSION['apply']=FALSE;
 
-    $id = $_GET['id'];
+    $loggedin = loggedin();
+    $id = $_GET['id']; 
 
     global $mysql_connect;
     $query = "SELECT * FROM `internship_details` WHERE `internship_id`='$id'";
@@ -37,6 +44,44 @@
       else{
         $temp = 'Unsucessful';
             }
+
+    if (isset($_POST['student-apply'])){
+
+
+
+     if(!loggedin()){
+     echo "<script>alert('You need to log in First');document.location='main.php'</script>";
+   }
+   else{
+   if($_SESSION['table']=='student'){
+   $userid = $_SESSION['user_id'];
+   // ADD CHECK IF SAME ALREADY EXISTS SO THAT REFRESH DOES NOT LEAD TO REENTRY
+   $query = "INSERT INTO `student_internship_apply` (apply_id,fk_intern_id,fk_internship_details_id) VALUES ('','".mysqli_real_escape_string($mysql_connect, $userid)."','".mysqli_real_escape_string($mysql_connect, $id)."')";
+                  
+                    
+
+    if($query_run = mysqli_query($mysql_connect, $query))
+    { 
+    $message = 'Applied! We have sent your resume to the NGO';
+     echo "<script type='text/javascript'>alert(\"$message\");</script>"; 
+     $_SESSION['apply'] = TRUE;
+    }
+    else
+    {
+      $message = 'Could not apply. Error on server end. Sorry!';
+     echo "<script type='text/javascript'>alert(\"$message\");</script>"; 
+    }
+   
+   
+
+
+   }
+   else{
+   $message = 'Only students can apply to this job';
+   echo "<script type='text/javascript'>alert(\"$message\");</script>";
+ }
+   }
+ }
     ?>
 
     <header role="banner">
@@ -61,7 +106,7 @@
 
           <div class="collapse navbar-collapse navbar-light" id="navbarsExample05">
             <ul class="navbar-nav mx-auto">
-              <li class="nav-item dropdown">
+              <!-- <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="courses.php" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Internships</a>
                 <div class="dropdown-menu" aria-labelledby="dropdown04">
                   <a class="dropdown-item" href="courses.php">Volunteer</a>
@@ -69,7 +114,7 @@
                   <a class="dropdown-item" href="courses.php">Web Development</a>
                 </div>
 
-              </li>
+              </li> -->
 
               <!-- li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="dropdown05" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categories</a>
@@ -82,6 +127,9 @@
                 </div>
 
               </li> -->
+              <li class="nav-item">
+                <a class="nav-link" href="courses.php">Internships</a>
+              </li>
               <li class="nav-item">
                 <a class="nav-link" href="about.php">About</a>
               </li>
@@ -160,6 +208,10 @@
                   <div class="col-md-12 pt-5">
                     <h2>Description</h2>
                     <?php echo $temp['internship_descr'];?>
+                    <form action="<?php echo $current_file.'?id='.$id;?>" method="post">
+                    <input name = "student-apply"  type="submit" value="<?php if($_SESSION['apply']==TRUE){echo 'Applied';}else{echo 'Apply';}?>" class="btn btn-primary px-5 py-2" <?php if($_SESSION['apply']==TRUE){echo 'disabled';}?>>
+                    <!-- onclick= "redirectPage("<?php echo $id;?>");" -->
+                  </form>
                   </div>
                 </div>
               </div>

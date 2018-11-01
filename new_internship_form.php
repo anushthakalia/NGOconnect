@@ -78,9 +78,7 @@
               <li>
                 <?php
               if(!loggedin()){
-
                   echo '<a href="main.php">Login</a> / <a href="register.php">Register</a>';
-
               }
               else{
 
@@ -131,41 +129,65 @@
     <div class="container contact-form">
       <br>
                 <form method="post">
-                    <h3>Internship details</h3>
+                    <h1>Internship details</h1>
                    <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <input type="text" name="txtDesignation" class="form-control" placeholder="Internship Title *" value="" />
+                              <b>Internship title *</b>
+                                <!-- <input type="text" name="txtDesignation" class="form-control" value="" /> -->
+                                <select name="txtDesignation" class="form-control">
+                                <option value=""></option>
+                                <option value="Data Science">Data Science</option>
+                                <option value="Programming">Programming</option>
+                                <option value="Web Development">Web Development</option>
+                                <option value="General Management">General Management</option>
+                                <option value="Other">Other</option>
+                                </select>
                             </div>
                             <div class="form-group">
-                                <input type="text" name="txtCompany" class="form-control" placeholder="Internship sponsored by (Optional)" value="" />
+                            <b>Internship sponsored by (Optional)</b>
+                                <input type="text" name="txtCompany" class="form-control" placeholder="" value="" />
                             </div>
                             <div class="form-group">
-                                <input type="text" name="txtLocation" class="form-control" placeholder="Internship Location *" value="" />
+                            <b>Internship Location *</b>
+                                <!-- <input type="text" name="txtLocation" class="form-control" placeholder="" value="" /> -->
+                                <select name="txtLocation" class="form-control">
+                                <option value=""></option>
+                                <option value="Delhi">Delhi</option>
+                                <option value="Hyderabad">Hyderabad</option>
+                                <option value="Mumbai">Mumbai</option>
+                                <option value="Chennai">Chennai</option>
+                                <option value="Other">Other</option>
+                                </select>
                             </div>
                             <div class="form-group">
-                                <input type="number" name="txtDuration" class="form-control" placeholder="Internship Duration (in months)*" value="" />
+                            <b>Internship Duration (in months) * </b>
+                                <input type="number" name="txtDuration" class="form-control" placeholder="" value="" />
                             </div>
                             <div class="form-group">
-                                <input type="text" name="txtEmail" class="form-control" placeholder="Contact E-mail *" value="" />
+                                <b>Contact email *</b>
+                                <input type="text" name="txtEmail" class="form-control" value="" />
                             </div>
                             <div class="form-group">
-                                <b>Internship starts from:</b>
+                                <b>Internship starts from *</b>
                                 <input type="date" name="txtStartdate" class="form-control" value="" />
                             </div>
                             <div class="form-group">
-                                <b>Internship application deadline:</b>
+                                <b>Internship application deadline *</b>
                                 <input type="date" name="txtApplydate" class="form-control" value="" />
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <textarea name="txtDescription" class="form-control" placeholder="Internship description (Max 500 Words)*" style="width: 100%; height: 350px;"></textarea>
+                            <b>Internship description (Max 500 Words) *</b>
+                                <textarea name="txtDescription" class="form-control" placeholder="" style="width: 100%; height: 350px;"></textarea>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <!-- <input type="submit" name="btnSubmit" class="btnContact" value="Submit Internship" /> -->
-                            <button type="submit" class="btn btn-info">Submit Internship!</button>
+                            <button type="submit" class="btn btn-primary px-5 py-2">Submit Internship</button>
+                            <br>
+                            <br>
                         </div>
                     </div>
                 </form>
@@ -182,11 +204,9 @@
                      '".$_POST["txtCompany"]."', '".$_POST["txtDescription"]."', '".$_POST["txtLocation"]."',
                       '".$_POST["txtStartdate"]."', '".$_POST["txtDuration"]."', '".$_POST["txtApplydate"]."', '', '', '  ') " ;
                   $test_query = mysqli_query($mysql_connect, $insert_query);
-                  if($test_query){
-                    #echo "successful query!";
-                  }
+                  sleep(1);
                   #echo $insert_query;
-                  echo "<b>Entry successful!</b>";
+                  echo "<script>alert('Entry successful!');document.location='main.php'</script>";
                 }#echo $_POST["txtDesignation"];
                 ?>
     </div>

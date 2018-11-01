@@ -47,7 +47,7 @@
 
           <div class="collapse navbar-collapse navbar-light" id="navbarsExample05">
             <ul class="navbar-nav mx-auto">
-              <!-- <li class="nav-item dropdown">
+              <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="courses.php" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Internships</a>
                 <div class="dropdown-menu" aria-labelledby="dropdown04">
                   <a class="dropdown-item" href="courses.php">Volunteer</a>
@@ -55,7 +55,7 @@
                   <a class="dropdown-item" href="courses.php">Web Development</a>
                 </div>
 
-              </li> -->
+              </li>
 
               <!-- li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="dropdown05" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categories</a>
@@ -68,9 +68,6 @@
                 </div>
 
               </li> -->
-              <li class="nav-item">
-                <a class="nav-link" href="courses.php">Internships</a>
-              </li>
               <li class="nav-item">
                 <a class="nav-link" href="about.php">About</a>
               </li>

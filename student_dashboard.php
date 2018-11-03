@@ -88,59 +88,59 @@
 <!-- <h1>Welcome <#?php #echo getuserfield('firstname') ?>!</h1>  -->
 <br>
 
-<div class="container">
-  <div class="card">
-    <div class="card-block">
-      <br>
-      <!-- <h4 class="card-title">Welcome <?php #echo getuserfield('internship_') ?> !</h4> -->
-      <h2 class="card-subtitle" style="text-align:center;"> Internship and Task associations</h2>
-      <br>
-      <div class="container">
-        <section class="col-xs-12 col-sm-6 col-md-12">
+<!-- END section -->
 
-        <?php
-
-        $internship_number = return_internship_number_div_stdash();
-        global $internship_data;
-        $internship_data = array();
-        $internship_data[] = get_internship_data_stdash();
-        #print_r($internship_data);
-        for($i=0;$i<$internship_number;$i++):
-          $title_name = $internship_data[0][$i]['Name'];
-          $internship_descr = $internship_data[0][$i]['internship_descr'];
-          $internship_NGO = $internship_data[0][$i]['NGO'];
-          ?>
-
-        <div class="container">
-    		<article class="search-result row">
-    			<div class="col-xs-12 col-sm-12 col-md-3">
-            <br><br><i class="glyphicon glyphicon-education"></i>
-    				<a href="#" title="Lorem ipsum" style="text-align:center"><h1><?php echo $internship_NGO ?></h1></a>
-    			</div>
-    			<div class="col-xs-12 col-sm-12 col-md-2">
-    				<ul class="meta-search">
-    					<li><i class="glyphicon glyphicon-calendar"></i> <span>02/15/2014</span></li>
-    					<li><i class="glyphicon glyphicon-time"></i> <span>4:28 pm</span></li>
-    					<li><i class="glyphicon glyphicon-tags"></i> <span>People</span></li>
-    				</ul>
-    			</div>
-    			<div class="col-xs-12 col-sm-12 col-md-7 excerpet">
-    				<h4><a href="#" title=""><?php echo ($title_name)?></a></h4>
-    				<p><?php echo ($internship_descr)?></p>
-            <span class="plus"><a href="#" title="Lorem ipsum"><i class="glyphicon glyphicon-plus"></i></a></span>
-    			</div>
-    			<span class="clearfix borda"></span>
-    		</article>
+<div class="site-section bg-light">
+  <div class="container">
+    <div class="row justify-content-center mb-5 element-animate">
+      <div class="col-md-7 text-center section-heading">
+        <h2 class="text-primary heading">Internship and Task Associations</h2>
       </div>
-        <?php endfor; ?>
+    </div>
+  </div>
+  <div class="container-fluid block-11 element-animate center">
+    <div class="nonloop-block-12 owl-carousel">
 
-    	</section>
-        </div>
-      <!-- <img src="https://www.featurepics.com/StockImage/20150713/indian-college-student-stock-picture-3656033.jpg" height="100" width="100" class="img-fluid" alt="Responsive image"> -->
+      <?php
+
+      $internship_number = return_internship_number_div_stdash();
+      global $internship_data;
+      $internship_data = array();
+      $internship_data[] = get_internship_data_stdash();
+      #print_r($internship_data);
+      for($i=0;$i<$internship_number;$i++):
+        $title_name = $internship_data[0][$i]['Name'];
+        $internship_descr = $internship_data[0][$i]['internship_descr'];
+        $internship_NGO = $internship_data[0][$i]['NGO'];
+        ?>
+
+      <div class="item">
+        <div class="block-19">
+            <figure>
+              <img src="images/<?php echo $internship_NGO ?>.png" alt="Image" class="img-fluid">
+            </figure>
+
+              <!-- <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit qui neque sint eveniet tempore sapiente.</p>
+              <div class="meta d-flex align-items-center">
+              </div> -->
+            <div class="text">
+              <h2 class="heading"><a href="#"><?php echo ($title_name)?></a></h2>
+              <p class="mb-4"><?php echo ($internship_descr)?></p>
+              <div class="meta d-flex align-items-center">
+              </div>
+            </div>
+          </div>
+      </div>
+
+      <?php endfor; ?>
+
     </div>
   </div>
 
+
 </div>
+<!-- END section -->
+
 
 
 

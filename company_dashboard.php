@@ -95,26 +95,48 @@
     echo $num_ngo;
     ?>
 
-    <section class="site-section">
-      <div class="container">
-        <div class="row justify-content-center">
+    <!-- END section -->
 
-            <div class="card-deck">
-              <?php for ($i=0; $i < $num_ngo; $i++):
-                $ngo_name = $ngo_data[0][0]['ngoname'];
-              ?>
-            <div class="card">
-              <div class="card-body">
-                <h4 class="card-title"><?php echo $ngo_name ?></h4>
-                <p class="card-text"> NGO </p>
-              </div>
-            </div>
-            <?php endfor; ?>
+    <div class="site-section bg-light">
+      <div class="container">
+        <div class="row justify-content-center mb-5 element-animate">
+          <div class="col-md-7 text-center section-heading">
+            <h2 class="text-primary heading">Your Partner NGOs</h2>
           </div>
         </div>
       </div>
-    </section>
+      <div class="container-fluid block-11 element-animate center">
+        <div class="nonloop-block-12 owl-carousel">
 
+          <?php for ($i=0; $i < $num_ngo; $i++):
+            $ngo_name = $ngo_data[0][0]['ngoname'];
+          ?>
+
+          <div class="item">
+            <div class="block-19">
+                <figure>
+                  <img src="images/<?php echo $ngo_name ?>.png" alt="Image" class="img-fluid">
+                </figure>
+
+                  <!-- <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit qui neque sint eveniet tempore sapiente.</p>
+                  <div class="meta d-flex align-items-center">
+                  </div> -->
+                <div class="text">
+                  <h2 class="heading"><a href="#"><?php echo ($ngo_name)?></a></h2>
+                  <div class="meta d-flex align-items-center">
+                  </div>
+                </div>
+              </div>
+          </div>
+
+          <?php endfor; ?>
+
+        </div>
+      </div>
+
+
+    </div>
+    <!-- END section -->
     <footer class="site-footer">
       <div class="container">
         <div class="row mb-3">

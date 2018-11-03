@@ -6,7 +6,7 @@
 
   // loader
   var loader = function() {
-    setTimeout(function() { 
+    setTimeout(function() {
       if($('#loader').length > 0) {
         $('#loader').removeClass('show');
       }
@@ -24,7 +24,7 @@
     scrollProperty: 'scroll'
   });
 
-	
+
 	$('nav .dropdown').hover(function(){
 		var $this = $(this);
 		$this.addClass('show');
@@ -145,14 +145,14 @@
 	});
 
 
- 
+
 
 	var contentWayPoint = function() {
 		var i = 0;
 		$('.element-animate').waypoint( function( direction ) {
 
 			if( direction === 'down' && !$(this.element).hasClass('element-animated') ) {
-				
+
 				i++;
 
 				$(this.element).addClass('item-animate');
@@ -174,9 +174,9 @@
 							el.removeClass('item-animate');
 						},  k * 100);
 					});
-					
+
 				}, 100);
-				
+
 			}
 
 		} , { offset: '95%' } );
@@ -216,9 +216,41 @@
       }
     });
 
+		$('.nonloop-block-12').owlCarousel({
+	      center: true,
+	      items:1,
+	      loop:false,
+	      stagePadding: 10,
+	      margin:0,
+	      nav: true,
+	      navText: ['<span class="ion-android-arrow-back">', '<span class="ion-android-arrow-forward">'],
+	      responsive:{
+	        600:{
+	          margin:20,
+	          stagePadding: 10,
+	          items:2
+	        },
+	        800:{
+	          margin:20,
+	          stagePadding: 10,
+	          items:2
+	        },
+	        1000:{
+	          margin:20,
+	          stagePadding: 10,
+	          items:3
+	        },
+	        1900:{
+	          margin:20,
+	          stagePadding: 200,
+	          items:4
+	        }
+	      }
+	    });
+
 
   var counter = function() {
-    
+
     $('#section-counter').waypoint( function( direction ) {
 
       if( direction === 'down' && !$(this.element).hasClass('element-animated') ) {
@@ -235,7 +267,7 @@
             }, 7000
           );
         });
-        
+
       }
 
     } , { offset: '95%' } );

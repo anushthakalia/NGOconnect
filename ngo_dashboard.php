@@ -73,10 +73,6 @@
               <li class="nav-item">
                 <a class="nav-link" href="contact.php">Contact</a>
               </li>
-              <li class = "nav-time">
-                <a class="nav-link" href="new_internship_form.php"><b>Add an internship!</b></a>
-              <!-- <button type="button" class="btn navbar-btn"><b>Add an internship</button> -->
-              </li>
             </ul>
             <ul class="navbar-nav absolute-right">
               <li class="nav-item dropdown">
@@ -121,53 +117,131 @@
     ?>
 
 <br>
-<div class="container">
-    <div class="card-deck">
-      <div class="card">
-        <div class="card-body text-center">
-          <p class="card-text"><b>Your Internships</b></p>
-            <?php for ($i=0; $i < $num_posts; $i++):
-              $internship_name = $internship_data[0][$i]['Name'];
-              $internship_NGO = $internship_data[0][$i]['NGO'];
-            ?>
-            <ul class=list-group>
-            <h3><?php echo $internship_name." - ".$internship_NGO?></h3>
-            </ul>
-          <?php endfor; ?>
-        </div>
-      </div>
+<!-- END section -->
 
-      <div class="card">
-        <div class="card-body text-center">
-          <p class="card-text"><b>Your partner companies</b></p>
-          <?php for ($i=0; $i < $num_company; $i++):
-            $company_name = $company_data[0][0]['comname'];
-          ?>
-          <ul class=list-group>
-          <h3><?php echo $company_name ?></h3>
-          </ul>
-        <?php endfor; ?>
-        </div>
+<div class="site-section bg-light">
+  <div class="container">
+    <div class="row justify-content-center mb-5 element-animate">
+      <div class="col-md-7 text-center section-heading">
+        <h2 class="text-primary heading">Your Internships</h2>
       </div>
+    </div>
+  </div>
+  <div class="container-fluid block-11 element-animate center">
+    <div class="nonloop-block-12 owl-carousel">
 
-        <div class="card">
-        <div class="card-body text-center">
-          <p class="card-text"><b>Your interns!</b></p>
-          <ul class="list-group">
-            <?php for ($i=0; $i < $num_students; $i++):
-              $intern_name = $intern_data[0][$i]['firstname']." ".$intern_data[0][$i]['surname'];
-              $intern_college = $intern_data[0][$i]['college'];
-              $intern_phone = $intern_data[0][$i]['phone'];
-            ?>
-            <li class="list-group-item"><?php echo($intern_name);echo("<br>");echo($intern_college) ?></li>
-          </ul>
-                <?php endfor; ?>
+        <?php for ($i=0; $i < $num_posts; $i++):
+          $internship_name = $internship_data[0][$i]['Name'];
+          $internship_NGO = $internship_data[0][$i]['NGO'];
+          $internship_descr = $internship_data[0][$i]['internship_descr'];
+        ?>
+
+      <div class="item">
+        <div class="block-19">
+
+              <!-- <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit qui neque sint eveniet tempore sapiente.</p>
+              <div class="meta d-flex align-items-center">
+              </div> -->
+            <div class="text">
+              <h2 class="heading"><a href="#"><?php echo ($internship_name)?></a></h2>
+              <p class="mb-4"><?php echo ($internship_descr)?></p>
+              <div class="meta d-flex align-items-center">
+              </div>
+            </div>
           </div>
-        </div>
       </div>
+
+      <?php endfor; ?>
+
+
 
     </div>
+    <div class="container">
+      <div class="row justify-content-center mb-5 element-animate">
+        <div class="col-md-7 text-center section-heading">
+          <p><a href="new_internship_form.php" class="btn btn-primary py-2 px-4"><span class="ion-ios-book mr-2"></span>Add an internship</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<br><br><br>
+
+<div class="container">
+  <div class="row justify-content-center mb-5 element-animate">
+    <div class="col-md-7 text-center section-heading">
+      <h2 class="text-primary heading">Your Partner Companies</h2>
+    </div>
+  </div>
 </div>
+<div class="container-fluid block-11 element-animate center">
+  <div class="nonloop-block-12 owl-carousel">
+
+    <?php for ($i=0; $i < $num_company; $i++):
+      $company_name = $company_data[0][0]['comname'];
+    ?>
+
+    <div class="item">
+      <div class="block-19">
+          <figure>
+            <img src="images/<?php echo $company_name ?>.jpg" alt="Image" class="img-fluid">
+          </figure>
+          <div class="text">
+            <h2 class="heading"><a href="#"><?php echo ($company_name)?></a></h2>
+            <div class="meta d-flex align-items-center">
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <?php endfor; ?>
+
+  </div>
+</div>
+
+<br><br><br>
+
+<div class="container">
+  <div class="row justify-content-center mb-5 element-animate">
+    <div class="col-md-7 text-center section-heading">
+      <h2 class="text-primary heading">Your Interns</h2>
+    </div>
+  </div>
+</div>
+<div class="container-fluid block-11 element-animate center">
+  <div class="nonloop-block-12 owl-carousel">
+
+    <?php for ($i=0; $i < $num_students; $i++):
+      $intern_name = $intern_data[0][$i]['firstname']." ".$intern_data[0][$i]['surname'];
+      $intern_college = $intern_data[0][$i]['college'];
+      $intern_phone = $intern_data[0][$i]['phone'];
+    ?>
+
+    <div class="item">
+      <div class="block-19">
+          <!-- <figure>
+            <img src="images/<?php echo $internship_NGO ?>.png" alt="Image" class="img-fluid">
+          </figure> -->
+          <div class="text">
+            <h2 class="heading"><a href="#"><?php echo ($intern_name)?></a></h2>
+            <p class="mb-4"><?php echo ($intern_college)?></p>
+            <div class="meta d-flex align-items-center">
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <?php endfor; ?>
+
+  </div>
+</div>
+
+
+
+</div>
+<!-- END section -->
+
 
     <footer class="site-footer">
       <div class="container">

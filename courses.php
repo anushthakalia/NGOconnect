@@ -21,6 +21,12 @@
       function detailPage (id) {
         id = parseInt(id)+1
        window.location = '/NGOconnect/course-single.php?id='+ String(id);    }
+      function nameSearch (nameid){
+        window.location = '/NGOconnect/courses.php?titleid='+ String(nameid); 
+       }
+       function locationSearch (locid){
+        window.location = '/NGOconnect/courses.php?locationid='+ String(locid);
+       }
     </script>
   </head>
   <body>
@@ -52,13 +58,8 @@
 
           <div class="collapse navbar-collapse navbar-light" id="navbarsExample05">
             <ul class="navbar-nav mx-auto">
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="courses.php" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Internships</a>
-                <div class="dropdown-menu" aria-labelledby="dropdown04">
-                  <a class="dropdown-item" href="courses.php">Volunteer</a>
-                  <a class="dropdown-item" href="courses.php">Data Entry</a>
-                  <a class="dropdown-item" href="courses.php">Web Development</a>
-                </div>
+              <li class="nav-item">
+                <a class="nav-link" href="courses.php">Internships</a>
 
               </li>
 
@@ -88,6 +89,7 @@
                   echo '<a href="main.php">Login</a> / <a href="register.php">Register</a>';
 
               }
+              else{
               if(get_user()=='student'){
                 echo '<a class="nav-link dropdown-toggle" href="courses.php" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">'; echo getuserfield('firstname'); echo " "; echo getuserfield('surname'); echo '</a>';
 
@@ -103,6 +105,7 @@
                 <a class="dropdown-item" href="#">My Profile</a>
                 <a class="dropdown-item" href="logout.php">Log Out</a>
               </div>';
+            }
             ?>
              </li>
             </ul>
@@ -120,7 +123,18 @@
 
             <div class="mb-5 element-animate">
               <h1 class="mb-2">Internships</h1>
-              <p class="bcrumb"><a href="index.php">Home</a> <span class="sep ion-android-arrow-dropright px-2"></span>  <span class="current">Internships</span></p>
+              <p class="bcrumb"><?php
+             if(!loggedin()){
+
+                 echo '<a href="index.php">Home</a>';
+
+             }
+             else{
+
+              echo '<a href="main.php">Home</a>';
+
+           }
+           ?> <span class="sep ion-android-arrow-dropright px-2"></span>  <span class="current">Internships</span></p>
             </div>
 
           </div>
@@ -136,7 +150,17 @@
           <div class="col-md-6 col-lg-8 order-md-2">
             <div class="row">
               <?php
-                        $array = get_intern();
+              if(isset($_GET['titleid'])){
+              $param = $_GET['titleid'];
+              $array = get_intern($param, null);
+            }
+            else if (isset($_GET['locationid'])){
+              $param = $_GET['locationid'];
+              $array = get_intern(null, $param);
+            }
+            else{
+              $array = get_intern(null,null);
+            }
                         for ($i = 0; $i < count($array); $i++) {
 
                             ?>
@@ -198,6 +222,22 @@
               echo 'Unsucessful';
             }
 
+            $query = "SELECT `Location`,COUNT(*) as count FROM `internship_details` GROUP BY `Location` ORDER BY count DESC";
+          if($query_run = mysqli_query($mysql_connect, $query))
+            {
+              $query_run = mysqli_query($mysql_connect, $query);
+              $myarray2 = array(); # initialize the array first!
+              while($row = mysqli_fetch_assoc($query_run))
+              {
+                  $myarray2[] = $row; # add the row
+              }
+
+            }
+            else{
+              echo 'Unsucessful';
+            }
+            $tag_array = get_intern(null,null);
+
           ?>
           <div class="col-md-6 col-lg-4 order-md-1">
 
@@ -205,47 +245,17 @@
               <h3 class="heading">Categories</h3>
               <ul>
                 <?php for ($i = 0; $i < count($myarray); $i++) {?>
-                <li><a href="#"><?php echo $myarray[$i]['Name']?><span><?php echo $myarray[$i]['count']?></span></a></li>
+                <li><a href="#" onclick= "nameSearch(this.id);" id="<?php echo $myarray[$i]['Name']?>"><?php echo $myarray[$i]['Name']?><span><?php echo $myarray[$i]['count']?></span></a></li>
                 <?php }?>
               </ul>
             </div>
 
-            <div class="block-25 mb-5">
-              <div class="heading">Recent Courses</div>
+            <div class="block-24 mb-5">
+              <div class="heading">Locations</div>
               <ul>
-                <li>
-                  <a href="#" class="d-flex">
-                    <figure class="image mr-3">
-                      <img src="images/img_2_b.jpg" alt="" class="img-fluid">
-                    </figure>
-                    <div class="text">
-                      <h3 class="heading">Create cool websites using this template</h3>
-                      <span class="meta">$34</span>
-                    </div>
-                  </a>
-                </li>
-                <li>
-                  <a href="#" class="d-flex">
-                    <figure class="image mr-3">
-                      <img src="images/img_2_b.jpg" alt="" class="img-fluid">
-                    </figure>
-                    <div class="text">
-                      <h3 class="heading">Create cool websites using this template</h3>
-                      <span class="meta">$34</span>
-                    </div>
-                  </a>
-                </li>
-                <li>
-                  <a href="#" class="d-flex">
-                    <figure class="image mr-3">
-                      <img src="images/img_2_b.jpg" alt="" class="img-fluid">
-                    </figure>
-                    <div class="text">
-                      <h3 class="heading">Create cool websites using this template</h3>
-                      <span class="meta">$34</span>
-                    </div>
-                  </a>
-                </li>
+                <?php for ($i = 0; $i < count($myarray2); $i++) {?>
+                <li><a href="#" onclick= "locationSearch(this.id);" id="<?php echo $myarray2[$i]['Location']?>"><?php echo $myarray2[$i]['Location']?><span><?php echo $myarray2[$i]['count']?></span></a></li>
+                <?php }?>
               </ul>
             </div>
 
@@ -253,9 +263,9 @@
               <h3 class="heading">Tags</h3>
               <ul>
                 <?php
-                for ($i = 0; $i < count($array); $i++) {
+                for ($i = 0; $i < count($tag_array); $i++) {
                 ?>
-                <li><a href="#"><?php echo $array[$i]['Tags']?></a></li>
+                <li><a href="#"><?php echo $tag_array[$i]['Tags']?></a></li>
                 <?php }?>
               </ul>
             </div>

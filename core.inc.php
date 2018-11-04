@@ -227,9 +227,18 @@ function get_ngo_data_comdash()
 	}
 }
 // =======
-function get_intern(){
+function get_intern($title, $location){
 	global $mysql_connect;
-	$query = "SELECT * FROM `internship_details`";
+	if ($title!=null){
+	$query = "SELECT * FROM `internship_details` WHERE `Name`='".$title."'";
+	// echo $query;
+	}
+	else if ($location!=null){
+		$query = "SELECT * FROM `internship_details` WHERE `Location`='".$location."'";
+	}
+	else{
+		$query = "SELECT * FROM `internship_details`";
+	}
 	//echo $_SESSION['table_id'];
 	if($query_run = mysqli_query($mysql_connect, $query))
 	{

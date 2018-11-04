@@ -47,14 +47,8 @@
 
           <div class="collapse navbar-collapse navbar-light" id="navbarsExample05">
             <ul class="navbar-nav mx-auto">
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="courses.php" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Internships</a>
-                <div class="dropdown-menu" aria-labelledby="dropdown04">
-                  <a class="dropdown-item" href="courses.php">Volunteer</a>
-                  <a class="dropdown-item" href="courses.php">Data Entry</a>
-                  <a class="dropdown-item" href="courses.php">Web Development</a>
-                </div>
-
+             <li class="nav-item">
+                <a class="nav-link" href="courses.php">Internships</a>
               </li>
 
               <!-- li class="nav-item dropdown">
@@ -121,7 +115,18 @@
 
             <div class="mb-5 element-animate">
               <h1 class="mb-2">About Us</h1>
-              <p class="bcrumb"><a href="index.php">Home</a> <span class="sep ion-android-arrow-dropright px-2"></span>  <span class="current">About Us</span></p>
+              <p class="bcrumb"> <?php
+             if(!loggedin()){
+
+                 echo '<a href="index.php">Home</a>';
+
+             }
+             else{
+
+              echo '<a href="main.php">Home</a>';
+
+           }
+           ?> <span class="sep ion-android-arrow-dropright px-2"></span>  <span class="current">About Us</span></p>
             </div>
 
           </div>

@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>Free Education Template by Colorlib</title>
+    <title>NGO::CONNECT</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -24,12 +24,42 @@
     require 'connect.inc.php';
     require 'core.inc.php';
 
+    if (!empty($_POST['search'])) {
+
+      if(isset($_POST['term'])){
+        $term = trim($_POST['term']);
+
+        $query = "ALTER TABLE `internship_details` ADD FULLTEXT(`Name`,`Location`);";
+        if($query_run = mysqli_query($mysql_connect, $query))
+            {
+              $query_search = "SELECT * FROM `internship_details` WHERE MATCH (`Name`,`Location`) AGAINST('$term' IN NATURAL LANGUAGE MODE)";
+              if($query_run = mysqli_query($mysql_connect, $query_search)){
+                $query_run = mysqli_query($mysql_connect, $query_search);
+                $myarray = array(); # initialize the array first!
+              while($row = mysqli_fetch_assoc($query_run))
+              {
+                  $myarray[] = $row; # add the row
+              }
+              $_SESSION['myarray'] = $myarray;
+              header("Location: courses.php");
+              }
+              
+            }
+            else{
+              echo 'Unsucessful';
+            }
+
+      }
+
+    }
+
     ?>
+   
     <header role="banner">
 
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
-          <a class="navbar-brand absolute" href="index.php">NGO::connect</a>
+          <a class="navbar-brand absolute" href="index.php">NGO::CONNECT</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample05" aria-controls="navbarsExample05" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -103,10 +133,10 @@
             <div class="mb-5 element-animate">
               <div class="block-17">
                 <h2 class="heading text-center mb-4">Serve the Society. Intern at an NGO.</h2>
-                <form action="" method="post" class="d-block d-lg-flex mb-4">
+                <form action="<?php echo $current_file; ?>" method="post" class="d-block d-lg-flex mb-4">
                   <div class="fields d-block d-lg-flex">
-                    <div class="textfield-search one-third"><input type="text" class="form-control" placeholder="Keyword search..."></div>
-                    <div class="select-wrap one-third">
+                    <div class="textfield-search one-third"><input name="term" type="text" class="form-control" placeholder="Search for internships..."></div>
+                   <!--  <div class="select-wrap one-third">
                       <div class="icon"><span class="ion-ios-arrow-down"></span></div>
                       <select name="" id="" class="form-control">
                         <option value="">Domain</option>
@@ -123,9 +153,9 @@
                         <option value="">Mumbai</option>
                         <option value="">Kolkata</option>
                       </select>
-                    </div>
+                    </div> -->
                   </div>
-                  <input type="submit" class="search-submit btn btn-primary" value="Search">
+                  <input type="submit" name = "search" class="search-submit btn btn-primary" value="Search">
                 </form>
                 <p class="text-center mb-5">We need people to help the society.</p>
                 <p class="text-center"><a href="register.php" class="btn py-3 px-5">Register Now</a></p>
@@ -666,7 +696,7 @@
       <div class="container">
         <div class="row mb-3">
           <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
-            <h3>NGO::connect</h3>
+            <h3>NGO::CONNECT</h3>
             <p>One stop platform for social internships. Give back to the society by taking up a task.</p>
           </div>
           <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">

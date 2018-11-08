@@ -227,7 +227,7 @@ function get_ngo_data_comdash()
 	}
 }
 // =======
-function get_intern($title, $location){
+function get_intern($title, $location, $tag){
 	global $mysql_connect;
 	if ($title!=null){
 	$query = "SELECT * FROM `internship_details` WHERE `Name`='".$title."'";
@@ -235,6 +235,9 @@ function get_intern($title, $location){
 	}
 	else if ($location!=null){
 		$query = "SELECT * FROM `internship_details` WHERE `Location`='".$location."'";
+	}
+	else if ($tag!=null){
+		$query = "SELECT * FROM `internship_details` WHERE `Tags`='".$tag."'";
 	}
 	else{
 		$query = "SELECT * FROM `internship_details`";

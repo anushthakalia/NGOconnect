@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>Free Education Template by Colorlib</title>
+    <title>NGO::CONNECT</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -32,12 +32,12 @@
           <?php
              if(!loggedin()){
 
-                 echo '<a class="navbar-brand absolute" href="index.php">NGO::connect</a>';
+                 echo '<a class="navbar-brand absolute" href="index.php">NGO::CONNECT</a>';
 
              }
              else{
 
-              echo '<a class="navbar-brand absolute" href="main.php">NGO::connect</a>';
+              echo '<a class="navbar-brand absolute" href="main.php">NGO::CONNECT</a>';
 
            }
            ?>
@@ -351,7 +351,7 @@
       <div class="container">
         <div class="row mb-3">
           <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
-            <h3>NGO::connect</h3>
+            <h3>NGO::CONNECT</h3>
             <p>One stop platform for social internships. Give back to the society by taking up a task.</p>
           </div>
           <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">

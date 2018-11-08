@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>Free Education Template by Colorlib</title>
+    <title>NGO::CONNECT</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -23,7 +23,12 @@
     require 'connect.inc.php';
     require 'core.inc.php';
 
-    $id = $_GET['id'];
+    $_SESSION['apply']=FALSE;
+     $loggedin = loggedin();
+    $id = $_GET['id']; 
+    if (loggedin()){
+    $userid = $_SESSION['user_id'];
+  }
 
     global $mysql_connect;
     $query = "SELECT * FROM `internship_details` WHERE `internship_id`='$id'";
@@ -35,8 +40,39 @@
 
       }
       else{
-        $temp = 'Unsucessful';
+        echo 'Unsucessful';
             }
+            if (isset($_POST['student-apply'])){
+            if(!loggedin()){
+           echo "<script>alert('You need to log in First');document.location='main.php'</script>";
+         }
+         else{
+         if($_SESSION['table']=='student'){
+         
+         // ADD CHECK IF SAME ALREADY EXISTS SO THAT REFRESH DOES NOT LEAD TO REENTRY
+         $query = "INSERT INTO `student_internship_apply` (apply_id,fk_intern_id,fk_internship_details_id) VALUES ('','".mysqli_real_escape_string($mysql_connect, $userid)."','".mysqli_real_escape_string($mysql_connect, $id)."')";
+                        
+                          
+           if($query_run = mysqli_query($mysql_connect, $query))
+          { 
+          $message = 'Applied! We have sent your resume to the NGO';
+           echo "<script type='text/javascript'>alert(\"$message\");</script>"; 
+           $_SESSION['apply'] = TRUE;
+          }
+          else
+          {
+            $message = 'Could not apply. Error on server end. Sorry!';
+           echo "<script type='text/javascript'>alert(\"$message\");</script>"; 
+          }
+         
+         
+          }
+         else{
+         $message = 'Only students can apply to this job';
+         echo "<script type='text/javascript'>alert(\"$message\");</script>";
+       }
+         }
+       }
     ?>
 
     <header role="banner">
@@ -46,12 +82,12 @@
            <?php
               if(!loggedin()){
 
-                  echo '<a class="navbar-brand absolute" href="index.php">NGO::connect</a>';
+                  echo '<a class="navbar-brand absolute" href="index.php">NGO::CONNECT</a>';
 
               }
               else{
 
-               echo '<a class="navbar-brand absolute" href="main.php">NGO::connect</a>';
+               echo '<a class="navbar-brand absolute" href="main.php">NGO::CONNECT</a>';
 
             }
             ?>
@@ -61,13 +97,8 @@
 
           <div class="collapse navbar-collapse navbar-light" id="navbarsExample05">
             <ul class="navbar-nav mx-auto">
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="courses.php" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Internships</a>
-                <div class="dropdown-menu" aria-labelledby="dropdown04">
-                  <a class="dropdown-item" href="courses.php">Volunteer</a>
-                  <a class="dropdown-item" href="courses.php">Data Entry</a>
-                  <a class="dropdown-item" href="courses.php">Web Development</a>
-                </div>
+              <li class="nav-item">
+                <a class="nav-link" href="courses.php">Internships</a>
 
               </li>
 
@@ -126,13 +157,14 @@
     </header>
     <!-- END header -->
 
+
     <section class="site-hero site-sm-hero overlay" data-stellar-background-ratio="0.5" style="background-image: url(images/big_image_2.jpg);">
       <div class="container">
         <div class="row align-items-center justify-content-center site-hero-sm-inner">
           <div class="col-md-7 text-center">
 
             <div class="mb-5 element-animate">
-              <h1 class="mb-2"><?php echo $temp['Name'];?></h1>
+              <h1 class="mb-2"><?php echo $temp['Name'];?></h1> 
               <p class="bcrumb"><a href="index.php">Home</a> <span class="sep ion-android-arrow-dropright px-2"></span> <a href="courses.php">Internships</a> <span class="sep ion-android-arrow-dropright px-2"></span>  <span class="current"><?php echo $temp['Name'];?></span></p>
             </div>
 
@@ -148,83 +180,38 @@
         <div class="row">
 
           <div class="col-md-6 col-lg-8 order-md-2 mb-5">
-            <div class="row">
-              <div class="col-md-12">
-                <img src="images/img_2.jpg" alt="" class="img-fluid">
-              </div>
-            </div>
+            <!-- Check if already applied -->
+            <?php
+            if (loggedin()){
+            $query = "SELECT * FROM `student_internship_apply` WHERE `fk_intern_id`='$userid' AND `fk_internship_details_id`='$id'";
 
+              // echo $_SESSION['table_id'];
+              if($query_run = mysqli_query($mysql_connect, $query))
+              {
+                $result = mysqli_query($mysql_connect, $query);
+
+              }
+              else{
+                echo 'Unsucessful';
+              }
+            }
+            ?>
+            
             <section class="episodes">
               <div class="container">
                 <div class="row mb-5">
                   <div class="col-md-12 pt-5">
                     <h2>Description</h2>
-                    <?php echo $temp['internship_descr'];?>
+                    <p><?php echo $temp['internship_descr'];?></p>
+                    <p>
+                    <form action="<?php echo $current_file.'?id='.$id;?>" method="post">
+                    <input name = "student-apply"  type="submit" value="<?php if(loggedin()){if(mysqli_num_rows($result)!=0){echo 'Applied';}else{echo 'Apply';}}else{echo 'Apply';}?>" class="btn btn-primary px-5 py-2" <?php if(loggedin() && mysqli_num_rows($result)!=0){echo 'disabled';}?>>
+                  </form>
+                </p>
                   </div>
                 </div>
               </div>
-     <!--  <div class="container">
-        <div class="row">
-          <div class="col-md-12 mb-2">
-            <h2>Lesson</h2>
-          </div>
-        </div>
-        <div class="row bg-light align-items-center p-4 episode">
-          <div class="col-md-10">
-            <p class="meta">Episode 1 <a href="#">Runtime 2:53</a></p>
-            <h2><a href="#">Some Title Here For The Video</a></h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto, fugit!</p>
-          </div>
-          <div class="col-md-2 text-center">
-            <a href="#" class="play"><span class="ion-ios-play"></span></a>
-          </div>
-        </div>
-
-        <div class="row align-items-center p-4 episode">
-          <div class="col-md-10">
-            <p class="meta">Episode 2 <a href="#">Runtime 5:12</a></p>
-            <h2><a href="#">Some Title Here For The Video</a></h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto, fugit!</p>
-          </div>
-          <div class="col-md-2 text-center">
-            <a href="#" class="play"><span class="ion-ios-play"></span></a>
-          </div>
-        </div>
-
-        <div class="row bg-light align-items-center p-4 episode">
-          <div class="col-md-10">
-            <p class="meta">Episode 3 <a href="#">Runtime 5:12</a></p>
-            <h2><a href="#">Some Title Here For The Video</a></h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto, fugit!</p>
-          </div>
-          <div class="col-md-2 text-center">
-            <a href="#" class="play"><span class="ion-ios-play"></span></a>
-          </div>
-        </div>
-
-        <div class="row align-items-center p-4 episode">
-          <div class="col-md-10">
-            <p class="meta">Episode 4 <a href="#">Runtime 6:55</a></p>
-            <h2><a href="#">Some Title Here For The Video</a></h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto, fugit!</p>
-          </div>
-          <div class="col-md-2 text-center">
-            <a href="#" class="play"><span class="ion-ios-play"></span></a>
-          </div>
-        </div>
-
-        <div class="row bg-light align-items-center p-4 episode">
-          <div class="col-md-10">
-            <p class="meta">Episode 5 <a href="#">Runtime 14:33</a></p>
-            <h2><a href="#">Some Title Here For The Video</a></h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto, fugit!</p>
-          </div>
-          <div class="col-md-2 text-center">
-            <a href="#" class="play"><span class="ion-ios-play"></span></a>
-          </div>
-        </div>
-      </div> -->
-    </section>
+            </section>
           </div>
           <!-- END content -->
           <div class="col-md-6 col-lg-4 order-md-1">
@@ -239,268 +226,42 @@
 
               </ul>
             </div>
+            <?php
+            $query = "SELECT `ContactName`, `ContactEmail`, `ngoname` FROM `ngo` WHERE `ngoid`='".$temp['fk_ngo_id']."'";
+
+              // echo $_SESSION['table_id'];
+              if($query_run = mysqli_query($mysql_connect, $query))
+              {
+                $query_run = mysqli_query($mysql_connect, $query);
+                $contact = mysqli_fetch_assoc($query_run);
+                // $contact= $query_row[$field];
+
+              }
+
+
+            ?>
 
             <div class="block-28 text-center mb-5">
               <figure>
                 <img src="images/person_3.jpg" alt="" class="img-fluid">
               </figure>
-              <h2 class="heading">Mark Stewart</h2>
-              <h3 class="subheading">JavaScript Ninja</h3>
+              <h2 class="heading"><?php echo $contact['ContactName']?></h2>
+              <h3 class="subheading">Talent Aquisition@<?php echo $contact['ngoname'] ?></h3>
               <p>
                 <a href="#" class="fa fa-twitter p-2"></a>
                 <a href="#" class="fa fa-facebook p-2"></a>
                 <a href="#" class="fa fa-linkedin p-2"></a>
               </p>
-              <p>Hi I'm Mark Stewart, consectetur adipisicing elit. Quibusdam nulla beatae modi itaque nemo magni molestiae explicabo sint dolorum cum! Nam iste eligendi autem voluptates illo veritatis veniam laudantium enim!</p>
+              <div>Email: <?php echo $contact['ContactEmail']?></div> 
 
             </div>
 
-            <div class="block-25 mb-5">
-              <div class="heading">Recent Courses</div>
-              <ul>
-                <li>
-                  <a href="#" class="d-flex">
-                    <figure class="image mr-3">
-                      <img src="images/img_2_b.jpg" alt="" class="img-fluid">
-                    </figure>
-                    <div class="text">
-                      <h3 class="heading">Create cool websites using this template</h3>
-                      <span class="meta">$34</span>
-                    </div>
-                  </a>
-                </li>
-                <li>
-                  <a href="#" class="d-flex">
-                    <figure class="image mr-3">
-                      <img src="images/img_2_b.jpg" alt="" class="img-fluid">
-                    </figure>
-                    <div class="text">
-                      <h3 class="heading">Create cool websites using this template</h3>
-                      <span class="meta">$34</span>
-                    </div>
-                  </a>
-                </li>
-                <li>
-                  <a href="#" class="d-flex">
-                    <figure class="image mr-3">
-                      <img src="images/img_2_b.jpg" alt="" class="img-fluid">
-                    </figure>
-                    <div class="text">
-                      <h3 class="heading">Create cool websites using this template</h3>
-                      <span class="meta">$34</span>
-                    </div>
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <?php
-            global $mysql_connect;
-            $array = get_intern();
-            $query = "SELECT `Name`,COUNT(*) as count FROM `internship_details` GROUP BY `Name` ORDER BY count DESC";
-            if($query_run = mysqli_query($mysql_connect, $query))
-              {
-                $query_run = mysqli_query($mysql_connect, $query);
-                $myarray = array(); # initialize the array first!
-                while($row = mysqli_fetch_assoc($query_run))
-                {
-                    $myarray[] = $row; # add the row
-                }
-
-              }
-              else{
-                echo 'Unsucessful';
-              }
-
-          ?>
-
-            <div class="block-24 mb-5">
-              <h3 class="heading">Categories</h3>
-              <ul>
-                <?php for ($i = 0; $i < count($myarray); $i++) {?>
-                <li><a href="#"><?php echo $myarray[$i]['Name']?><span><?php echo $myarray[$i]['count']?></span></a></li>
-                <?php }?>
-              </ul>
-            </div>
-
-
-            <div class="block-26">
-              <h3 class="heading">Tags</h3>
-              <ul>
-                <?php
-                for ($i = 0; $i < count($array); $i++) {
-                ?>
-                <li><a href="#"><?php echo $array[$i]['Tags']?></a></li>
-                <?php }?>
-              </ul>
-            </div>
-
-
-          </div>
           <!-- END Sidebar -->
         </div>
       </div>
     </div>
 
-    <div class="site-section bg-light">
-      <div class="container">
-        <div class="row justify-content-center mb-5 element-animate">
-          <div class="col-md-7 text-left section-heading">
-            <h2 class="text-primary heading">You May Also Like</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit qui neque sint eveniet tempore sapiente.</p>
-          </div>
-        </div>
-      </div>
-      <div class="container-fluid block-11 element-animate">
-        <div class="nonloop-block-11 owl-carousel">
-          <div class="item">
-            <div class="block-19">
-                <figure>
-                  <img src="images/img_1.jpg" alt="Image" class="img-fluid">
-                </figure>
-                <div class="text">
-                  <h2 class="heading"><a href="#">Advanced JavaScript Learning</a></h2>
-                  <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit qui neque sint eveniet tempore sapiente.</p>
-                  <div class="meta d-flex align-items-center">
-                    <div class="number">
-                      <span>2,219/6,000</span>
-                    </div>
-                    <div class="price text-right"><del class="mr-3">$23</del><span>Free</span></div>
-                  </div>
-                </div>
-              </div>
-          </div>
-
-          <div class="item">
-            <div class="block-19">
-                <figure>
-                  <img src="images/img_3.jpg" alt="Image" class="img-fluid">
-                </figure>
-                <div class="text">
-                  <h2 class="heading"><a href="#">Advanced JavaScript Learning</a></h2>
-                  <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit qui neque sint eveniet tempore sapiente.</p>
-                  <div class="meta d-flex align-items-center">
-                    <div class="number">
-                      <span>2,219/6,000</span>
-                    </div>
-                    <div class="price text-right"><del class="mr-3">$23</del><span>Free</span></div>
-                  </div>
-                </div>
-              </div>
-          </div>
-
-          <div class="item">
-            <div class="block-19">
-              <figure>
-                <img src="images/img_2.jpg" alt="Image" class="img-fluid">
-              </figure>
-              <div class="text">
-                <h2 class="heading"><a href="#">Introduction to CSS</a></h2>
-                <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit qui neque sint eveniet tempore sapiente.</p>
-                <div class="meta d-flex align-items-center">
-                  <div class="number">
-                    <span>1,903/3,000</span>
-                  </div>
-                  <div class="price text-right"><span>$10.99</span></div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="item">
-            <div class="block-19">
-              <figure>
-                <img src="images/img_1.jpg" alt="Image" class="img-fluid">
-              </figure>
-              <div class="text">
-                <h2 class="heading"><a href="#">Design &amp; Develop</a></h2>
-                <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit qui neque sint eveniet tempore sapiente.</p>
-                <div class="meta d-flex align-items-center">
-                  <div class="number">
-                    <span>23/100</span>
-                  </div>
-                  <div class="price text-right"><del class="mr-3">$23</del><span>Free</span></div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="item">
-            <div class="block-19">
-                <figure>
-                  <img src="images/img_1.jpg" alt="Image" class="img-fluid">
-                </figure>
-                <div class="text">
-                  <h2 class="heading"><a href="#">Advanced JavaScript Learning</a></h2>
-                  <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit qui neque sint eveniet tempore sapiente.</p>
-                  <div class="meta d-flex align-items-center">
-                    <div class="number">
-                      <span>2,219/6,000</span>
-                    </div>
-                    <div class="price text-right"><del class="mr-3">$23</del><span>Free</span></div>
-                  </div>
-                </div>
-              </div>
-          </div>
-
-          <div class="item">
-            <div class="block-19">
-                <figure>
-                  <img src="images/img_3.jpg" alt="Image" class="img-fluid">
-                </figure>
-                <div class="text">
-                  <h2 class="heading"><a href="#">Advanced JavaScript Learning</a></h2>
-                  <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit qui neque sint eveniet tempore sapiente.</p>
-                  <div class="meta d-flex align-items-center">
-                    <div class="number">
-                      <span>2,219/6,000</span>
-                    </div>
-                    <div class="price text-right"><del class="mr-3">$23</del><span>Free</span></div>
-                  </div>
-                </div>
-              </div>
-          </div>
-
-          <div class="item">
-            <div class="block-19">
-              <figure>
-                <img src="images/img_2.jpg" alt="Image" class="img-fluid">
-              </figure>
-              <div class="text">
-                <h2 class="heading"><a href="#">Introduction to CSS</a></h2>
-                <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit qui neque sint eveniet tempore sapiente.</p>
-                <div class="meta d-flex align-items-center">
-                  <div class="number">
-                    <span>1,903/3,000</span>
-                  </div>
-                  <div class="price text-right"><span>$10.99</span></div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="item">
-            <div class="block-19">
-              <figure>
-                <img src="images/img_1.jpg" alt="Image" class="img-fluid">
-              </figure>
-              <div class="text">
-                <h2 class="heading"><a href="#">Design &amp; Develop</a></h2>
-                <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit qui neque sint eveniet tempore sapiente.</p>
-                <div class="meta d-flex align-items-center">
-                  <div class="number">
-                    <span>23/100</span>
-                  </div>
-                  <div class="price text-right"><del class="mr-3">$23</del><span>Free</span></div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-
-    </div>
+    
     <!-- END section -->
 
 
@@ -538,7 +299,7 @@
       <div class="container">
         <div class="row mb-3">
           <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
-            <h3>NGO::connect</h3>
+            <h3>NGO::CONNECT</h3>
             <p>One stop platform for social internships. Give back to the society by taking up a task.</p>
           </div>
           <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">

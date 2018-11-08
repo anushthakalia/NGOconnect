@@ -39,10 +39,8 @@
         if(isset($_POST['email'])&&isset($_POST['firstname'])&&isset($_POST['surname'])&&isset($_POST['phone'])&&isset($_POST['pass'])&&isset($_POST['repass'])&&isset($_POST['college']))
         {
           $email = trim($_POST['email']);
-
           $password = trim($_POST['pass']);
           $password_again = trim($_POST['repass']);
-
           $firstname = trim($_POST['firstname']);
           $surname = trim($_POST['surname']);
           $phone= trim($_POST['phone']);
@@ -52,13 +50,15 @@
           {
             if(strlen($email)>40||strlen($firstname)>40||strlen($surname)>40)
             {
-              echo 'Please adhere to maxlength of fields.';
+              $message = 'Please adhere to maxlength of fields.';
+              echo "<script type='text/javascript'>alert('$message');</script>";
             }
             else
             {
               if($password!=$password_again)
               {
-                echo 'Passwords do not match.';
+                $message = 'Passwords do not match.';
+                echo "<script type='text/javascript'>alert('$message');</script>";
               }
               else
               {
@@ -69,20 +69,36 @@
                 $query_num_rows = mysqli_num_rows($query_run);
                 if($query_num_rows>=1)
                 {
-                  echo 'The email '.$email.' already exists.';
+                  $message = 'The email '.$email.' already exists.';
+                  echo "<script type='text/javascript'>alert('$message');</script>";
                 }
                 else
-                {
+                {// ADD CHECKS FOR RESUME UPLOAD
                   $fk_ngo_id = rand(1,2);
-                  $query = "INSERT INTO `student` (id,password,firstname,surname,email,college,phone,fk_ngo_id) VALUES ('','".mysqli_real_escape_string($mysql_connect, $password_hash)."','".mysqli_real_escape_string($mysql_connect, $firstname)."','".mysqli_real_escape_string($mysql_connect, $surname)."','".mysqli_real_escape_string($mysql_connect, $email)."','".mysqli_real_escape_string($mysql_connect, $college)."','".mysqli_real_escape_string($mysql_connect, $phone)."',NULL)";
-                  echo $query;
-                  if($query_run = mysqli_query($mysql_connect, $query))
-                  {
-                    header('Location: main.php');
-                  }
-                  else
-                  {
-                    echo 'Sorry, we couldn\'t register you at this time. Try again later.';
+                  $target_Path = "uploads/";
+                  $target_Path = $target_Path.basename( $_FILES["fileToUpload"]["name"] );
+                  $file = $_FILES["fileToUpload"]["name"];
+                  $FileType = strtolower(pathinfo($target_Path,PATHINFO_EXTENSION));
+                  if($FileType != "pdf") {
+
+                          $message =  "Sorry, only PDF files are allowed.";
+                          echo "<script type='text/javascript'>alert('$message');</script>";
+                      }
+                  else{
+                    $query = "INSERT INTO `student` (id,password,firstname,surname,email,college,phone,Resume) VALUES ('','".mysqli_real_escape_string($mysql_connect, $password_hash)."','".mysqli_real_escape_string($mysql_connect, $firstname)."','".mysqli_real_escape_string($mysql_connect, $surname)."','".mysqli_real_escape_string($mysql_connect, $email)."','".mysqli_real_escape_string($mysql_connect, $college)."','".mysqli_real_escape_string($mysql_connect, $phone)."','".mysqli_real_escape_string($mysql_connect, $file)."')";
+                    // echo $query;
+                    
+
+                    if($query_run = mysqli_query($mysql_connect, $query))
+                    { 
+                    move_uploaded_file( $_FILES["fileToUpload"]["tmp_name"], $target_Path );
+                      header('Location: main.php');
+                    }
+                    else
+                    {
+                      $message =  'Sorry, we couldn\'t register you at this time. Try again later.';
+                      echo "<script type='text/javascript'>alert('$message');</script>";
+                    }
                   }
                 }
               }
@@ -90,7 +106,8 @@
     }
       else
       {
-        echo 'All fields are required.';
+        $message = 'All fields are required.';
+        echo "<script type='text/javascript'>alert('$message');</script>";
       }
 
 
@@ -116,13 +133,15 @@
               {
                 if(strlen($email)>40||strlen($ngoname)>30||strlen($address)>50)
                 {
-                  echo 'Please adhere to maxlength of fields.';
+                  $message = 'Please adhere to maxlength of fields.';
+                  echo "<script type='text/javascript'>alert('$message');</script>";
                 }
                 else
                 {
                   if($password!=$password_again)
                   {
-                    echo 'Passwords do not match.';
+                    $message = 'Passwords do not match.';
+                    echo "<script type='text/javascript'>alert('$message');</script>";
                   }
                   else
                   {
@@ -133,7 +152,8 @@
                     $query_num_rows = mysqli_num_rows($query_run);
                     if($query_num_rows>=1)
                     {
-                      echo 'The email '.$email.' already exists.';
+                      $message = 'The email '.$email.' already exists.';
+                      echo "<script type='text/javascript'>alert('$message');</script>";
                     }
                     else
                     {
@@ -145,7 +165,8 @@
                       }
                       else
                       {
-                        echo 'Sorry, we couldn\'t register you at this time. Try again later.';
+                        $message = 'Sorry, we couldn\'t register you at this time. Try again later.';
+                        echo "<script type='text/javascript'>alert('$message');</script>";
                       }
                     }
                   }
@@ -153,7 +174,8 @@
         }
           else
           {
-            echo 'All fields are required.';
+            $message = 'All fields are required.';
+            echo "<script type='text/javascript'>alert('$message');</script>";
           }
 
 
@@ -181,13 +203,15 @@
           {
             if(strlen($email)>40||strlen($comname)>30)
             {
-              echo 'Please adhere to maxlength of fields.';
+              $message = 'Please adhere to maxlength of fields.';
+              echo "<script type='text/javascript'>alert('$message');</script>";
             }
             else
             {
               if($password!=$password_again)
               {
-                echo 'Passwords do not match.';
+                $message = 'Passwords do not match.';
+                echo "<script type='text/javascript'>alert('$message');</script>";
               }
               else
               {
@@ -198,7 +222,8 @@
                 $query_num_rows = mysqli_num_rows($query_run);
                 if($query_num_rows>=1)
                 {
-                  echo 'The email '.$email.' already exists.';
+                  $message = 'The email '.$email.' already exists.';
+                  echo "<script type='text/javascript'>alert('$message');</script>";
                 }
                 else
                 {
@@ -210,7 +235,8 @@
                   }
                   else
                   {
-                    echo 'Sorry, we couldn\'t register you at this time. Try again later.';
+                    $message = 'Sorry, we couldn\'t register you at this time. Try again later.';
+                    echo "<script type='text/javascript'>alert('$message');</script>";
                   }
                 }
               }
@@ -218,7 +244,8 @@
     }
       else
       {
-        echo 'All fields are required.';
+        $message =  'All fields are required.';
+        echo "<script type='text/javascript'>alert('$message');</script>";
       }
 
     }
@@ -243,9 +270,15 @@
 
           <div class="collapse navbar-collapse navbar-light" id="navbarsExample05">
             <ul class="navbar-nav mx-auto">
-              <li class="nav-item">
-                <a class="nav-link" href="courses.php">Internships</a>
-              </li>
+              <!-- <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="courses.php" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Internships</a>
+                <div class="dropdown-menu" aria-labelledby="dropdown04">
+                  <a class="dropdown-item" href="courses.php">Volunteer</a>
+                  <a class="dropdown-item" href="courses.php">Data Entry</a>
+                  <a class="dropdown-item" href="courses.php">Web Development</a>
+                </div>
+
+              </li> -->
 
               <!-- li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="dropdown05" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categories</a>
@@ -258,6 +291,9 @@
                 </div>
 
               </li> -->
+              <li class="nav-item">
+                <a class="nav-link" href="courses.php">Internships</a>
+              </li>
               <li class="nav-item">
                 <a class="nav-link" href="about.php">About</a>
               </li>
@@ -283,18 +319,7 @@
           <div class="col-md-7 text-center">
             <div class="mb-5 element-animate">
               <h1 class="mb-2">Register</h1>
-              <p class="bcrumb"><?php
-             if(!loggedin()){
-
-                 echo '<a href="index.php">Home</a>';
-
-             }
-             else{
-
-              echo '<a href="main.php">Home</a>';
-
-           }
-           ?> <span class="sep ion-android-arrow-dropright px-2"></span>  <span class="current">Register</span></p>
+              <p class="bcrumb"><a href="index.php">Home</a> <span class="sep ion-android-arrow-dropright px-2"></span>  <span class="current">Register</span></p>
             </div>
 
           </div>
@@ -316,14 +341,14 @@
                   </li>
                   <li><a href="#2" data-toggle="tab" class="col-md-4 col-lg-4 mb-lg-0">NGO</a>
                   </li>
-                  <li><a href="#3" data-toggle="tab" class="col-md-4 col-lg-4 mb-lg-0">Industry</a>
+                  <li><a href="#3" data-toggle="tab" class="col-md-4 col-lg-4 mb-lg-0">Company</a>
                   </li>
                 </ul>
 
                 <div class="tab-content row">
                     <div class="tab-pane active" id="1">
                       <h2 class="mb-5">Register new Student account</h2>
-                      <form action="<?php echo $current_file; ?>" method="post">
+                      <form action="<?php echo $current_file; ?>" method="post" enctype="multipart/form-data">
 
                         <div class="row">
                           <div class="col-md-12 form-group">
@@ -367,6 +392,13 @@
                             <input name = "repass" type="password" id="name17" class="form-control py-2">
                           </div>
                         </div>
+                        <div class="row mb-5">
+                          <div class="col-md-12 form-group">
+                            <label for="name">Resume</label><br>
+                           <input type="file" name="fileToUpload" id="fileToUpload">
+                          </div>
+                        </div>
+                        
 
                         <div class="row">
                           <div class="col-md-6 form-group">

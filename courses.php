@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>Free Education Template by Colorlib</title>
+    <title>NGO::CONNECT</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -27,9 +27,12 @@
        function locationSearch (locid){
         window.location = '/NGOconnect/courses.php?locationid='+ String(locid);
        }
+       function tagSearch (tagid){
+        window.location = '/NGOconnect/courses.php?tagid='+ String(tagid);
+       }
     </script>
   </head>
-  <body>
+  <body> 
     <?php
     require 'connect.inc.php';
     require 'core.inc.php';
@@ -42,12 +45,12 @@
           <?php
               if(!loggedin()){
 
-                  echo '<a class="navbar-brand absolute" href="index.php">NGO::connect</a>';
+                  echo '<a class="navbar-brand absolute" href="index.php">NGO::CONNECT</a>';
 
               }
               else{
 
-               echo '<a class="navbar-brand absolute" href="main.php">NGO::connect</a>';
+               echo '<a class="navbar-brand absolute" href="main.php">NGO::CONNECT</a>';
 
             }
             ?>
@@ -120,7 +123,6 @@
       <div class="container">
         <div class="row align-items-center justify-content-center site-hero-sm-inner">
           <div class="col-md-7 text-center">
-
             <div class="mb-5 element-animate">
               <h1 class="mb-2">Internships</h1>
               <p class="bcrumb"><?php
@@ -152,15 +154,22 @@
               <?php
               if(isset($_GET['titleid'])){
               $param = $_GET['titleid'];
-              $array = get_intern($param, null);
+              $array = get_intern($param,null,  null);
             }
             else if (isset($_GET['locationid'])){
               $param = $_GET['locationid'];
-              $array = get_intern(null, $param);
+              $array = get_intern(null, $param, null);
+            }
+            else if(isset($_GET['tagid'])){
+              $param = $_GET['tagid'];
+              $array = get_intern(null,null, $param);
             }
             else{
-              $array = get_intern(null,null);
+              $array = get_intern(null,null, null);
             }
+            if(isset($_SESSION['myarray']) && !empty($_SESSION['myarray'])) {
+                 $array = $_SESSION['myarray'];
+              }
                         for ($i = 0; $i < count($array); $i++) {
 
                             ?>
@@ -236,7 +245,7 @@
             else{
               echo 'Unsucessful';
             }
-            $tag_array = get_intern(null,null);
+            $tag_array = get_intern(null,null,null);
 
           ?>
           <div class="col-md-6 col-lg-4 order-md-1">
@@ -265,8 +274,7 @@
                 <?php
                 for ($i = 0; $i < count($tag_array); $i++) {
                 ?>
-                <li><a href="#"><?php echo $tag_array[$i]['Tags']?></a></li>
-                <?php }?>
+                <li><a href="#" onclick= "tagSearch(this.id);" id="<?php echo $tag_array[$i]['Tags']?>"><?php echo $tag_array[$i]['Tags']?></a></li><?php }?>
               </ul>
             </div>
 
@@ -313,7 +321,7 @@
       <div class="container">
         <div class="row mb-3">
           <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
-            <h3>NGO::connect</h3>
+            <h3>NGO::CONNECT</h3>
             <p>One stop platform for social internships. Give back to the society by taking up a task.</p>
           </div>
           <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
@@ -382,21 +390,7 @@
             </div>
           </div>
         </div>
-        <div class="row pt-5">
-          <div class="col-md-12 text-center copyright">
-
-            <p class="float-md-left"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-<!-- Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" class="text-primary">Colorlib</a> -->
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
-            <p class="float-md-right">
-              <a href="#" class="fa fa-facebook p-2"></a>
-              <a href="#" class="fa fa-twitter p-2"></a>
-              <a href="#" class="fa fa-linkedin p-2"></a>
-              <a href="#" class="fa fa-instagram p-2"></a>
-
-            </p>
-          </div>
-        </div>
+        
       </div>
     </footer>
     <!-- END footer -->

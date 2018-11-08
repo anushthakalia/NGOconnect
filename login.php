@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>Free Education Template by Colorlib</title>
+    <title>NGO::CONNECT</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -39,7 +39,8 @@
                 $query_num_rows = mysqli_num_rows($query_run);
                 if($query_num_rows==0)
                 {
-                  echo 'Invalid email/password.';
+                  $message = 'Invalid username/password';
+                  echo "<script type='text/javascript'>alert('$message');</script>";
                 }
                 else if($query_num_rows==1)
                 {
@@ -55,12 +56,14 @@
             }
             else
             {
-              echo 'You must enter an email and password.';
+              $message = 'You must enter an email and password.';
+              echo "<script type='text/javascript'>alert('$message');</script>";
             }
 
          }
          else{
-          echo 'Not set';
+          $message = 'Login file not set';
+          echo "<script type='text/javascript'>alert('$message');</script>";
          }
 
     }
@@ -83,7 +86,8 @@
                 $query_num_rows = mysqli_num_rows($query_run);
                 if($query_num_rows==0)
                 {
-                  echo 'Invalid email/password.';
+                  $message = 'Invalid username/password';
+                  echo "<script type='text/javascript'>alert('$message');</script>";
                 }
                 else if($query_num_rows==1)
                 {
@@ -99,12 +103,14 @@
             }
             else
             {
-              echo 'You must enter an email and password.';
+              $message = 'You must enter an email and password.';
+              echo "<script type='text/javascript'>alert('$message');</script>";
             }
 
          }
          else{
-          echo 'Not set';
+          $message = 'Login file not set';
+          echo "<script type='text/javascript'>alert('$message');</script>";
          }
 
        //do something here;
@@ -128,7 +134,8 @@
                 $query_num_rows = mysqli_num_rows($query_run);
                 if($query_num_rows==0)
                 {
-                  echo 'Invalid email/password.';
+                  $message = 'Invalid username/password';
+                  echo "<script type='text/javascript'>alert('$message');</script>";
                 }
                 else if($query_num_rows==1)
                 {
@@ -144,12 +151,14 @@
             }
             else
             {
-              echo 'You must enter a username and password.';
+              $message = 'You must enter an email and password.';
+              echo "<script type='text/javascript'>alert('$message');</script>";
             }
 
          }
          else{
-          echo 'Not set';
+          $message = 'Login file not set';
+          echo "<script type='text/javascript'>alert('$message');</script>";
          }
 
        //do something here;
@@ -163,7 +172,7 @@
      
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
-          <a class="navbar-brand absolute" href="index.php">NGO::connect</a>
+          <a class="navbar-brand absolute" href="index.php">NGO::CONNECT</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample05" aria-controls="navbarsExample05" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -244,7 +253,7 @@
                   </li>
                   <li><a href="#2" data-toggle="tab" class="col-md-4 col-lg-4 mb-lg-0">NGO</a>
                   </li>
-                  <li><a href="#3" data-toggle="tab" class="col-md-4 col-lg-4 mb-lg-0">Industry</a>
+                  <li><a href="#3" data-toggle="tab" class="col-md-4 col-lg-4 mb-lg-0">Company</a>
                   </li>
                 </ul>
 
@@ -338,7 +347,7 @@
       <div class="container">
         <div class="row mb-3">
           <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
-            <h3>NGO::connect</h3>
+            <h3>NGO::CONNECT</h3>
             <p>One stop platform for social internships. Give back to the society by taking up a task.</p>
           </div>
           <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">

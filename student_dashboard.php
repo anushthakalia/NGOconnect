@@ -69,7 +69,7 @@
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="courses.php" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php echo getuserfield('firstname'); echo " "; echo getuserfield('surname')?></a>
                 <div class="dropdown-menu" aria-labelledby="dropdown04">
-                  <a class="dropdown-item" href="#">My Profile</a>
+                  <a class="dropdown-item" href="#aboutModal" data-toggle="modal" data-target="#myModal">My Profile</a>
                   <a class="dropdown-item" href="logout.php">Log Out</a>
                 </div>
 
@@ -80,12 +80,46 @@
       </nav>
     </header>
 
+    <div class="container">
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">My Profile</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                        </div>
+                    <div class="modal-body">
+                        <center>
+                        <img src="images/user.jpg" name="aboutme" width="140" height="140" border="0" class="img-circle"></a>
+                        <h3 class="media-heading"><?php echo getuserfield('firstname'); echo " "; echo getuserfield('surname')?></h3>
+                        <span><strong>Skills: </strong></span>
+                            <span class="badge badge-warning">HTML5/CSS</span>
+                            <span class="badge badge-info">Adobe CS 5.5</span>
+                            <span class="badge badge-info">Microsoft Office</span>
+                            <span class="badge badge-success">Windows XP, Vista, 7</span>
+                        </center>
+                        <hr>
+                        <center>
+                        <p class="text-left"><strong>College: </strong><?php echo getuserfield('college')?></p>
+                        <p class="text-left"><strong>Email: </strong><?php echo getuserfield('email')?></p>
+                        <p class="text-left"><strong>Phone: </strong><?php echo getuserfield('phone')?></p>
+                        <br>
+                        </center>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 <!-- <h1>Welcome <#?php #echo getuserfield('firstname') ?>!</h1>  -->
 <br>
 
 <!-- END section -->
 
-<div class="site-section bg-light">
+<div class="site-section bg-dark">
   <div class="container">
     <div class="row justify-content-center mb-5 element-animate">
       <div class="col-md-7 text-center section-heading">

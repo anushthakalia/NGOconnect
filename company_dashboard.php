@@ -69,7 +69,7 @@
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="courses.php" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php echo getuserfield('comname')?></a>
                 <div class="dropdown-menu" aria-labelledby="dropdown04">
-                  <a class="dropdown-item" href="#">My Profile</a>
+                  <a class="dropdown-item" href="#aboutModal" data-toggle="modal" data-target="#myModal">My Profile</a>
                   <a class="dropdown-item" href="logout.php">Log Out</a>
                 </div>
 
@@ -81,13 +81,41 @@
       </nav>
     </header>
 
+    <div class="container">
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">My Profile</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                    </div>
+                <div class="modal-body">
+                    <center>
+                    <img src="images/user.jpg" name="aboutme" width="140" height="140" border="0" class="img-circle"></a>
+                    <h3 class="media-heading"><?php echo getuserfield('comname')?></h3>
+                    </center>
+                    <hr>
+                    <center>
+                    <p class="text-left"><strong>Email: </strong><?php echo getuserfield('email')?></p>
+                    <p class="text-left"><strong>Phone: </strong><?php echo getuserfield('phone')?></p>
+                    <br>
+                    </center>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
     <?php
     $num_ngo = return_ngo_number_div_comdash();
     global $ngo_data;
     $ngo_data = array();
     $ngo_data[] = get_ngo_data_comdash();
     // print_r($ngo_data);
-    echo $num_ngo;
+    // echo $num_ngo;
     ?>
 
     <!-- END section -->
@@ -126,6 +154,13 @@
 
           <?php endfor; ?>
 
+        </div>
+        <div class="container">
+          <div class="row justify-content-center mb-5 element-animate">
+            <div class="col-md-7 text-center section-heading">
+              <p><a href="ngo_list.php" class="btn btn-primary py-2 px-4"><span class="ion-ios-book mr-2"></span>Sponsor an NGO</a></p>
+            </div>
+          </div>
         </div>
       </div>
 

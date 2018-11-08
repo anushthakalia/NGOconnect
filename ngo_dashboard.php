@@ -73,7 +73,7 @@
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="courses.php" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php echo getuserfield('ngoname')?></a>
                 <div class="dropdown-menu" aria-labelledby="dropdown04">
-                  <a class="dropdown-item" href="#">My Profile</a>
+                  <a class="dropdown-item" href="#aboutModal" data-toggle="modal" data-target="#myModal">My Profile</a>
                   <a class="dropdown-item" href="logout.php">Log Out</a>
                 </div>
 
@@ -83,6 +83,37 @@
         </div>
       </nav>
     </header>
+
+    <div class="container">
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">My Profile</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                        </div>
+                    <div class="modal-body">
+                        <center>
+                        <img src="images/user.jpg" name="aboutme" width="140" height="140" border="0" class="img-circle"></a>
+                        <h3 class="media-heading"><?php echo getuserfield('ContactName')?></h3>
+                        <h6 class="media-heading"><?php echo getuserfield('ngoname')?></h6>
+                        </center>
+                        <hr>
+                        <center>
+                        <p class="text-left"><strong>Your email: </strong><?php echo getuserfield('ContactEmail')?></p>
+                        <p class="text-left"><strong>Address: </strong><?php echo getuserfield('address')?></p>
+                        <p class="text-left"><strong>NGO email: </strong><?php echo getuserfield('email')?></p>
+                        <p class="text-left"><strong>Registration Number: </strong><?php echo getuserfield('regno')?></p>
+                        <br>
+                        </center>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <?php
     $num_students = return_intern_number_li_ngdash();
@@ -208,6 +239,11 @@
   <div class="nonloop-block-12 owl-carousel">
 
     <?php for ($i=0; $i < $num_students; $i++):
+      $intern_id = $intern_data[0][$i]['id'];
+      global $internship_data;
+      $internship_data = array();
+      $internship_data[] = return_internship_info_div_ngdash($intern_id);
+      $internship_descr = $internship_data[0][0]['Name'];
       $intern_name = $intern_data[0][$i]['firstname']." ".$intern_data[0][$i]['surname'];
       $intern_college = $intern_data[0][$i]['college'];
       $intern_phone = $intern_data[0][$i]['phone'];
@@ -221,6 +257,7 @@
           <div class="text">
             <h2 class="heading"><a href="#"><?php echo ($intern_name)?></a></h2>
             <p class="mb-4"><?php echo ($intern_college)?></p>
+            <p class="mb-4"><strong><?php echo ($internship_descr)?></strong></p>
             <div class="meta d-flex align-items-center">
             </div>
           </div>

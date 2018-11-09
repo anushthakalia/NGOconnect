@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Oct 19, 2018 at 07:53 PM
+-- Generation Time: Nov 09, 2018 at 08:11 AM
 -- Server version: 10.1.35-MariaDB
 -- PHP Version: 7.2.9
 
@@ -72,7 +72,8 @@ CREATE TABLE `internship_details` (
 --
 
 INSERT INTO `internship_details` (`internship_id`, `Name`, `NGO`, `Company`, `internship_descr`, `Location`, `Start_date`, `Duration`, `Apply_by`, `Tags`, `fk_intern_select_id`, `fk_ngo_id`) VALUES
-(1, 'Data Analyst', 'Goonj', 'Amazon', 'Data Analyst dolor sit amet, consectetur adipisicing elit. Officiis laborum repellat quisquam, illo soluta, deleniti, nesciunt illum eveniet tempore sed necessitatibus eligendi rerum. Cum maxime, aliquam incidunt voluptatem enim eum.\r\n\r\nHarum rerum totam eum facere sint, molestiae porro illum recusandae dolorum cumque ut illo cum quisquam esse consequatur commodi fugit culpa explicabo vero vel quos. Minus sed quod est, similique!\r\n\r\nQui id ad ipsum quis molestiae, velit, aut. Suscipit ex sunt incidunt cupiditate ad quisquam excepturi provident voluptate nemo earum, vel est facilis commodi ullam natus quis praesentium cum asperiores.', 'New Delhi', 'Immediatly', '3 months', '2018-10-24', 'Data', NULL, 2);
+(1, 'Data Analyst', 'Goonj', 'Amazon', 'Data Analyst dolor sit amet, consectetur adipisicing elit. Officiis laborum repellat quisquam, illo soluta, deleniti, nesciunt illum eveniet tempore sed necessitatibus eligendi rerum. Cum maxime, aliquam incidunt voluptatem enim eum.\r\n\r\nHarum rerum totam eum facere sint, molestiae porro illum recusandae dolorum cumque ut illo cum quisquam esse consequatur commodi fugit culpa explicabo vero vel quos. Minus sed quod est, similique!\r\n\r\nQui id ad ipsum quis molestiae, velit, aut. Suscipit ex sunt incidunt cupiditate ad quisquam excepturi provident voluptate nemo earum, vel est facilis commodi ullam natus quis praesentium cum asperiores.Suscipit ex sunt incidunt cupiditate ad quisquam excepturi provident voluptate nemo earum, vel est facilis commodi ullam natus quis praesentium ', 'New Delhi', 'Immediatly', '3 months', '2018-10-24', 'Data', 2, 2),
+(2, 'Web Development', 'Goonj', '', 'Its amazing opportunity to learn and grow.', 'Mumbai', '2018-12-05', '6', '2019-01-17', 'Development', 0, 2);
 
 -- --------------------------------------------------------
 
@@ -86,6 +87,8 @@ CREATE TABLE `ngo` (
   `password` varchar(32) NOT NULL,
   `ngoname` varchar(30) NOT NULL,
   `address` varchar(50) NOT NULL,
+  `ContactName` varchar(30) NOT NULL,
+  `ContactEmail` varchar(30) NOT NULL,
   `regno` varchar(40) NOT NULL,
   `fk_comid` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -94,10 +97,10 @@ CREATE TABLE `ngo` (
 -- Dumping data for table `ngo`
 --
 
-INSERT INTO `ngo` (`ngoid`, `email`, `password`, `ngoname`, `address`, `regno`, `fk_comid`) VALUES
-(1, '', '5f4dcc3b5aa765d61d8327deb882cf99', 'Goonj', '', '', 1),
-(2, 'abc@goonj.in', '5f4dcc3b5aa765d61d8327deb882cf99', 'Goonj', 'New Delhi', '123456', 2),
-(3, 'abc@cry.in', '5f4dcc3b5aa765d61d8327deb882cf99', 'Cry', 'Gweyer Hall', '123433', 1);
+INSERT INTO `ngo` (`ngoid`, `email`, `password`, `ngoname`, `address`, `ContactName`, `ContactEmail`, `regno`, `fk_comid`) VALUES
+(1, '', '5f4dcc3b5aa765d61d8327deb882cf99', 'Goonj', '', 'Anushtha', 'anushtha@email.com', '', 1),
+(2, 'abc@goonj.in', '5f4dcc3b5aa765d61d8327deb882cf99', 'Goonj', 'New Delhi', 'Chintu', 'chintu@yahoo.com', '123456', 2),
+(3, 'abc@cry.in', '5f4dcc3b5aa765d61d8327deb882cf99', 'Cry', 'Gweyer Hall', '', '', '123433', 1);
 
 -- --------------------------------------------------------
 
@@ -127,7 +130,17 @@ INSERT INTO `student` (`id`, `password`, `firstname`, `surname`, `email`, `colle
 (2, '5f4dcc3b5aa765d61d8327deb882cf99', 'Anushtha', 'Kalia', 'anushthakalia@yahoo.com', 'Cluster Innovation Centre', 2147483647, '', 2, NULL),
 (3, '5f4dcc3b5aa765d61d8327deb882cf99', 'Arjun', 'Sharma', 'arjun@gmail.com', 'CIC', 2147483647, '', 1, NULL),
 (11, '5f4dcc3b5aa765d61d8327deb882cf99', 'raghav', 'sing', 'raghav.singh@gmail.com', 'CIC', 2147483647, '', NULL, NULL),
-(12, '5f4dcc3b5aa765d61d8327deb882cf99', 'Raghav', 'Singh', 'raghav@gmail.com', 'cic', 123456789, '', NULL, NULL);
+(12, '5f4dcc3b5aa765d61d8327deb882cf99', 'Raghav', 'Singh', 'raghav@gmail.com', 'cic', 123456789, '', NULL, NULL),
+(13, '5f4dcc3b5aa765d61d8327deb882cf99', 'Anirudh', 'Kalia', 'ani@gmail.com', 'School', 123456789, 'resume.pdf', NULL, NULL),
+(15, '5f4dcc3b5aa765d61d8327deb882cf99', 'ann', 'kakak', 'ani@hotmail.com', 'cic', 2147483647, '', NULL, NULL),
+(16, '5f4dcc3b5aa765d61d8327deb882cf99', 'aa', 'a', 'ama@in.com', 'CIC', 22, 'Anushtha_Kalia_resume.pdf', NULL, NULL),
+(17, '5f4dcc3b5aa765d61d8327deb882cf99', 'Anushtha', 'Kalia', 'anushtha@msn.com', 'CIC', 2147483647, 'Anushtha_Kalia_resume_Bio.pdf', NULL, NULL),
+(18, '319f4d26e3c536b5dd871bb2c52e3178', 'aNUSHT', 'kAAIA', 'anushthakalia@gil.com', 'CIC', 989, 'Anushtha_Kalia_resume.pdf', NULL, NULL),
+(19, '5f4dcc3b5aa765d61d8327deb882cf99', 'an', 'kj', 'a@g.com', 'kmk', 22, 'Anushtha_Kalia_resume.pdf', NULL, NULL),
+(20, '5f4dcc3b5aa765d61d8327deb882cf99', 'ANushtha', 'Kalai', 'anushtha@wgdhs.com', 'cic', 989, 'Anushtha_Kalia_resume_Bio.pdf', NULL, NULL),
+(21, '5f4dcc3b5aa765d61d8327deb882cf99', 'Anirudh', 'Kalia', 'ani@yahoo.com', 'CIC', 98989, 'Cover letter.pdf', NULL, NULL),
+(22, '5f4dcc3b5aa765d61d8327deb882cf99', 'anjb', 'hbbk', 'anu@wed.com', 'vbj', 9090, 'anushtha_transcript.pdf', NULL, NULL),
+(23, '5f4dcc3b5aa765d61d8327deb882cf99', 'Anushtha', 'Kalia', 'anu@g.com', 'CIC', 989, 'Anushtha_Kalia_resume.pdf', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -140,6 +153,18 @@ CREATE TABLE `student_internship_apply` (
   `fk_intern_id` int(11) NOT NULL,
   `fk_internship_details_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `student_internship_apply`
+--
+
+INSERT INTO `student_internship_apply` (`apply_id`, `fk_intern_id`, `fk_internship_details_id`) VALUES
+(1, 2, 1),
+(3, 3, 1),
+(7, 2, 1),
+(8, 2, 1),
+(9, 2, 2),
+(10, 2, 2);
 
 --
 -- Indexes for dumped tables
@@ -159,6 +184,18 @@ ALTER TABLE `internship_details`
   ADD PRIMARY KEY (`internship_id`),
   ADD KEY `fk_intern_id` (`fk_intern_select_id`),
   ADD KEY `fk_ngo_id` (`fk_ngo_id`);
+ALTER TABLE `internship_details` ADD FULLTEXT KEY `Name` (`Name`,`Location`);
+ALTER TABLE `internship_details` ADD FULLTEXT KEY `Name_2` (`Name`,`Location`);
+ALTER TABLE `internship_details` ADD FULLTEXT KEY `Name_3` (`Name`,`Location`);
+ALTER TABLE `internship_details` ADD FULLTEXT KEY `Name_4` (`Name`,`Location`);
+ALTER TABLE `internship_details` ADD FULLTEXT KEY `Name_5` (`Name`,`Location`);
+ALTER TABLE `internship_details` ADD FULLTEXT KEY `Name_6` (`Name`,`Location`);
+ALTER TABLE `internship_details` ADD FULLTEXT KEY `Name_7` (`Name`,`Location`);
+ALTER TABLE `internship_details` ADD FULLTEXT KEY `Name_8` (`Name`,`Location`);
+ALTER TABLE `internship_details` ADD FULLTEXT KEY `Name_9` (`Name`,`Location`);
+ALTER TABLE `internship_details` ADD FULLTEXT KEY `Name_10` (`Name`,`Location`);
+ALTER TABLE `internship_details` ADD FULLTEXT KEY `Name_11` (`Name`,`Location`);
+ALTER TABLE `internship_details` ADD FULLTEXT KEY `Name_12` (`Name`,`Location`);
 
 --
 -- Indexes for table `ngo`
@@ -209,13 +246,13 @@ ALTER TABLE `ngo`
 -- AUTO_INCREMENT for table `student`
 --
 ALTER TABLE `student`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `student_internship_apply`
 --
 ALTER TABLE `student_internship_apply`
-  MODIFY `apply_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `apply_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- Constraints for dumped tables

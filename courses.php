@@ -316,7 +316,7 @@
             ?>
 
 
-
+<!-- footer begin -->
   <footer class="site-footer">
       <div class="container">
         <div class="row mb-3">
@@ -329,55 +329,32 @@
             <div class="row">
               <div class="col-md-6">
                 <ul class="list-unstyled">
-                  <li><a href="index.php">Home</a></li>
+                   <?php
+              if(!loggedin()){
+
+                  echo '<li><a href="index.php">Home</a></li>';
+
+              }
+              else{
+
+               echo '<li><a href="main.php">Home</a></li>';
+
+            }
+            ?>
                   <li><a href="about.php">About Us</a></li>
                   <li><a href="courses.php">Internships</a></li>
-                  <li><a href="#">Pages</a></li>
                 </ul>
               </div>
               <div class="col-md-6">
                 <ul class="list-unstyled">
-                  <li><a href="#">News</a></li>
                   <li><a href="#">Support</a></li>
-                  <li><a href="#">Contact</a></li>
+                  <li><a href="contact.php">Contact</a></li>
                   <li><a href="#">Privacy</a></li>
                 </ul>
               </div>
             </div>
           </div>
-     <!--      <div class="col-md-6 col-lg-3 mb-5 mb-lg-0">
-            <h3 class="heading">Blog</h3>
-            <div class="block-21 d-flex mb-4">
-              <div class="text">
-                <h3 class="heading mb-0"><a href="#">Consectetur Adipisicing Elit</a></h3>
-                <div class="meta">
-                  <div><a href="#"><span class="ion-android-calendar"></span> May 29, 2018</a></div>
-                  <div><a href="#"><span class="ion-android-person"></span> Admin</a></div>
-                  <div><a href="#"><span class="ion-chatbubble"></span> 19</a></div>
-                </div>
-              </div>
-            </div>  -->
-            <!-- <div class="block-21 d-flex mb-4">
-              <div class="text">
-                <h3 class="heading mb-0"><a href="#">Dolore Tempora Consequatur</a></h3>
-                <div class="meta">
-                  <div><a href="#"><span class="ion-android-calendar"></span> May 29, 2018</a></div>
-                  <div><a href="#"><span class="ion-android-person"></span> Admin</a></div>
-                  <div><a href="#"><span class="ion-chatbubble"></span> 19</a></div>
-                </div>
-              </div>
-            </div>
-            <div class="block-21 d-flex mb-4">
-              <div class="text">
-                <h3 class="heading mb-0"><a href="#">Perferendis eum illum</a></h3>
-                <div class="meta">
-                  <div><a href="#"><span class="ion-android-calendar"></span> May 29, 2018</a></div>
-                  <div><a href="#"><span class="ion-android-person"></span> Admin</a></div>
-                  <div><a href="#"><span class="ion-chatbubble"></span> 19</a></div>
-                </div>
-              </div>
-            </div>
-          </div> -->
+     
           <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
             <h3 class="heading">Contact Information</h3>
             <div class="block-23">

@@ -78,7 +78,9 @@
           </div>
         </div>
       </nav>
+     
     </header>
+
 
     <div class="container">
         <!-- Modal -->
@@ -115,7 +117,7 @@
     </div>
 
 <!-- <h1>Welcome <#?php #echo getuserfield('firstname') ?>!</h1>  -->
-<br>
+
 
 <!-- END section -->
 
@@ -123,51 +125,58 @@
   <div class="container">
     <div class="row justify-content-center mb-5 element-animate">
       <div class="col-md-7 text-center section-heading">
-        <h2 class="text-primary heading">Ongoing internships</h2>
+        <h2 class="text-primary heading">Internships: Ongoing</h2>
       </div>
     </div>
   </div>
-  <div class="container-fluid block-11 element-animate center">
-    <div class="nonloop-block-12 owl-carousel">
+  
 
-      <?php
-
-      $internship_number = return_internship_number_div_stdash();
+  <div class="container">
+    <table class="table table-hover element-animate">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Profile</th>
+          <th scope="col">NGO</th>
+          <th scope="col">Duration</th>
+        </tr>
+      </thead>
+      <tbody>
+        <?php 
+        $internship_number = return_internship_number_div_stdash();
       global $internship_data;
       $internship_data = array();
       $internship_data[] = get_internship_data_stdash();
       #print_r($internship_data);
       for($i=0;$i<$internship_number;$i++):
         $title_name = $internship_data[0][$i]['Name'];
-        $internship_descr = $internship_data[0][$i]['internship_descr'];
+        $internship_dur = $internship_data[0][$i]['Duration'];
         $internship_NGO = $internship_data[0][$i]['NGO'];
         ?>
-
-      <div class="item">
-        <div class="block-19">
-            <figure>
-              <img src="images/<?php echo $internship_NGO ?>.png" alt="Image" class="img-fluid">
-            </figure>
-
-              <!-- <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit qui neque sint eveniet tempore sapiente.</p>
-              <div class="meta d-flex align-items-center">
-              </div> -->
-            <div class="text">
-              <h2 class="heading"><a href="#"><?php echo ($title_name)?></a></h2>
-              <p class="mb-4"><?php echo ($internship_descr)?></p>
-              <div class="meta d-flex align-items-center">
-              </div>
-            </div>
-          </div>
-      </div>
-
-      <?php endfor; ?>
-
-    </div>
+        <tr data-toggle="modal" data-target="#exampleModal" data-conname="<?php echo $ngo_contact_name ?>" data-conemail="<?php echo $ngo_contact_email ?>" data-email="<?php echo $ngo_email ?>" data-name="<?php echo $ngo_name ?>">
+          <th scope="row"><?php echo $i+1; ?></th>
+          <td><?php echo $title_name?></td>
+          <td><?php echo $internship_NGO?></td>
+          <td><?php echo $internship_dur?></td>
+        </tr>
+        <?php endfor; ?>
+      </tbody>
+    </table>
   </div>
+
+   
 
 
 </div>
+<div class="site-section bg-light">
+<div class="container">
+    <div class="row justify-content-center mb-5 element-animate">
+      <div class="col-md-7 text-center section-heading">
+        <h2 class="text-primary heading">Internships: Applied</h2>
+      </div>
+    </div>
+  </div>
+  </div>
 <!-- END section -->
 
 

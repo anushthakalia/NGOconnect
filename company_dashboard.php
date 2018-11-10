@@ -145,7 +145,7 @@
                   <div class="meta d-flex align-items-center">
                   </div> -->
                 <div class="text">
-                  <h2 class="heading"><a href="#"><?php echo ($ngo_name)?></a></h2>
+                  <h2 class="heading"><div style="text-align:center"><a href="#" align="center"><?php echo ($ngo_name)?></a></div></h2>
                   <div class="meta d-flex align-items-center">
                   </div>
                 </div>

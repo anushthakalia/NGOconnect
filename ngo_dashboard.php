@@ -142,7 +142,6 @@
     #echo $num_students;
     ?>
 
-<br>
 <!-- END section -->
 
 <div class="site-section bg-light">
@@ -154,38 +153,39 @@
     </div>
   </div>
   <div class="container-fluid block-11 element-animate center">
-    <div class="nonloop-block-12 owl-carousel">
-
+    
+    <div class="container">
+    <table class="table table-hover element-animate">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Profile</th>
+          <th scope="col">Duration</th>
+          <th scope="col">Location</th>
+        </tr>
+      </thead>
+      <tbody>
         <?php for ($i=0; $i < $num_posts; $i++):
           $internship_name = $internship_data[0][$i]['Name'];
-          $internship_NGO = $internship_data[0][$i]['NGO'];
-          $internship_descr = $internship_data[0][$i]['internship_descr'];
+          $internship_dur = $internship_data[0][$i]['Duration'];
+          $internship_loc = $internship_data[0][$i]['Location'];
         ?>
-
-      <div class="item">
-        <div class="block-19">
-
-              <!-- <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit qui neque sint eveniet tempore sapiente.</p>
-              <div class="meta d-flex align-items-center">
-              </div> -->
-            <div class="text">
-              <h2 class="heading"><a href="#"><?php echo ($internship_name)?></a></h2>
-              <p class="mb-4"><?php echo ($internship_descr)?></p>
-              <div class="meta d-flex align-items-center">
-              </div>
-            </div>
-          </div>
-      </div>
-
-      <?php endfor; ?>
-
-
-
-    </div>
+        <tr data-toggle="modal" data-target="#exampleModal" data-conname="<?php echo $ngo_contact_name ?>" data-conemail="<?php echo $ngo_contact_email ?>" data-email="<?php echo $ngo_email ?>" data-name="<?php echo $ngo_name ?>">
+          <th scope="row"><?php echo $i+1; ?></th>
+          <td><?php echo $internship_name?></td>
+          <td><?php echo $internship_dur?></td>
+          <td><?php echo $internship_loc?></td>
+        </tr>
+        <?php endfor; ?>
+      </tbody>
+    </table>
+  </div>
     <div class="container">
       <div class="row justify-content-center mb-5 element-animate">
         <div class="col-md-7 text-center section-heading">
-          <p><a href="new_internship_form.php" class="btn btn-primary py-2 px-4"><span class="ion-ios-book mr-2"></span>Add an internship</a></p>
+          <br>
+          <p><a href="new_internship_form.php" class="btn btn-primary py-2 px-4"><span class="ion-ios-book mr-2"></span>Add an internship</a>
+          <a href="#" class="btn btn-primary py-2 px-4"><span class="ion-ios-book mr-2"></span>See Applications</a></p>
         </div>
       </div>
     </div>
@@ -214,7 +214,7 @@
             <img src="images/<?php echo $company_name ?>.jpg" alt="Image" class="img-fluid">
           </figure>
           <div class="text">
-            <h2 class="heading"><a href="#"><?php echo ($company_name)?></a></h2>
+            <h2 class="heading"><div style="text-align:center"><a href="#"><?php echo ($company_name)?></a></div></h2>
             <div class="meta d-flex align-items-center">
             </div>
           </div>
@@ -236,9 +236,20 @@
   </div>
 </div>
 <div class="container-fluid block-11 element-animate center">
-  <div class="nonloop-block-12 owl-carousel">
+  
 
-    <?php for ($i=0; $i < $num_students; $i++):
+  <div class="container">
+    <table class="table table-hover element-animate">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Name</th>
+          <th scope="col">College</th>
+          <th scope="col">Profile</th>
+        </tr>
+      </thead>
+      <tbody>
+        <?php for ($i=0; $i < $num_students; $i++):
       $intern_id = $intern_data[0][$i]['id'];
       global $internship_data;
       $internship_data = array();
@@ -248,25 +259,18 @@
       $intern_college = $intern_data[0][$i]['college'];
       $intern_phone = $intern_data[0][$i]['phone'];
     ?>
-
-    <div class="item">
-      <div class="block-19">
-          <!-- <figure>
-            <img src="images/<?php echo $internship_NGO ?>.png" alt="Image" class="img-fluid">
-          </figure> -->
-          <div class="text">
-            <h2 class="heading"><a href="#"><?php echo ($intern_name)?></a></h2>
-            <p class="mb-4"><?php echo ($intern_college)?></p>
-            <p class="mb-4"><strong><?php echo ($internship_descr)?></strong></p>
-            <div class="meta d-flex align-items-center">
-            </div>
-          </div>
-        </div>
-    </div>
-
-    <?php endfor; ?>
-
+        <tr data-toggle="modal" data-target="#exampleModal" data-conname="<?php echo $ngo_contact_name ?>" data-conemail="<?php echo $ngo_contact_email ?>" data-email="<?php echo $ngo_email ?>" data-name="<?php echo $ngo_name ?>">
+          <th scope="row"><?php echo $i+1; ?></th>
+          <td><?php echo $intern_name?></td>
+          <td><?php echo $intern_college?></td>
+          <td><?php echo $internship_descr?></td>
+        </tr>
+        <?php endfor; ?>
+      </tbody>
+    </table>
   </div>
+
+
 </div>
 
 

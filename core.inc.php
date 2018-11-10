@@ -287,6 +287,100 @@ function get_ngo_data_comdash()
 		echo 'Unsucessful';
 	}
 }
+
+function get_ngo_intcount_number_application()
+{
+	global $mysql_connect;
+	$ngo_id = getuserfield('ngoid');
+	$query = "SELECT * FROM `internship_details` WHERE `fk_ngo_id`=$ngo_id";
+	// $field = 'Resume';
+	// $prefix = 'uploads/';
+	// echo $_SESSION['table_id'];
+	if($query_run = mysqli_query($mysql_connect, $query))
+	{
+		$query_run = mysqli_query($mysql_connect, $query);
+		$return_field = mysqli_num_rows($query_run);
+		return $return_field;
+	}
+	else{
+		echo 'Unsucessful';
+}
+}
+
+function get_internship_matchcount_number_application($internship_id)
+{
+	global $mysql_connect;
+	$query = "SELECT * FROM `student_internship_apply` WHERE `fk_internship_details_id`='".$internship_id."'";
+	if($query_run = mysqli_query($mysql_connect, $query))
+	{
+		$query_run = mysqli_query($mysql_connect, $query);
+		$return_field = mysqli_num_rows($query_run);
+		return $return_field;
+	}
+	else{
+		echo 'Unsucessful';
+}
+}
+
+function get_internship_matchcount_application($internship_id)
+{
+	global $mysql_connect;
+	$query = "SELECT * FROM `student_internship_apply` WHERE `fk_internship_details_id`='".$internship_id."'";
+	if($query_run = mysqli_query($mysql_connect, $query))
+	{
+		$query_run = mysqli_query($mysql_connect, $query);
+		$applicant_push = array();
+		$result = mysqli_query($mysql_connect, $query);
+		while($row = mysqli_fetch_assoc($result)){
+			$row = array_map('stripslashes', $row);
+			$applicant_push[] = $row;
+		}
+		return $applicant_push;
+	}
+	else{
+		echo 'Unsucessful';
+}
+}
+
+function get_intern_name_application($intern_id)
+{
+	global $mysql_connect;
+	$query = "SELECT * FROM `student` WHERE `id`='".$intern_id."'";
+	if($query_run = mysqli_query($mysql_connect, $query))
+	{
+		$query_run = mysqli_query($mysql_connect, $query);
+		$query_row = mysqli_fetch_assoc($query_run);
+		return $query_row;
+
+	}
+	else{
+		echo 'Unsucessful';
+	}
+}
+
+function get_ngo_intcount_application()
+{
+	global $mysql_connect;
+	$ngo_id = getuserfield('ngoid');
+	$query = "SELECT * FROM `internship_details` WHERE `fk_ngo_id`=$ngo_id";
+	// $field = 'Resume';
+	// $prefix = 'uploads/';
+	// echo $_SESSION['table_id'];
+	if($query_run = mysqli_query($mysql_connect, $query))
+	{
+		$query_run = mysqli_query($mysql_connect, $query);
+	  $result = mysqli_query($mysql_connect, $query);
+	  $internship_push = array();
+	  while($row = mysqli_fetch_assoc($result)){
+	    $row = array_map('stripslashes', $row);
+	    $internship_push[] = $row;
+	  }
+		return $internship_push;
+	}
+	else{
+	  echo "UUUU";
+	}
+}
 // =======
 function get_intern($title, $location, $tag){
 	global $mysql_connect;

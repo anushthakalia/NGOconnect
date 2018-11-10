@@ -153,7 +153,7 @@
     </div>
   </div>
   <div class="container-fluid block-11 element-animate center">
-    
+
     <div class="container">
     <table class="table table-hover element-animate">
       <thead>
@@ -185,7 +185,7 @@
         <div class="col-md-7 text-center section-heading">
           <br>
           <p><a href="new_internship_form.php" class="btn btn-primary py-2 px-4"><span class="ion-ios-book mr-2"></span>Add an internship</a>
-          <a href="#" class="btn btn-primary py-2 px-4"><span class="ion-ios-book mr-2"></span>See Applications</a></p>
+          <a href="intern_applications.php" class="btn btn-primary py-2 px-4"><span class="ion-ios-book mr-2"></span>See Applications</a></p>
         </div>
       </div>
     </div>
@@ -236,7 +236,7 @@
   </div>
 </div>
 <div class="container-fluid block-11 element-animate center">
-  
+
 
   <div class="container">
     <table class="table table-hover element-animate">
@@ -316,7 +316,7 @@
               </div>
             </div>
           </div>
-     
+
           <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
             <h3 class="heading">Contact Information</h3>
             <div class="block-23">
@@ -329,7 +329,7 @@
             </div>
           </div>
         </div>
-        
+
       </div>
     </footer>
     <!-- END footer -->

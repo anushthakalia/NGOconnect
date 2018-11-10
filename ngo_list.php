@@ -41,6 +41,12 @@
       require 'core.inc.php';
       require 'connect.inc.php';
     ?>
+    <?php
+    if(!loggedin()){
+      header('Location: index.php');
+    }
+
+    ?>
 
 <header role="banner">
 
@@ -238,7 +244,7 @@ $ngo_data[] = return_ngo_info_div_ngolist();
               </div>
             </div>
           </div>
-     
+
           <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
             <h3 class="heading">Contact Information</h3>
             <div class="block-23">
@@ -251,7 +257,7 @@ $ngo_data[] = return_ngo_info_div_ngolist();
             </div>
           </div>
         </div>
-        
+
       </div>
     </footer>
 <!-- END footer -->

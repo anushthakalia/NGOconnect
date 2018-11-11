@@ -129,16 +129,16 @@
         </div>
       </div>
       <div class="container-fluid block-11 element-animate center">
-        <div class="nonloop-block-12 owl-carousel">
+        <div class="nonloop-block-11 owl-carousel">
 
           <?php for ($i=0; $i < $num_ngo; $i++):
-            $ngo_name = $ngo_data[0][0]['ngoname'];
+            $ngo_name = $ngo_data[0][$i]['ngoname'];
           ?>
 
           <div class="item">
             <div class="block-19">
                 <figure>
-                  <img src="images/<?php echo $ngo_name ?>.png" alt="Image" class="img-fluid">
+                  <img src="images/<?php echo $ngo_name ?>.jpg" alt="Image" class="img-fluid">
                 </figure>
 
                   <!-- <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit qui neque sint eveniet tempore sapiente.</p>
@@ -204,7 +204,7 @@
               </div>
             </div>
           </div>
-     
+
           <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
             <h3 class="heading">Contact Information</h3>
             <div class="block-23">
@@ -217,7 +217,7 @@
             </div>
           </div>
         </div>
-        
+
       </div>
     </footer>
     <!-- END footer -->

@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 09, 2018 at 08:11 AM
--- Server version: 10.1.35-MariaDB
--- PHP Version: 7.2.9
+-- Generation Time: Nov 11, 2018 at 02:54 PM
+-- Server version: 10.1.36-MariaDB
+-- PHP Version: 7.1.22
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -42,9 +42,10 @@ CREATE TABLE `company` (
 --
 
 INSERT INTO `company` (`comid`, `email`, `password`, `comname`, `phone`, `fk_ngo_id`) VALUES
-(1, '', '5f4dcc3b5aa765d61d8327deb882cf99', 'Amazon', 0, 2),
+(1, 'abc@amazon.in', '5f4dcc3b5aa765d61d8327deb882cf99', 'Amazon', 0, 2),
 (2, 'ani@flipkart.com', '5f4dcc3b5aa765d61d8327deb882cf99', 'Flipkart', 2147483647, 2),
-(3, 'abc@ola.in', '5f4dcc3b5aa765d61d8327deb882cf99', 'Ola', 2147483647, 1);
+(3, 'abc@ola.in', '5f4dcc3b5aa765d61d8327deb882cf99', 'Ola', 2147483647, 1),
+(4, 'abc@ibm.in', '5f4dcc3b5aa765d61d8327deb882cf99', 'IBM', 22181920, 2);
 
 -- --------------------------------------------------------
 
@@ -72,8 +73,12 @@ CREATE TABLE `internship_details` (
 --
 
 INSERT INTO `internship_details` (`internship_id`, `Name`, `NGO`, `Company`, `internship_descr`, `Location`, `Start_date`, `Duration`, `Apply_by`, `Tags`, `fk_intern_select_id`, `fk_ngo_id`) VALUES
-(1, 'Data Analyst', 'Goonj', 'Amazon', 'Data Analyst dolor sit amet, consectetur adipisicing elit. Officiis laborum repellat quisquam, illo soluta, deleniti, nesciunt illum eveniet tempore sed necessitatibus eligendi rerum. Cum maxime, aliquam incidunt voluptatem enim eum.\r\n\r\nHarum rerum totam eum facere sint, molestiae porro illum recusandae dolorum cumque ut illo cum quisquam esse consequatur commodi fugit culpa explicabo vero vel quos. Minus sed quod est, similique!\r\n\r\nQui id ad ipsum quis molestiae, velit, aut. Suscipit ex sunt incidunt cupiditate ad quisquam excepturi provident voluptate nemo earum, vel est facilis commodi ullam natus quis praesentium cum asperiores.Suscipit ex sunt incidunt cupiditate ad quisquam excepturi provident voluptate nemo earum, vel est facilis commodi ullam natus quis praesentium ', 'New Delhi', 'Immediatly', '3 months', '2018-10-24', 'Data', 2, 2),
-(2, 'Web Development', 'Goonj', '', 'Its amazing opportunity to learn and grow.', 'Mumbai', '2018-12-05', '6', '2019-01-17', 'Development', 0, 2);
+(1, 'Data Analyst', 'Goonj', 'Amazon', 'Data Analyst dolor sit amet, consectetur adipisicing elit. Officiis laborum repellat quisquam, illo soluta, deleniti, nesciunt illum eveniet tempore sed necessitatibus eligendi rerum. Cum maxime, aliquam incidunt voluptatem enim eum.\r\n\r\nHarum rerum totam eum facere sint, molestiae porro illum recusandae dolorum cumque ut illo cum quisquam esse consequatur commodi fugit culpa explicabo vero vel quos. Minus sed quod est, similique!\r\n\r\nQui id ad ipsum quis molestiae, velit, aut. Suscipit ex sunt incidunt cupiditate ad quisquam excepturi provident voluptate nemo earum, vel est facilis commodi ullam natus quis praesentium cum asperiores.', 'New Delhi', 'Immediatly', '3 months', '2018-10-24', 'Data', 2, 2),
+(2, 'Data Scientist', 'Cry', 'Flipkart', 'Data Scientist dolor sit amet, consectetur adipisicing elit. Officiis laborum repellat quisquam, illo soluta, deleniti, nesciunt illum eveniet tempore sed necessitatibus eligendi rerum. Cum maxime, aliquam incidunt voluptatem enim eum.\r\n\r\nHarum rerum totam eum facere sint, molestiae porro illum recusandae dolorum cumque ut illo cum quisquam esse consequatur commodi fugit culpa explicabo vero vel quos. Minus sed quod est, similique!\r\n\r\nQui id ad ipsum quis molestiae, velit, aut. Suscipit ex sunt incidunt cupiditate ad quisquam excepturi provident voluptate nemo earum, vel est facilis commodi ullam natus quis praesentium cum asperiores.', 'New Delhi', 'Immediatly', '3 months', '2018-10-24', 'Data', 1, 3),
+(3, 'Business Analyst', 'HelpAge', 'Flipkart', 'Data Scientist dolor sit amet, consectetur adipisicing elit. Officiis laborum repellat quisquam, illo soluta, deleniti, nesciunt illum eveniet tempore sed necessitatibus eligendi rerum. Cum maxime, aliquam incidunt voluptatem enim eum.\r\n\r\nHarum rerum totam eum facere sint, molestiae porro illum recusandae dolorum cumque ut illo cum quisquam esse consequatur commodi fugit culpa explicabo vero vel quos. Minus sed quod est, similique!\r\n\r\nQui id ad ipsum quis molestiae, velit, aut. Suscipit ex sunt incidunt cupiditate ad quisquam excepturi provident voluptate nemo earum, vel est facilis commodi ullam natus quis praesentium cum asperiores.', 'New Delhi', 'Immediately', '3 months', '2018-12-01', 'Business', NULL, NULL),
+(4, 'PR Consultant', 'Goonj', 'Ola', 'Technological Consultant dolor sit amet, consectetur adipisicing elit. Officiis laborum repellat quisquam, illo soluta, deleniti, nesciunt illum eveniet tempore sed necessitatibus eligendi rerum. Cum maxime, aliquam incidunt voluptatem enim eum.\r\n\r\nHarum rerum totam eum facere sint, molestiae porro illum recusandae dolorum cumque ut illo cum quisquam esse consequatur commodi fugit culpa explicabo vero vel quos. Minus sed quod est, similique!\r\n\r\nQui id ad ipsum quis molestiae, velit, aut. Suscipit ex sunt incidunt cupiditate ad quisquam excepturi provident voluptate nemo earum, vel est facilis commodi ullam natus quis praesentium cum asperiores.', 'Mumbai', 'Immediately', '6 months', '2018-12-01', 'Consultant', 13, 2),
+(5, 'Media Intern', 'Goonj', 'Amazon', 'Technological Consultant dolor sit amet, consectetur adipisicing elit. Officiis laborum repellat quisquam, illo soluta, deleniti, nesciunt illum eveniet tempore sed necessitatibus eligendi rerum. Cum maxime, aliquam incidunt voluptatem enim eum.\r\n\r\nHarum rerum totam eum facere sint, molestiae porro illum recusandae dolorum cumque ut illo cum quisquam esse consequatur commodi fugit culpa explicabo vero vel quos. Minus sed quod est, similique!\r\n\r\nQui id ad ipsum quis molestiae, velit, aut. Suscipit ex sunt incidunt cupiditate ad quisquam excepturi provident voluptate nemo earum, vel est facilis commodi ullam natus quis praesentium cum asperiores.', 'Mumbai', 'Immediately', '2 months', '2018-12-01', 'Media', 14, 2),
+(6, 'Web Developer', 'Goonj', 'Amazon', 'Web Dev dolor sit amet, consectetur adipisicing elit. Officiis laborum repellat quisquam, illo soluta, deleniti, nesciunt illum eveniet tempore sed necessitatibus eligendi rerum. Cum maxime, aliquam incidunt voluptatem enim eum.\r\n\r\nHarum rerum totam eum facere sint, molestiae porro illum recusandae dolorum cumque ut illo cum quisquam esse consequatur commodi fugit culpa explicabo vero vel quos. Minus sed quod est, similique!\r\n\r\nQui id ad ipsum quis molestiae, velit, aut. Suscipit ex sunt incidunt cupiditate ad quisquam excepturi provident voluptate nemo earum, vel est facilis commodi ullam natus quis praesentium cum asperiores.', 'New Delhi', 'Immediately', '3 months', '2018-12-01', 'Business', NULL, 2);
 
 -- --------------------------------------------------------
 
@@ -98,9 +103,15 @@ CREATE TABLE `ngo` (
 --
 
 INSERT INTO `ngo` (`ngoid`, `email`, `password`, `ngoname`, `address`, `ContactName`, `ContactEmail`, `regno`, `fk_comid`) VALUES
-(1, '', '5f4dcc3b5aa765d61d8327deb882cf99', 'Goonj', '', 'Anushtha', 'anushtha@email.com', '', 1),
-(2, 'abc@goonj.in', '5f4dcc3b5aa765d61d8327deb882cf99', 'Goonj', 'New Delhi', 'Chintu', 'chintu@yahoo.com', '123456', 2),
-(3, 'abc@cry.in', '5f4dcc3b5aa765d61d8327deb882cf99', 'Cry', 'Gweyer Hall', '', '', '123433', 1);
+(1, 'abc@smile.in', '5f4dcc3b5aa765d61d8327deb882cf99', 'Smile', 'Gurgaon', 'Anushtha', 'anushtha@gmail.com', '111111', 2),
+(2, 'abc@goonj.in', '5f4dcc3b5aa765d61d8327deb882cf99', 'Goonj', 'New Delhi', 'Raghav', 'raghav@gmail.com', '123456', 1),
+(3, 'abc@cry.in', '5f4dcc3b5aa765d61d8327deb882cf99', 'Cry', 'Gweyer Hall', 'Nikhil', 'nikhil@gmail.com', '123433', 1),
+(5, 'abc@helpage.in', '5f4dcc3b5aa765d61d8327deb882cf99', 'HelpAge India', 'New Delhi', 'Sameer', 'sameer@gmail.com', '122345', NULL),
+(6, 'abc@piramal.in', '5f4dcc3b5aa765d61d8327deb882cf99', 'Piramal Foundation', 'Bangalore', 'Ajit', 'ajit@gmail.com', '122346', NULL),
+(7, 'abc@mad.in', '5f4dcc3b5aa765d61d8327deb882cf99', 'Make a Difference', 'Mumbai', 'Naman', 'naman@gmail.com', '122347', NULL),
+(8, 'abc@wri.in', '5f4dcc3b5aa765d61d8327deb882cf99', 'WRI India', 'Mumbai', 'Nina', 'nina@gmail.com', '122348', NULL),
+(9, 'abc@care.in', '5f4dcc3b5aa765d61d8327deb882cf99', 'Care', 'Kolkata', 'Hitesh', 'hitesh@gmail.com', '122349', 1),
+(10, 'abc@indus.in', '5f4dcc3b5aa765d61d8327deb882cf99', 'Indus Action', 'Mumbai', 'Mahesh', 'mahesh@gmail.com', '122350', NULL);
 
 -- --------------------------------------------------------
 
@@ -126,21 +137,14 @@ CREATE TABLE `student` (
 --
 
 INSERT INTO `student` (`id`, `password`, `firstname`, `surname`, `email`, `college`, `phone`, `Resume`, `fk_ngo_id`, `fk_internship_details_select_id`) VALUES
-(1, '5f4dcc3b5aa765d61d8327deb882cf99', 'Anushtha', 'Kalia', '', '', 0, '', 1, NULL),
-(2, '5f4dcc3b5aa765d61d8327deb882cf99', 'Anushtha', 'Kalia', 'anushthakalia@yahoo.com', 'Cluster Innovation Centre', 2147483647, '', 2, NULL),
+(1, '5f4dcc3b5aa765d61d8327deb882cf99', 'Pankaj', 'Baranwal', 'pankaj@gmail.com', 'IIT Bombay', 22222222, '', 1, NULL),
+(2, '5f4dcc3b5aa765d61d8327deb882cf99', 'Anushtha', 'Kalia', 'anushthakalia@yahoo.com', 'Cluster Innovation Centre', 2147483647, 'Anushtha_Kalia_resume.pdf', 2, NULL),
 (3, '5f4dcc3b5aa765d61d8327deb882cf99', 'Arjun', 'Sharma', 'arjun@gmail.com', 'CIC', 2147483647, '', 1, NULL),
-(11, '5f4dcc3b5aa765d61d8327deb882cf99', 'raghav', 'sing', 'raghav.singh@gmail.com', 'CIC', 2147483647, '', NULL, NULL),
-(12, '5f4dcc3b5aa765d61d8327deb882cf99', 'Raghav', 'Singh', 'raghav@gmail.com', 'cic', 123456789, '', NULL, NULL),
-(13, '5f4dcc3b5aa765d61d8327deb882cf99', 'Anirudh', 'Kalia', 'ani@gmail.com', 'School', 123456789, 'resume.pdf', NULL, NULL),
-(15, '5f4dcc3b5aa765d61d8327deb882cf99', 'ann', 'kakak', 'ani@hotmail.com', 'cic', 2147483647, '', NULL, NULL),
-(16, '5f4dcc3b5aa765d61d8327deb882cf99', 'aa', 'a', 'ama@in.com', 'CIC', 22, 'Anushtha_Kalia_resume.pdf', NULL, NULL),
-(17, '5f4dcc3b5aa765d61d8327deb882cf99', 'Anushtha', 'Kalia', 'anushtha@msn.com', 'CIC', 2147483647, 'Anushtha_Kalia_resume_Bio.pdf', NULL, NULL),
-(18, '319f4d26e3c536b5dd871bb2c52e3178', 'aNUSHT', 'kAAIA', 'anushthakalia@gil.com', 'CIC', 989, 'Anushtha_Kalia_resume.pdf', NULL, NULL),
-(19, '5f4dcc3b5aa765d61d8327deb882cf99', 'an', 'kj', 'a@g.com', 'kmk', 22, 'Anushtha_Kalia_resume.pdf', NULL, NULL),
-(20, '5f4dcc3b5aa765d61d8327deb882cf99', 'ANushtha', 'Kalai', 'anushtha@wgdhs.com', 'cic', 989, 'Anushtha_Kalia_resume_Bio.pdf', NULL, NULL),
-(21, '5f4dcc3b5aa765d61d8327deb882cf99', 'Anirudh', 'Kalia', 'ani@yahoo.com', 'CIC', 98989, 'Cover letter.pdf', NULL, NULL),
-(22, '5f4dcc3b5aa765d61d8327deb882cf99', 'anjb', 'hbbk', 'anu@wed.com', 'vbj', 9090, 'anushtha_transcript.pdf', NULL, NULL),
-(23, '5f4dcc3b5aa765d61d8327deb882cf99', 'Anushtha', 'Kalia', 'anu@g.com', 'CIC', 989, 'Anushtha_Kalia_resume.pdf', NULL, NULL);
+(11, '5f4dcc3b5aa765d61d8327deb882cf99', 'Raghav', 'Singh', 'raghav.singh@gmail.com', 'CIC', 2147483647, '', NULL, NULL),
+(12, '5f4dcc3b5aa765d61d8327deb882cf99', 'Sanjeev', 'Dubey', 'sanjeev@gmail.com', 'IIT Delhi', 123456789, '', NULL, NULL),
+(13, '5f4dcc3b5aa765d61d8327deb882cf99', 'Lakshay', 'Juneja', 'lakshay@gmail.com', 'DTU', 22122212, '', 2, NULL),
+(14, '5f4dcc3b5aa765d61d8327deb882cf99', 'Nikhil', 'Maheshwari', 'nikhil@gmail.com', 'IIM Ahemdabad', 123456789, '', 2, NULL),
+(15, '5f4dcc3b5aa765d61d8327deb882cf99', 'Utkarsh', 'Mittal', 'utkarsh@gmail.com', 'ISB Hyderabad', 88887676, '', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -160,11 +164,15 @@ CREATE TABLE `student_internship_apply` (
 
 INSERT INTO `student_internship_apply` (`apply_id`, `fk_intern_id`, `fk_internship_details_id`) VALUES
 (1, 2, 1),
-(3, 3, 1),
-(7, 2, 1),
-(8, 2, 1),
+(2, 3, 1),
+(3, 11, 1),
+(4, 12, 4),
+(5, 13, 4),
+(6, 14, 5),
+(7, 15, 5),
+(8, 2, 3),
 (9, 2, 2),
-(10, 2, 2);
+(10, 2, 5);
 
 --
 -- Indexes for dumped tables
@@ -189,13 +197,6 @@ ALTER TABLE `internship_details` ADD FULLTEXT KEY `Name_2` (`Name`,`Location`);
 ALTER TABLE `internship_details` ADD FULLTEXT KEY `Name_3` (`Name`,`Location`);
 ALTER TABLE `internship_details` ADD FULLTEXT KEY `Name_4` (`Name`,`Location`);
 ALTER TABLE `internship_details` ADD FULLTEXT KEY `Name_5` (`Name`,`Location`);
-ALTER TABLE `internship_details` ADD FULLTEXT KEY `Name_6` (`Name`,`Location`);
-ALTER TABLE `internship_details` ADD FULLTEXT KEY `Name_7` (`Name`,`Location`);
-ALTER TABLE `internship_details` ADD FULLTEXT KEY `Name_8` (`Name`,`Location`);
-ALTER TABLE `internship_details` ADD FULLTEXT KEY `Name_9` (`Name`,`Location`);
-ALTER TABLE `internship_details` ADD FULLTEXT KEY `Name_10` (`Name`,`Location`);
-ALTER TABLE `internship_details` ADD FULLTEXT KEY `Name_11` (`Name`,`Location`);
-ALTER TABLE `internship_details` ADD FULLTEXT KEY `Name_12` (`Name`,`Location`);
 
 --
 -- Indexes for table `ngo`
@@ -228,25 +229,25 @@ ALTER TABLE `student_internship_apply`
 -- AUTO_INCREMENT for table `company`
 --
 ALTER TABLE `company`
-  MODIFY `comid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `comid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `internship_details`
 --
 ALTER TABLE `internship_details`
-  MODIFY `internship_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `internship_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `ngo`
 --
 ALTER TABLE `ngo`
-  MODIFY `ngoid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `ngoid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `student`
 --
 ALTER TABLE `student`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `student_internship_apply`

@@ -167,8 +167,8 @@ if(!loggedin()){
             $internship_push = array();
             $internship_push[] = get_ngo_intcount_application();
             // echo print_r($internship_push);
-            for ($i=0; $i < $rows; $i++):
             $k = 1;
+            for ($i=0; $i < $rows; $i++):
             $internship_name = $internship_push[0][$i]['Name'];
             $internship_id = $internship_push[0][$i]['internship_id'];
             $inner = get_internship_matchcount_number_application($internship_id);

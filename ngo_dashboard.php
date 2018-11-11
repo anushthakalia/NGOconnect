@@ -205,7 +205,7 @@
   <div class="nonloop-block-11 owl-carousel">
 
     <?php for ($i=0; $i < $num_company; $i++):
-      $company_name = $company_data[0][0]['comname'];
+      $company_name = $company_data[0][$i]['comname'];
     ?>
 
     <div class="item">

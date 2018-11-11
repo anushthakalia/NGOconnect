@@ -27,6 +27,25 @@ if(!loggedin()){
 
   <!-- Theme Style -->
   <link rel="stylesheet" href="css/style.css">
+  <script>
+  $(document).ready(function(){
+  $('#exampleModal').on('show.bs.modal', function (event) {
+    var button = $(event.relatedTarget) // Button that triggered the modal
+    var name = button.data('name')
+    var college = button.data('college')
+    var email = button.data('email')
+    var resume = button.data('resume')
+    var modal = $(this)
+    // modal.find('.modal-title').text(ngoname)
+    modal.find('.modal-body #exampleModalName').text('Name: ' + name)
+    modal.find('.modal-body #exampleModalCollege').text('College: ' + college)
+    modal.find('.modal-body #exampleModalEmail').text('Email: ' + email)
+    if(resume!=''){
+    modal.find('.modal-footer #profbutton').attr('href','resume.php?name=' + resume)
+  }
+  });
+  });
+  </script>
 </head>
 <body>
   <header role="banner">
@@ -160,9 +179,12 @@ if(!loggedin()){
               $intern_id = $applicant_push[0][$j]['fk_intern_id'];
               $query_row_final = get_intern_name_application($intern_id);
               $student_name = $query_row_final['firstname'].' '.$query_row_final['surname'];
+              $student_email = $query_row_final['email'];
+              $student_college = $query_row_final['college'];
+              $student_resume = $query_row_final['Resume'];
 
           ?>
-          <tr data-toggle="modal" data-target="#exampleModal" data-conname="<?php echo $ngo_contact_name ?>" data-conemail="<?php echo $ngo_contact_email ?>" data-email="<?php echo $ngo_email ?>" data-name="<?php echo $ngo_name ?>">
+          <tr data-toggle="modal" data-target="#exampleModal" data-name="<?php echo $student_name ?>" data-email="<?php echo $student_email ?>" data-college="<?php echo $student_college ?>" data-resume="<?php echo $student_resume ?>">
             <th scope="row"><?php echo $k; ?></th>
             <td><?php echo $internship_name?></td>
             <td><?php echo $student_name?></td>
@@ -177,19 +199,23 @@ if(!loggedin()){
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalName">Text</h5>
+          <h5 class="modal-title" id="exampleModalName">Candidate Details</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
           <center>
-          <p class="text-left" id="exampleModalConname"><strong>Contact Name: </strong>Hi</p>
-          <p class="text-left" id="exampleModalConemail"><strong>Contact Email: </strong>Hi</p>
-          <p class="text-left" id="exampleModalEmail"><strong>NGO Email: </strong>Hi</p>
+          <p class="text-left" id="exampleModalName"><strong>Name: </strong>Hi</p>
+          <p class="text-left" id="exampleModalCollege"><strong>College: </strong>Hi</p>
+          <p class="text-left" id="exampleModalEmail"><strong>Email: </strong>Hi</p>
           <br>
           </center>
         </div>
+        <div class="modal-footer">
+        <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
+        <a href="#" class="btn btn-primary" id="profbutton" role="button">View Profile</a>
+      </div>
       </div>
     </div>
   </div>

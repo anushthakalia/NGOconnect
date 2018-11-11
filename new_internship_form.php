@@ -126,6 +126,8 @@
       </div>
     </section>
     <!-- END section -->
+    <div class="site-section bg-light">
+
     <div class="container contact-form">
       <br>
                 <form method="post">
@@ -211,6 +213,7 @@
                 }#echo $_POST["txtDesignation"];
                 ?>
     </div>
+  </div>
 
 
     <!-- END section -->

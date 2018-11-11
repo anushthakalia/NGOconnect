@@ -202,7 +202,7 @@
   </div>
 </div>
 <div class="container-fluid block-11 element-animate center">
-  <div class="nonloop-block-12 owl-carousel">
+  <div class="nonloop-block-11 owl-carousel">
 
     <?php for ($i=0; $i < $num_company; $i++):
       $company_name = $company_data[0][0]['comname'];

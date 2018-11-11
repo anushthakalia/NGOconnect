@@ -157,7 +157,7 @@
                   </div>
                   <input type="submit" name = "search" class="search-submit btn btn-primary" value="Search">
                 </form>
-                <p class="text-center mb-5">We need people to help the society.</p>
+                <p class="text-center mb-5"><b>We need people to help the society.</b></p>
                 <p class="text-center"><a href="register.php" class="btn py-3 px-5">Register Now</a></p>
               </div>
             </div>
@@ -186,19 +186,14 @@
 
             <div class="block-15">
               <div class="heading">
-                <h2>Welcome to University</h2>
+                <h2>Our Reach</h2>
               </div>
               <div class="text mb-5">
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A quibusdam nisi eos accusantium eligendi velit deleniti nihil ad deserunt rerum incidunt nulla nemo eius molestiae architecto beatae asperiores doloribus animi.</p>
+              <p>In keeping with its philosophy of ‘Real Work Real Change’, NGO-connect has been established to support the organisations which are looking for a dynamic India. Our aim is to connect the individuals and corporates to Non Governmenta Organisations in order to bring a change in the responsibilities of each in perceiving the society. </p>
               </div>
-              <p><a href="#" class="btn btn-primary reverse py-2 px-4">Read More</a></p>
-
             </div>
-
           </div>
-
         </div>
-
       </div>
     </section>
     <!-- END section -->
@@ -210,61 +205,61 @@
             <div class="media block-6 d-block">
               <div class="icon mb-3"><span class="flaticon-book"></span></div>
               <div class="media-body">
-                <h3 class="heading">Knowledge is power</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit mess.</p>
+                <h3 class="heading">States</h3>
+              <p>We have a coverage of over 15 states and are expanding into one of the largest social avenues.</p>
                 <p><a href="#" class="more">Read More <span class="ion-arrow-right-c"></span></a></p>
               </div>
-            </div>
+            </div> 
           </div>
           <div class="col-md-6 col-lg-3">
             <div class="media block-6 d-block">
               <div class="icon mb-3"><span class="flaticon-student"></span></div>
               <div class="media-body">
-                <h3 class="heading">Senior High School</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit mess.</p>
+                <h3 class="heading">Projects</h3>
+                <p>We at NGO-connect have projects in each field and cover most of them for the benefit of the society.</p>
                 <p><a href="#" class="more">Read More <span class="ion-arrow-right-c"></span></a></p>
               </div>
-            </div>
+            </div> 
           </div>
-
+          
           <div class="col-md-6 col-lg-3">
             <div class="media block-6 d-block">
               <div class="icon mb-3"><span class="flaticon-diploma"></span></div>
               <div class="media-body">
-                <h3 class="heading">College of Arts &amp; Sciences</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit mess.</p>
+                <h3 class="heading">Companies</h3>
+                <p>From a startup to a conglomerate like TATA group we have most of them on board</p>
                 <p><a href="#" class="more">Read More <span class="ion-arrow-right-c"></span></a></p>
               </div>
-            </div>
+            </div> 
           </div>
           <div class="col-md-6 col-lg-3">
             <div class="media block-6 d-block">
               <div class="icon mb-3"><span class="flaticon-professor"></span></div>
               <div class="media-body">
-                <h3 class="heading">Unmatched Proffessor</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit mess.</p>
+                <h3 class="heading">Responsibilities</h3>
+                <p>It is our responsibility of providing a transparent window for NGO's and corporates to do social work.</p>
                 <p><a href="#" class="more">Read More <span class="ion-arrow-right-c"></span></a></p>
               </div>
-            </div>
+            </div> 
           </div>
         </div>
       </div>
     </section>
     <!-- END section -->
 
-    <section class="site-section bg-light element-animate" id="section-counter">
+<section class="site-section bg-light element-animate" id="section-counter">
       <div class="container">
         <div class="row">
           <div class="col-lg-6">
-            <figure><img src="images/img_2_b.jpg" alt="Image placeholder" class="img-fluid"></figure>
+            <figure><img src="images/8.jpg" alt="Image placeholder" class="img-fluid"></figure>
           </div>
           <div class="col-lg-5 ml-auto">
             <div class="block-15">
               <div class="heading">
-                <h2>Education is Life</h2>
+                <h2>Why it all matters?</h2>
               </div>
               <div class="text mb-5">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A quibusdam nisi eos accusantium eligendi velit deleniti nihil ad deserunt rerum incidunt.</p>
+                <p>As we lose ourselves in the service of others, we discover our own lives and our own happiness</p>
               </div>
             </div>
 
@@ -275,8 +270,8 @@
                     <span class="flaticon-student"></span>
                   </div>
                   <div class="text">
-                    <strong class="number" data-number="12921">0</strong>
-                    <span>Students</span>
+                    <strong class="number" data-number="151">0</strong>
+                    <span>NGO's</span>
                   </div>
                 </div>
 
@@ -285,8 +280,8 @@
                     <span class="flaticon-university"></span>
                   </div>
                   <div class="text">
-                    <strong class="number" data-number="51">0</strong>
-                    <span>Schools</span>
+                    <strong class="number" data-number="90">0</strong>
+                    <span>Companies</span>
                   </div>
                 </div>
 
@@ -297,8 +292,8 @@
                     <span class="flaticon-books"></span>
                   </div>
                   <div class="text">
-                    <strong class="number" data-number="3902">0</strong>
-                    <span>Books</span>
+                    <strong class="number" data-number="4551">0</strong>
+                    <span>Interns</span>
                   </div>
                 </div>
 
@@ -307,11 +302,11 @@
                     <span class="flaticon-mortarboard"></span>
                   </div>
                   <div class="text">
-                    <strong class="number" data-number="1921">0</strong>
-                    <span>Graduates</span>
+                    <strong class="number" data-number="355">0</strong>
+                    <span>Projects</span>
                   </div>
                 </div>
-
+                
               </div>
             </div>
 
@@ -325,27 +320,22 @@
       <div class="container">
         <div class="row justify-content-center mb-5 element-animate">
           <div class="col-md-7 text-center section-heading">
-            <h2 class="text-primary heading">Popular Courses</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit qui neque sint eveniet tempore sapiente.</p>
-            <p><a href="#" class="btn btn-primary py-2 px-4"><span class="ion-ios-book mr-2"></span>Enroll Now</a></p>
+            <h2 class="text-primary heading">Our Work</h2>
+            <p>There is a kind of victory in good work, no matter how humble.</p>
+            
           </div>
         </div>
       </div>
-      <div class="container-fluid block-11 element-animate">
+      <div class="container-fluid block-11 element-animate align-items-center">
         <div class="nonloop-block-11 owl-carousel">
           <div class="item">
             <div class="block-19">
-                <figure>
-                  <img src="images/img_1.jpg" alt="Image" class="img-fluid">
-                </figure>
                 <div class="text">
-                  <h2 class="heading"><a href="#">Advanced JavaScript Learning</a></h2>
-                  <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit qui neque sint eveniet tempore sapiente.</p>
+                  <h2 class="heading"><a href="#">Education</a></h2>
+                  <p class="mb-4">Mission Education is a national level programme of NGO-connect, which is committed to providing basic education and healthcare to underprivileged children. NGO-connect believes that whether you are addressing healthcare, poverty, population control, unemployment or human rights, there's no better place to start than in the corridors of education.</p>
                   <div class="meta d-flex align-items-center">
                     <div class="number">
-                      <span>2,219/6,000</span>
                     </div>
-                    <div class="price text-right"><del class="mr-3">$23</del><span>Free</span></div>
                   </div>
                 </div>
               </div>
@@ -353,17 +343,12 @@
 
           <div class="item">
             <div class="block-19">
-                <figure>
-                  <img src="images/img_3.jpg" alt="Image" class="img-fluid">
-                </figure>
                 <div class="text">
-                  <h2 class="heading"><a href="#">Advanced JavaScript Learning</a></h2>
-                  <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit qui neque sint eveniet tempore sapiente.</p>
+                  <h2 class="heading"><a href="#">HealthCare</a></h2>
+                  <p class="mb-4">The need of the hour is thus a two pronged approach – first to bring quality healthcare services to doorsteps of the needy and second to promote healthcare awareness and contemporary healthcare seeking behavior among the underprivileged. We have been able to integrate healthsector majors to our platform to bring in the support the healthcare needs.</p>
                   <div class="meta d-flex align-items-center">
                     <div class="number">
-                      <span>2,219/6,000</span>
                     </div>
-                    <div class="price text-right"><del class="mr-3">$23</del><span>Free</span></div>
                   </div>
                 </div>
               </div>
@@ -371,17 +356,12 @@
 
           <div class="item">
             <div class="block-19">
-              <figure>
-                <img src="images/img_2.jpg" alt="Image" class="img-fluid">
-              </figure>
               <div class="text">
-                <h2 class="heading"><a href="#">Introduction to CSS</a></h2>
-                <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit qui neque sint eveniet tempore sapiente.</p>
+                <h2 class="heading"><a href="#">Women Empowerment</a></h2>
+                <p class="mb-4">Various studies, as well as our experience, have shown that when we work towards women empowerment, the whole society benefits. But unfortunately in India, far from being empowered, most women are denied even their basic rights like health, education, employment and a respectable status in society. We help in giving the women the desired rights by our platform.</p>
                 <div class="meta d-flex align-items-center">
                   <div class="number">
-                    <span>1,903/3,000</span>
                   </div>
-                  <div class="price text-right"><span>$10.99</span></div>
                 </div>
               </div>
             </div>
@@ -389,89 +369,12 @@
 
           <div class="item">
             <div class="block-19">
-              <figure>
-                <img src="images/img_1.jpg" alt="Image" class="img-fluid">
-              </figure>
               <div class="text">
-                <h2 class="heading"><a href="#">Design &amp; Develop</a></h2>
-                <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit qui neque sint eveniet tempore sapiente.</p>
+                <h2 class="heading"><a href="#">Children Welfare</a></h2>
+                <p class="mb-4">Various studies, as well as our experience, have shown that when we work towards children welfare, the whole society benefits. But unfortunately in India, far from being empowered, most children are denied even their basic rights. Let's use this platform for children rights and opportunities which make them self-sufficient.</p>
                 <div class="meta d-flex align-items-center">
                   <div class="number">
-                    <span>23/100</span>
                   </div>
-                  <div class="price text-right"><del class="mr-3">$23</del><span>Free</span></div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="item">
-            <div class="block-19">
-                <figure>
-                  <img src="images/img_1.jpg" alt="Image" class="img-fluid">
-                </figure>
-                <div class="text">
-                  <h2 class="heading"><a href="#">Advanced JavaScript Learning</a></h2>
-                  <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit qui neque sint eveniet tempore sapiente.</p>
-                  <div class="meta d-flex align-items-center">
-                    <div class="number">
-                      <span>2,219/6,000</span>
-                    </div>
-                    <div class="price text-right"><del class="mr-3">$23</del><span>Free</span></div>
-                  </div>
-                </div>
-              </div>
-          </div>
-
-          <div class="item">
-            <div class="block-19">
-                <figure>
-                  <img src="images/img_3.jpg" alt="Image" class="img-fluid">
-                </figure>
-                <div class="text">
-                  <h2 class="heading"><a href="#">Advanced JavaScript Learning</a></h2>
-                  <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit qui neque sint eveniet tempore sapiente.</p>
-                  <div class="meta d-flex align-items-center">
-                    <div class="number">
-                      <span>2,219/6,000</span>
-                    </div>
-                    <div class="price text-right"><del class="mr-3">$23</del><span>Free</span></div>
-                  </div>
-                </div>
-              </div>
-          </div>
-
-          <div class="item">
-            <div class="block-19">
-              <figure>
-                <img src="images/img_2.jpg" alt="Image" class="img-fluid">
-              </figure>
-              <div class="text">
-                <h2 class="heading"><a href="#">Introduction to CSS</a></h2>
-                <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit qui neque sint eveniet tempore sapiente.</p>
-                <div class="meta d-flex align-items-center">
-                  <div class="number">
-                    <span>1,903/3,000</span>
-                  </div>
-                  <div class="price text-right"><span>$10.99</span></div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="item">
-            <div class="block-19">
-              <figure>
-                <img src="images/img_1.jpg" alt="Image" class="img-fluid">
-              </figure>
-              <div class="text">
-                <h2 class="heading"><a href="#">Design &amp; Develop</a></h2>
-                <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit qui neque sint eveniet tempore sapiente.</p>
-                <div class="meta d-flex align-items-center">
-                  <div class="number">
-                    <span>23/100</span>
-                  </div>
-                  <div class="price text-right"><del class="mr-3">$23</del><span>Free</span></div>
                 </div>
               </div>
             </div>
@@ -480,7 +383,7 @@
         </div>
       </div>
 
-
+      
     </div>
     <!-- END section -->
 
@@ -488,30 +391,30 @@
     <div class="container site-section element-animate">
       <div class="row justify-content-center mb-5">
           <div class="col-md-7 text-center section-heading">
-            <h2 class="text-primary heading">Teachers</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit qui neque sint eveniet tempore sapiente.</p>
+            <h2 class="text-primary heading">Supporters Speak</h2>
+            <p>We believe that if we are able to keep our supporters happy, then we have been able to create a platform that is useful.</p>
           </div>
         </div>
       <div class="row">
         <div class="col-md-6 col-lg-4">
           <div class="block-2">
             <div class="flipper">
-              <div class="front" style="background-image: url(../images/person_3.jpg);">
+              <div class="front" style="background-image: url(images/tata_new.png); object-fit: ">
                 <div class="box">
-                  <h2>Job Smith</h2>
-                  <p>Laravel Expert</p>
+                  <h2>TATA Sons</h2>
+                  <p>Indian Conglomerate</p>
                 </div>
               </div>
               <div class="back">
                 <!-- back content -->
                 <blockquote>
-                  <p>&ldquo;Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.&rdquo;</p>
+                  <p>The group believes corporate social responsibility (CSR) is a critical mission that is at the heart of everything that it does, how it thinks and what it is.Tata companies work towards empowering people by helping them develop the skills they need to succeed in a global economy</p>
                 </blockquote>
                 <div class="author d-flex">
                   <div class="image mr-3 align-self-center">
-                    <img src="images/person_3.jpg" alt="">
+                    <img src="images/tata.png" alt="">
                   </div>
-                  <div class="name align-self-center">Job Smith <span class="position">Laravel Expert</span></div>
+                  <div class="name align-self-center">TATA Sons <span class="position">Indian Conglomerate</span></div>
                 </div>
               </div>
             </div>
@@ -521,22 +424,22 @@
         <div class="col-md-6 col-lg-4">
           <div class="block-2 ">
             <div class="flipper">
-              <div class="front" style="background-image: url(../images/person_1.jpg);">
+              <div class="front" style="background-image: url(images/auro.jpg); object-fit: contain;">
                 <div class="box">
-                  <h2>Mellissa Cruz</h2>
-                  <p>JavaScript Guru</p>
+                  <h2>Aurobindo Pharma</h2>
+                  <p>Commited to healthier life</p>
                 </div>
               </div>
               <div class="back">
                 <!-- back content -->
                 <blockquote>
-                  <p>&ldquo;Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.&rdquo;</p>
+                  <p>Aurobindo Pharma's aim is to provide relevant and reliable education to women and children in different parts of India. This program was initiated to introduce non-academic traditional trade to the society which has been overlapped by science and technology.</p>
                 </blockquote>
                 <div class="author d-flex">
                   <div class="image mr-3 align-self-center">
-                    <img src="images/person_1.jpg" alt="">
+                    <img src="images/auro.jpg" alt="">
                   </div>
-                  <div class="name align-self-center">Mellissa Cruz <span class="position">JavaScript Guru</span></div>
+                  <div class="name align-self-center">Aurobindo Pharma <span class="position">Commited to healthier life</span></div>
                 </div>
               </div>
             </div>
@@ -546,118 +449,28 @@
         <div class="col-md-6 col-lg-4">
           <div class="block-2">
             <div class="flipper">
-              <div class="front" style="background-image: url(../images/person_2.jpg);">
+              <div class="front" style="background-image: url(images/wipro_new.png);">
                 <div class="box">
-                  <h2>Aldin Powell</h2>
-                  <p>WordPress Ninja</p>
+                  <h2>Wipro</h2>
+                  <p>Applying Thoughts</p>
                 </div>
               </div>
               <div class="back">
                 <!-- back content -->
                 <blockquote>
-                  <p>&ldquo;Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.&rdquo;</p>
+                  <p>At Wipro, we think that it is critical to engage with the social and ecological challenges that face
+                    humanity. It is our conviction that the engagement with social issues must be deep, meaningful
+                    and formed on the bedrock of long term commitment. We believe in the vision of our founder Mr. Azim Premji who has spent his life for others. </p>
                 </blockquote>
                 <div class="author d-flex">
                   <div class="image mr-3 align-self-center">
-                    <img src="images/person_2.jpg" alt="">
+                    <img src="images/wipro.png" alt="">
                   </div>
-                  <div class="name align-self-center">Aldin Powell <span class="position">WordPress Ninja</span></div>
+                  <div class="name align-self-center">Wipro <span class="position"></span></div>
                 </div>
               </div>
             </div>
           </div> <!-- .flip-container -->
-        </div>
-      </div>
-    </div>
-    <!-- END .block-2 -->
-
-
-    <div class="site-section bg-light">
-      <div class="container">
-        <div class="row justify-content-center mb-5 element-animate">
-          <div class="col-md-7 text-center section-heading">
-            <h2 class="text-primary heading">Blog</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit qui neque sint eveniet tempore sapiente.</p>
-          </div>
-        </div>
-        <div class="row element-animate">
-
-          <div class="col-md-12 mb-5 mb-lg-0 col-lg-6">
-
-            <div class="block-20 ">
-              <figure>
-                <a href="#"><img src="images/img_1.jpg" alt="" class="img-fluid"></a>
-              </figure>
-              <div class="text">
-                <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
-                <div class="meta">
-                  <div><a href="#"><span class="ion-android-calendar"></span> May 29, 2018</a></div>
-                  <div><a href="#"><span class="ion-android-person"></span> Admin</a></div>
-                  <div><a href="#"><span class="ion-chatbubble"></span> 19</a></div>
-                </div>
-              </div>
-            </div>
-
-          </div>
-          <div class="col-md-12 col-lg-6">
-
-            <div class="block-21 d-flex mb-4">
-              <figure class="mr-3">
-                <a href="#"><img src="images/img_1.jpg" alt="" class="img-fluid"></a>
-              </figure>
-              <div class="text">
-                <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
-                <div class="meta">
-                  <div><a href="#"><span class="ion-android-calendar"></span> May 29, 2018</a></div>
-                  <div><a href="#"><span class="ion-android-person"></span> Admin</a></div>
-                  <div><a href="#"><span class="ion-chatbubble"></span> 19</a></div>
-                </div>
-              </div>
-            </div>
-
-            <div class="block-21 d-flex mb-4">
-              <figure class="mr-3">
-                <a href="#"><img src="images/img_2.jpg" alt="" class="img-fluid"></a>
-              </figure>
-              <div class="text">
-                <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
-                <div class="meta">
-                  <div><a href="#"><span class="ion-android-calendar"></span> May 29, 2018</a></div>
-                  <div><a href="#"><span class="ion-android-person"></span> Admin</a></div>
-                  <div><a href="#"><span class="ion-chatbubble"></span> 19</a></div>
-                </div>
-              </div>
-            </div>
-
-            <div class="block-21 d-flex mb-4">
-              <figure class="mr-3">
-                <a href="#"><img src="images/img_3.jpg" alt="" class="img-fluid"></a>
-              </figure>
-              <div class="text">
-                <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
-                <div class="meta">
-                  <div><a href="#"><span class="ion-android-calendar"></span> May 29, 2018</a></div>
-                  <div><a href="#"><span class="ion-android-person"></span> Admin</a></div>
-                  <div><a href="#"><span class="ion-chatbubble"></span> 19</a></div>
-                </div>
-              </div>
-            </div>
-
-            <div class="block-21 d-flex mb-4">
-              <figure class="mr-3">
-                <a href="#"><img src="images/img_3.jpg" alt="" class="img-fluid"></a>
-              </figure>
-              <div class="text">
-                <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
-                <div class="meta">
-                  <div><a href="#"><span class="ion-android-calendar"></span> May 29, 2018</a></div>
-                  <div><a href="#"><span class="ion-android-person"></span> Admin</a></div>
-                  <div><a href="#"><span class="ion-chatbubble"></span> 19</a></div>
-                </div>
-              </div>
-            </div>
-
-          </div>
         </div>
       </div>
     </div>
@@ -700,7 +513,7 @@
             <p>One stop platform for social internships. Give back to the society by taking up a task.</p>
           </div>
           <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
-            <h3 class="heading">Quick Link</h3>
+            <h3 class="heading">Quick Links</h3>
             <div class="row">
               <div class="col-md-6">
                 <ul class="list-unstyled">
@@ -758,9 +571,7 @@
     <script src="js/jquery.waypoints.min.js"></script>
     <script src="js/jquery.stellar.min.js"></script>
     <script src="js/jquery.animateNumber.min.js"></script>
-
     <script src="js/jquery.magnific-popup.min.js"></script>
-
     <script src="js/main.js"></script>
   </body>
 </html>

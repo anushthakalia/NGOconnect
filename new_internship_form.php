@@ -196,7 +196,8 @@
                 if(($_POST["txtDesignation"] == NULL) || ($_POST["txtDuration"] == NULL) ||
                     ($_POST["txtEmail"] == NULL) || ($_POST["txtStartdate"] == NULL) || ($_POST["txtApplydate"] == NULL) ||
                       ($_POST["txtDescription"] == NULL) || ($_POST["txtLocation"] == NULL)){
-                  echo "<b>Please fill all entries and try to submit again.</b>";
+                        echo "<script>alert('Please fill all necessary entries.');</script>";
+                        // echo "<b>Please fill all entries and try to submit again.</b>";
                 } else{
                   mysqli_query($mysql_connect,'SET foreign_key_checks = 0');
                   $ngo_name = getuserfield("ngoname");

@@ -176,9 +176,62 @@
       </div>
     </div>
   </div>
-  </div>
+  
 <!-- END section -->
+<div class="container">
+    <table class="table table-hover element-animate">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Profile</th>
+          <th scope="col">NGO</th>
+          <th scope="col">Duration</th>
+        </tr>
+      </thead>
+      <tbody>
+        <?php 
+        
+        $query = "SELECT `fk_internship_details_id` FROM student_internship_apply WHERE fk_intern_id='".$_SESSION['user_id']."'";
+        if($query_run = mysqli_query($mysql_connect, $query))
+        {
+          $internship_id = array();
+          $result = mysqli_query($mysql_connect, $query);
+          while($row = mysqli_fetch_assoc($result))
+              {
+                  $internship_id[] = $row; # add the row
+              }
+          $internship_id1 = array_unique(array_map(function($elem){return $elem['fk_internship_details_id'];}, $internship_id));
+          // print_r($internship_id);
+          // print_r($internship_id1);
 
+          $query = 'SELECT * FROM `internship_details` WHERE `internship_id` IN (' . implode(',', array_map('intval', $internship_id1)) . ')';
+
+          if($query_run = mysqli_query($mysql_connect, $query))
+            {
+              $apply_intern= array();
+              $result = mysqli_query($mysql_connect, $query);
+              while($row = mysqli_fetch_assoc($result))
+                  {
+                      $apply_intern[] = $row; # add the row
+                  }
+              }
+
+        }
+
+        for($i=0;$i<count($apply_intern);$i++){
+
+        ?>
+        <tr data-toggle="modal" data-target="#exampleModal" data-conname="<?php echo $ngo_contact_name ?>" data-conemail="<?php echo $ngo_contact_email ?>" data-email="<?php echo $ngo_email ?>" data-name="<?php echo $ngo_name ?>">
+          <th scope="row"><?php echo $i+1; ?></th>
+          <td><?php echo $apply_intern[$i]['Name']?></td>
+          <td><?php echo $apply_intern[$i]['NGO']?></td>
+          <td><?php echo $apply_intern[$i]['Duration']?></td>
+        </tr>
+        <?php } ?>
+      </tbody>
+    </table>
+  </div>
+</div>
 
 
 
